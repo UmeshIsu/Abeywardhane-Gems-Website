@@ -1,0 +1,58 @@
+export const gems = [
+  {
+    id: 'white-sapphire',
+    name: 'White Sapphire',
+    tag: 'Precious',
+    image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=700&q=80',
+    description: 'Brilliant, colourless Ceylon sapphire prized for its purity and fire.',
+  },
+  {
+    id: 'blue-sapphire',
+    name: 'Ceylon Blue Sapphire',
+    tag: 'Precious',
+    image: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=700&q=80',
+    description: "Sri Lanka's signature gem — deep cornflower blue with unmatched clarity.",
+  },
+  {
+    id: 'yellow-sapphire',
+    name: 'Yellow Sapphire',
+    tag: 'Precious',
+    image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=700&q=80',
+    description: 'Warm golden hues of Ceylon yellow sapphire, untreated and natural.',
+  },
+  {
+    id: 'pink-sapphire',
+    name: 'Pink Sapphire',
+    tag: 'Rare',
+    image: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=700&q=80',
+    description: 'A rare blush gem, delicate yet vivid in colour saturation.',
+  },
+  {
+    id: 'ruby',
+    name: 'Ceylon Ruby',
+    tag: 'Precious',
+    image: 'https://images.unsplash.com/photo-1551732785-4ab1c9fbcb50?w=700&q=80',
+    description: 'Fiery red ruby — symbolic of passion, sourced from Sri Lankan deposits.',
+  },
+  {
+    id: 'cats-eye',
+    name: "Cat's Eye Chrysoberyl",
+    tag: 'Rare',
+    image: 'https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?w=700&q=80',
+    description: 'A mysterious chatoyant gem with a single luminous band of light.',
+  },
+  {
+    id: 'spinel',
+    name: 'Ceylon Spinel',
+    tag: 'Semi-Precious',
+    image: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=700&q=80',
+    description: 'Vibrant red and pink spinels with brilliant lustre and clarity.',
+  },
+  {
+    id: 'garnet',
+    name: 'Garnet',
+    tag: 'Semi-Precious',
+    image: 'https://images.unsplash.com/photo-1615655406736-b37c4fabf923?w=700&q=80',
+    description: 'Rich, wine-coloured garnet — timeless and elegant.',
+  },
+];

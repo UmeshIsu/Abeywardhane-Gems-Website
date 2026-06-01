@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply font-body text-ink bg-white antialiased;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: theme('colors.sapphire.DEFAULT');
+    color: #fff;
+  }
+
+  /* Honour user motion preferences for accessibility + performance */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply w-full max-w-[1680px] mx-auto px-5 md:px-8 lg:px-12 xl:px-16 2xl:px-20;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-[0.72rem] tracking-[0.32em] uppercase text-sapphire font-bold mb-5;
+  }
+
+  .eyebrow::before {
+    content: '';
+    @apply block w-8 h-px bg-sapphire/60;
+  }
+
+  /* Fluid luxury display scale */
+  .display-xl {
+    @apply font-display font-medium tracking-tight text-ink;
+    font-size: clamp(2.6rem, 6vw, 5.6rem);
+    line-height: 1.02;
+  }
+
+  .section-title {
+    @apply font-display font-medium text-ink tracking-tight;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    line-height: 1.08;
+  }
+
+  .section-title em {
+    @apply not-italic text-sapphire;
+    font-style: italic;
+  }
+
+  .lead {
+    @apply text-ink-soft;
+    font-size: clamp(1rem, 1.2vw, 1.18rem);
+    line-height: 1.7;
+  }
+
+  /* Premium glass surface */
+  .glass {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: saturate(160%) blur(14px);
+    -webkit-backdrop-filter: saturate(160%) blur(14px);
+  }
+
+  /* Shimmering text used for the counting statistics */
+  .text-shimmer {
+    background: linear-gradient(100deg, #2563EB 20%, #93b4ff 40%, #2563EB 60%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    @apply animate-shimmer;
+  }
+
+  /* Hairline divider with a centred sapphire node */
+  .rule-node {
+    @apply relative h-px w-full bg-line;
+  }
+  .rule-node::after {
+    content: '';
+    @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-sapphire;
+    box-shadow: 0 0 0 5px theme('colors.sapphire.light');
+  }
+}
+
+@layer utilities {
+  /* Reveal helper used by IntersectionObserver-driven sections */
+  .will-reveal {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  .is-revealed {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+}
+
+/* Hero gemstone 3D rotation */
+.hero-gem-rotate {
+  animation: gemSpin 12s linear infinite;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+@keyframes gemSpin {
+  0% {
+    transform: rotateY(0deg);
+    filter: brightness(1) drop-shadow(0 20px 60px rgba(37, 99, 235, 0.35));
+  }
+  25% {
+    filter: brightness(1.12) drop-shadow(0 20px 70px rgba(37, 99, 235, 0.45));
+  }
+  50% {
+    transform: rotateY(180deg);
+    filter: brightness(1) drop-shadow(0 20px 60px rgba(37, 99, 235, 0.35));
+  }
+  75% {
+    filter: brightness(1.08) drop-shadow(0 20px 70px rgba(37, 99, 235, 0.4));
+  }
+  100% {
+    transform: rotateY(360deg);
+    filter: brightness(1) drop-shadow(0 20px 60px rgba(37, 99, 235, 0.35));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-gem-rotate {
+    animation: none;
+  }
+}
+
+/* Typing caret */
+.typed-caret {
+  display: inline-block;
+  width: 3px;
+  height: 0.92em;
+  background: theme('colors.sapphire.DEFAULT');
+  vertical-align: text-bottom;
+  margin-left: 4px;
+  animation: blink 0.9s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: #f1f5fc; }
+::-webkit-scrollbar-thumb {
+  background: #c3d0e8;
+  border-radius: 8px;
+  border: 2px solid #f1f5fc;
+}
+::-webkit-scrollbar-thumb:hover { background: #2563EB; }
