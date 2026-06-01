@@ -24,12 +24,12 @@ function Stat({ stat, start }) {
   const value = useCountUp(stat.value, { start, duration: 1800 });
   return (
     <div>
-      <div className="font-display font-medium leading-none text-shimmer flex items-start" style={{ fontSize: 'clamp(2.6rem,5vw,3.6rem)' }}>
+      <div className="font-display font-medium leading-none text-shimmer flex items-start" style={{ fontSize: 'clamp(2rem,4vw,2.8rem)' }}>
         <span>{value}</span>
         <span className="text-[0.5em] font-semibold mt-1">{stat.suffix}</span>
       </div>
-      <div className="mt-2 font-semibold text-white text-[0.95rem]">{stat.label}</div>
-      <div className="text-sm text-white/55">{stat.sub}</div>
+      <div className="mt-1.5 font-semibold text-white text-[0.85rem]">{stat.label}</div>
+      <div className="text-xs text-white/55">{stat.sub}</div>
     </div>
   );
 }
@@ -85,7 +85,7 @@ function ReachGraphic() {
 export default function GlobalReach() {
   const [ref, inView] = useInView(0.3);
   return (
-    <section className="relative py-24 lg:py-32 bg-ink text-white overflow-hidden">
+    <section className="relative py-20 lg:py-24 bg-ink text-white overflow-hidden">
       <div
         className="absolute inset-0 opacity-40 pointer-events-none"
         style={{ background: 'radial-gradient(800px 500px at 80% 10%, rgba(37,99,235,0.45), transparent 60%), radial-gradient(600px 400px at 0% 100%, rgba(59,130,246,0.18), transparent 60%)' }}
@@ -93,16 +93,16 @@ export default function GlobalReach() {
       <div className="absolute inset-0 bg-grid-faint [background-size:56px_56px] opacity-[0.08]" />
 
       <div className="relative container-x" ref={ref}>
-        <div className="grid lg:grid-cols-[1fr_1fr] gap-16 items-center mb-16 lg:mb-20">
+        <div className="grid lg:grid-cols-[1fr_1fr] gap-12 items-center mb-12 lg:mb-16">
           <div>
             <Reveal><span className="eyebrow !text-electric before:!bg-electric">Global Reach</span></Reveal>
             <Reveal delay={0.1}>
-              <h2 className="font-display font-medium leading-[1.08] tracking-tight mb-6" style={{ fontSize: 'clamp(2rem,4vw,3.4rem)' }}>
+              <h2 className="font-display font-medium leading-[1.1] tracking-tight mb-5" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)' }}>
                 Ceylon gems, delivered to the<br className="hidden sm:block" /> world's <span className="italic text-frost">leading markets</span>.
               </h2>
             </Reveal>
             <Reveal delay={0.2}>
-              <p className="text-white/70 text-lg max-w-xl mb-8">
+              <p className="text-white/70 text-base max-w-xl mb-6">
                 Our trading network connects Sri Lanka's finest stones to established wholesalers, retailers and collectors across four continents — moving gems securely and transparently, wherever demand is highest.
               </p>
             </Reveal>
@@ -128,7 +128,7 @@ export default function GlobalReach() {
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 pt-12 border-t border-white/10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8 pt-10 border-t border-white/10">
           {stats.map((s) => (
             <Stat key={s.label} stat={s} start={inView} />
           ))}

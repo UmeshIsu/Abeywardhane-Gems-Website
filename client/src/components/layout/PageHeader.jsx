@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
  */
 export default function PageHeader({ eyebrow, title, breadcrumb = [] }) {
   return (
-    <section className="relative bg-gradient-to-br from-ink via-[#13224a] to-ink text-white pt-36 pb-20 lg:pt-44 lg:pb-28 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-ink via-[#13224a] to-ink text-white pt-28 pb-14 lg:pt-36 lg:pb-20 overflow-hidden">
       <div
         className="absolute inset-0 opacity-40 pointer-events-none"
         style={{
@@ -18,12 +18,12 @@ export default function PageHeader({ eyebrow, title, breadcrumb = [] }) {
 
       <div className="relative container-x">
         {eyebrow && (
-          <div className="inline-flex items-center gap-3 text-xs tracking-[0.3em] uppercase text-electric font-bold mb-5">
-            <span className="block w-8 h-px bg-electric/70" />
+          <div className="inline-flex items-center gap-2.5 text-xs tracking-[0.28em] uppercase text-electric font-bold mb-4">
+            <span className="block w-6 h-px bg-electric/70" />
             {eyebrow}
           </div>
         )}
-        <h1 className="font-display font-semibold leading-[1.05] mb-6 max-w-5xl" style={{ fontSize: 'clamp(2.4rem,5.5vw,4.6rem)' }}>
+        <h1 className="font-display font-semibold leading-[1.08] mb-5 max-w-4xl" style={{ fontSize: 'clamp(1.8rem,4.5vw,3.2rem)' }}>
           {title}
         </h1>
         {breadcrumb.length > 0 && (

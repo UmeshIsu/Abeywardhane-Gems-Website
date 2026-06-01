@@ -4,15 +4,15 @@ import { gems } from '@/data/gems';
 
 export default function Collection() {
   return (
-    <section id="collection" className="py-24 lg:py-32 bg-white">
+    <section id="collection" className="py-20 lg:py-24 bg-white">
       <div className="container-x">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-12">
           <Reveal><span className="eyebrow">See Our Latest</span></Reveal>
           <Reveal delay={0.1}>
             <h2 className="section-title mb-5">Gem <em>Collection</em></h2>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="text-muted text-[1.05rem]">
+            <p className="text-muted text-[0.92rem]">
               Hover over each piece to discover its story — every gem in our collection is handpicked, ethically sourced and gemologist certified.
             </p>
           </Reveal>
@@ -27,7 +27,7 @@ export default function Collection() {
         </div>
 
         <Reveal delay={0.2}>
-          <div className="text-center mt-16">
+          <div className="text-center mt-12">
             <Button to="/gallery" variant="primary">View Full Gallery</Button>
           </div>
         </Reveal>
@@ -45,20 +45,20 @@ function GemCard({ gem }) {
       />
 
       {/* Idle name (subtle, visible by default) */}
-      <div className="absolute bottom-0 inset-x-0 p-5 group-hover:opacity-0 transition-opacity duration-300">
-        <div className="font-display text-lg font-semibold text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
+      <div className="absolute bottom-0 inset-x-0 p-4 group-hover:opacity-0 transition-opacity duration-300">
+        <div className="font-display text-base font-semibold text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
           {gem.name}
         </div>
       </div>
 
       {/* Hover overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-7">
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
         <div className="text-white translate-y-5 group-hover:translate-y-0 transition-transform duration-500">
           <span className="block text-[0.68rem] tracking-[0.25em] uppercase text-gold font-semibold mb-2">
             {gem.tag}
           </span>
-          <h3 className="font-display text-2xl font-semibold leading-tight mb-2">{gem.name}</h3>
-          <p className="text-sm text-white/80 max-w-xs leading-snug">{gem.description}</p>
+          <h3 className="font-display text-xl font-semibold leading-tight mb-1.5">{gem.name}</h3>
+          <p className="text-xs text-white/80 max-w-xs leading-snug">{gem.description}</p>
         </div>
       </div>
     </div>

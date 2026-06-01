@@ -24,7 +24,7 @@ export default function Button({
   external = false,
   ...rest
 }) {
-  const cls = `group relative inline-flex items-center gap-3 px-7 py-4 rounded-full font-semibold text-[0.92rem] tracking-wide overflow-hidden transition-all duration-300 ${variants[variant]} ${className}`;
+  const cls = `group relative inline-flex items-center gap-2.5 px-5 py-3 rounded-full font-semibold text-[0.82rem] tracking-wide overflow-hidden transition-all duration-300 ${variants[variant]} ${className}`;
 
   const content = (
     <>

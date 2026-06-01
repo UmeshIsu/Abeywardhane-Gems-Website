@@ -174,7 +174,7 @@ export default function GemologyProgram() {
           </Reveal>
 
           <Reveal delay={0.05}>
-            <h2 className="font-display text-4xl md:text-6xl lg:text-7xl xl:text-[5rem] font-medium leading-[1.02] tracking-tight text-ink max-w-5xl mb-8">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-medium leading-[1.04] tracking-tight text-ink max-w-5xl mb-6">
               Our mines aren't just mines.<br />
               <span className="text-sapphire italic font-medium">They're gardens.</span>
             </h2>
@@ -182,7 +182,7 @@ export default function GemologyProgram() {
 
           <Reveal delay={0.15}>
             <div className="grid lg:grid-cols-[1.3fr_1fr] gap-10 lg:gap-16 items-start">
-              <div className="space-y-5 text-ink-soft text-lg leading-[1.85] max-w-2xl">
+              <div className="space-y-5 text-ink-soft text-sm leading-[1.85] max-w-2xl">
                 <p>
                   Most gem mines look like wounds in the earth. Ours look like a place you'd want to spend a Sunday afternoon — flower beds bordering every working pit, lily ponds full of koi and water lilies, planted pathways shaded by mature trees.
                 </p>
@@ -223,13 +223,13 @@ export default function GemologyProgram() {
             {uniquePoints.map(({ icon: Icon, title, text }, i) => (
               <Reveal key={title} delay={i * 0.08}>
                 <div className="h-full bg-white rounded-2xl p-7 border border-line hover:shadow-card hover:-translate-y-1 transition-all duration-500">
-                  <div className="w-12 h-12 rounded-xl bg-sapphire-light text-sapphire grid place-items-center mb-5">
-                    <Icon size={22} strokeWidth={1.8} />
+                  <div className="w-10 h-10 rounded-xl bg-sapphire-light text-sapphire grid place-items-center mb-4">
+                    <Icon size={20} strokeWidth={1.8} />
                   </div>
-                  <h3 className="font-display text-xl font-semibold text-ink mb-3 leading-tight">
+                  <h3 className="font-display text-lg font-semibold text-ink mb-2 leading-tight">
                     {title}
                   </h3>
-                  <p className="text-sm text-ink-soft leading-relaxed">{text}</p>
+                  <p className="text-xs text-ink-soft leading-relaxed">{text}</p>
                 </div>
               </Reveal>
             ))}
@@ -245,7 +245,7 @@ export default function GemologyProgram() {
               <div className="max-w-2xl">
                 <span className="eyebrow">Step Inside</span>
                 <h2 className="section-title mb-4">The <em>Abeywardana</em> Garden Mine</h2>
-                <p className="text-ink-soft text-lg">
+                <p className="text-ink-soft text-sm">
                   A few glimpses of what visitors actually see when they arrive at our site.
                 </p>
               </div>
@@ -333,14 +333,14 @@ export default function GemologyProgram() {
                 <div className="text-xs tracking-[0.3em] uppercase text-gold font-bold mb-4">
                   Why It Works
                 </div>
-                <h2 className="font-display text-4xl lg:text-5xl xl:text-6xl font-medium leading-[1.1] mb-6">
+                <h2 className="font-display text-2xl lg:text-3xl xl:text-4xl font-medium leading-[1.1] mb-5">
                   Trust isn't issued.<br />
                   <span className="text-gold italic">It's experienced.</span>
                 </h2>
-                <p className="text-white/75 text-lg leading-relaxed mb-6">
+                <p className="text-white/75 text-sm leading-relaxed mb-5">
                   When a buyer walks through our garden mine, they don't just see gems coming out of the ground — they see how we treat the land, our people, and our visitors. They taste the tea from the canteen. They watch a sapphire emerge from a sieve. They leave with a story that no glossy brochure can tell.
                 </p>
-                <p className="text-white/75 text-lg leading-relaxed">
+                <p className="text-white/75 text-sm leading-relaxed">
                   That experience is why visitors become buyers, buyers become partners, and partners send their friends. Our gardens aren't a marketing line — they're our most powerful sales channel.
                 </p>
               </div>
@@ -365,7 +365,7 @@ export default function GemologyProgram() {
             <div className="max-w-3xl mb-12">
               <span className="eyebrow">The Program</span>
               <h2 className="section-title mb-5">Comprehensive <em>Learning</em></h2>
-              <p className="text-ink-soft text-lg">
+              <p className="text-ink-soft text-sm">
                 Meticulously designed to give participants a well-rounded education in gemology — combining theoretical knowledge with practical, hands-on experience, all anchored at our garden-mine sites.
               </p>
             </div>
@@ -374,12 +374,12 @@ export default function GemologyProgram() {
           <div className="grid lg:grid-cols-3 gap-6">
             {learningPillars.map(({ icon: Icon, title, text }, i) => (
               <Reveal key={title} delay={i * 0.1}>
-                <div className="h-full bg-cream rounded-2xl p-8 border border-line">
-                  <div className="w-14 h-14 rounded-2xl bg-white text-sapphire grid place-items-center mb-6 shadow-soft">
-                    <Icon size={26} strokeWidth={1.6} />
+                <div className="h-full bg-cream rounded-2xl p-6 border border-line">
+                  <div className="w-11 h-11 rounded-xl bg-white text-sapphire grid place-items-center mb-4 shadow-soft">
+                    <Icon size={22} strokeWidth={1.6} />
                   </div>
-                  <h3 className="font-display text-2xl font-semibold text-ink mb-3">{title}</h3>
-                  <p className="text-ink-soft leading-relaxed">{text}</p>
+                  <h3 className="font-display text-xl font-semibold text-ink mb-2">{title}</h3>
+                  <p className="text-ink-soft text-sm leading-relaxed">{text}</p>
                 </div>
               </Reveal>
             ))}
@@ -414,7 +414,7 @@ export default function GemologyProgram() {
             <div className="max-w-3xl mb-12">
               <span className="eyebrow">Beyond the Classroom</span>
               <h2 className="section-title mb-5">Industry Connections & <em>Networking</em></h2>
-              <p className="text-ink-soft text-lg">
+              <p className="text-ink-soft text-sm">
                 The program places a strong emphasis on building and expanding participants' professional networks — crucial for long-term success in the gemology industry.
               </p>
             </div>
@@ -423,12 +423,12 @@ export default function GemologyProgram() {
           <div className="grid lg:grid-cols-3 gap-6">
             {networkingPoints.map(({ icon: Icon, title, text }, i) => (
               <Reveal key={title} delay={i * 0.1}>
-                <div className="h-full bg-white rounded-2xl p-8 border border-line hover:shadow-card hover:border-sapphire/30 transition-all duration-500">
-                  <div className="w-12 h-12 rounded-xl bg-sapphire-light text-sapphire grid place-items-center mb-5">
-                    <Icon size={22} strokeWidth={1.8} />
+                <div className="h-full bg-white rounded-2xl p-6 border border-line hover:shadow-card hover:border-sapphire/30 transition-all duration-500">
+                  <div className="w-10 h-10 rounded-xl bg-sapphire-light text-sapphire grid place-items-center mb-4">
+                    <Icon size={20} strokeWidth={1.8} />
                   </div>
-                  <h3 className="font-display text-xl font-semibold text-ink mb-3">{title}</h3>
-                  <p className="text-sm text-ink-soft leading-relaxed">{text}</p>
+                  <h3 className="font-display text-lg font-semibold text-ink mb-2">{title}</h3>
+                  <p className="text-xs text-ink-soft leading-relaxed">{text}</p>
                 </div>
               </Reveal>
             ))}
@@ -470,10 +470,10 @@ export default function GemologyProgram() {
                 <div className="text-xs tracking-[0.3em] uppercase text-gold font-bold mb-4">
                   Come See For Yourself
                 </div>
-                <h2 className="font-display text-4xl lg:text-5xl font-medium leading-tight mb-4">
+                <h2 className="font-display text-2xl lg:text-3xl font-medium leading-tight mb-3">
                   Visit the mine that <em className="text-gold not-italic" style={{ fontStyle: 'italic' }}>blooms</em>.
                 </h2>
-                <p className="text-white/70 max-w-xl">
+                <p className="text-white/70 max-w-xl text-sm">
                   Whether you're a serious buyer, a curious student, or a partner institute — we'd love to host you. Tell us when, and we'll plan the rest.
                 </p>
               </div>
@@ -482,7 +482,7 @@ export default function GemologyProgram() {
               <div className="flex flex-wrap gap-4 lg:justify-end">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-3 px-7 py-4 rounded-full font-semibold text-[0.92rem] bg-white text-ink hover:bg-cream transition-all"
+                  className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full font-semibold text-[0.82rem] bg-white text-ink hover:bg-cream transition-all"
                 >
                   Plan a Visit <ArrowRight size={16} strokeWidth={2.4} />
                 </Link>
@@ -490,7 +490,7 @@ export default function GemologyProgram() {
                   href={whatsappHref("Hi! I'd like to learn about your gemology program and garden mine visits.")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-7 py-4 rounded-full font-semibold text-[0.92rem] border border-white/25 text-white hover:bg-white/10 transition-all"
+                  className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full font-semibold text-[0.82rem] border border-white/25 text-white hover:bg-white/10 transition-all"
                 >
                   Chat on WhatsApp
                 </a>
@@ -515,7 +515,7 @@ function StatCard({ value, label, highlight }) {
       }`}
     >
       <div
-        className={`font-display text-4xl lg:text-5xl font-medium leading-none mb-3 ${
+        className={`font-display text-3xl lg:text-4xl font-medium leading-none mb-2 ${
           highlight ? 'text-gold' : 'text-white'
         }`}
       >
@@ -535,7 +535,7 @@ function ProgramCircle({ step }) {
           <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-sapphire text-white text-sm font-semibold mb-3">
             {step.num}
           </div>
-          <h3 className="font-display text-lg lg:text-xl font-semibold text-ink leading-tight whitespace-pre-line">
+          <h3 className="font-display text-base lg:text-lg font-semibold text-ink leading-tight whitespace-pre-line">
             {step.title}
           </h3>
         </div>

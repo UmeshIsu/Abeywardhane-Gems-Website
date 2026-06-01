@@ -19,13 +19,13 @@ export default function Footer() {
         className="absolute inset-0 opacity-40 pointer-events-none"
         style={{ background: 'radial-gradient(700px 360px at 90% 0%, rgba(37,99,235,0.30), transparent 60%)' }}
       />
-      <div className="relative container-x pt-20 pb-8">
-        <div className="grid lg:grid-cols-[1.5fr_1fr_1fr_1.1fr] gap-12 mb-16">
+      <div className="relative container-x pt-16 pb-6">
+        <div className="grid lg:grid-cols-[1.5fr_1fr_1fr_1.1fr] gap-10 mb-12">
           <div>
-            <div className="font-display text-white text-3xl font-semibold mb-4">
+            <div className="font-display text-white text-2xl font-semibold mb-3">
               Abeywardana <span className="italic text-frost">Gems</span>
             </div>
-            <p className="text-sm leading-relaxed mb-7 max-w-xs">
+            <p className="text-xs leading-relaxed mb-5 max-w-xs">
               Exposing Ceylon's finest gemstones to the world — curated, ethical and authentic, straight from the heart of Sri Lanka.
             </p>
             <div className="flex gap-3">
@@ -70,7 +70,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-7 flex flex-wrap items-center justify-between gap-4 text-xs">
+        <div className="border-t border-white/10 pt-6 flex flex-wrap items-center justify-between gap-4 text-xs">
           <span>© {year} Abeywardana Gems. All rights reserved.</span>
           <span className="hidden sm:block text-white/40">Crafted with care in Sri Lanka.</span>
           <button onClick={toTop} className="inline-flex items-center gap-2 text-white/70 hover:text-frost transition group">
