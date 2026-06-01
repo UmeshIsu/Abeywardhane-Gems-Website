@@ -75,7 +75,7 @@ export default function Contact() {
           <Reveal delay={0.1}>
             <form onSubmit={submit} className="bg-cream rounded-3xl p-8 lg:p-10 shadow-soft">
               <div className="grid sm:grid-cols-2 gap-5 mb-5">
-                <Field label="Your name" value={form.name} onChange={update('name')} placeholder="John Doe" />
+                <Field label="Your name" value={form.name} onChange={update('name')} placeholder="Your name" />
                 <Field label="Email" type="email" value={form.email} onChange={update('email')} placeholder="you@example.com" />
               </div>
               <div className="grid sm:grid-cols-2 gap-5 mb-5">
