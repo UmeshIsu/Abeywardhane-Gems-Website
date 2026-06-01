@@ -6,7 +6,7 @@ import { whatsappHref } from '@/lib/whatsapp';
 /* Closing conversion block. */
 export default function CtaBand() {
   return (
-    <section className="py-20 lg:py-28 bg-ink text-white relative overflow-hidden">
+    <section className="py-16 lg:py-20 bg-ink text-white relative overflow-hidden">
       <div
         className="absolute inset-0 opacity-50 pointer-events-none"
         style={{ background: 'radial-gradient(700px 400px at 85% 50%, rgba(37,99,235,0.4), transparent 60%)' }}
@@ -16,11 +16,11 @@ export default function CtaBand() {
         <div className="grid lg:grid-cols-[1.5fr_1fr] gap-10 items-center">
           <Reveal>
             <div>
-              <div className="text-xs tracking-[0.3em] uppercase text-electric font-bold mb-4">Begin a partnership</div>
-              <h2 className="font-display font-medium leading-[1.08] mb-5" style={{ fontSize: 'clamp(2.2rem,4.5vw,3.6rem)' }}>
+              <div className="text-xs tracking-[0.28em] uppercase text-electric font-bold mb-3">Begin a partnership</div>
+              <h2 className="font-display font-medium leading-[1.1] mb-4" style={{ fontSize: 'clamp(1.8rem,3.5vw,2.6rem)' }}>
                 Source Ceylon's finest gems with <span className="italic text-frost">complete confidence</span>.
               </h2>
-              <p className="text-white/70 max-w-xl text-lg">
+              <p className="text-white/70 max-w-xl text-sm">
                 Whether you're buying, selling, or planning a visit to the source — talk to our gemologists. An expert opinion costs nothing.
               </p>
             </div>
@@ -29,7 +29,7 @@ export default function CtaBand() {
             <div className="flex flex-wrap gap-4 lg:justify-end">
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-3 px-7 py-4 rounded-full font-semibold text-[0.92rem] bg-white text-ink hover:bg-cream transition-all"
+                className="group inline-flex items-center gap-2.5 px-5 py-3 rounded-full font-semibold text-[0.82rem] bg-white text-ink hover:bg-cream transition-all"
               >
                 Contact Us <ArrowRight size={16} strokeWidth={2.4} className="transition-transform group-hover:translate-x-1" />
               </Link>
@@ -37,7 +37,7 @@ export default function CtaBand() {
                 href={whatsappHref("Hi! I'd like to discuss sourcing Ceylon gemstones.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-7 py-4 rounded-full font-semibold text-[0.92rem] border border-white/25 text-white hover:bg-white/10 transition-all"
+                className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full font-semibold text-[0.82rem] border border-white/25 text-white hover:bg-white/10 transition-all"
               >
                 Chat on WhatsApp
               </a>

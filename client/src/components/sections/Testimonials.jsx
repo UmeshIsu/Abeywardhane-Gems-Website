@@ -5,9 +5,9 @@ import { testimonials } from '@/data/company';
 /* Modern, trust-building testimonial layout. */
 export default function Testimonials() {
   return (
-    <section className="py-24 lg:py-32 bg-white">
+    <section className="py-20 lg:py-24 bg-white">
       <div className="container-x">
-        <div className="flex flex-wrap items-end justify-between gap-10 mb-16">
+        <div className="flex flex-wrap items-end justify-between gap-8 mb-12">
           <div className="max-w-2xl">
             <Reveal><span className="eyebrow">In Their Words</span></Reveal>
             <Reveal delay={0.1}>
@@ -24,14 +24,14 @@ export default function Testimonials() {
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
             <Reveal key={i} delay={i * 0.1}>
-              <figure className="h-full flex flex-col rounded-3xl border border-line bg-cream/50 p-8 hover:shadow-card transition-shadow duration-500">
-                <Quote size={34} className="text-sapphire/30 mb-5" />
-                <blockquote className="font-display text-xl lg:text-[1.35rem] leading-snug text-ink flex-1">
+              <figure className="h-full flex flex-col rounded-2xl border border-line bg-cream/50 p-6 hover:shadow-card transition-shadow duration-500">
+                <Quote size={28} className="text-sapphire/30 mb-4" />
+                <blockquote className="font-display text-lg lg:text-xl leading-snug text-ink flex-1">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
-                <figcaption className="mt-7 pt-6 border-t border-line">
-                  <div className="font-semibold text-ink">{t.name}</div>
-                  <div className="text-sm text-muted">{t.role}</div>
+                <figcaption className="mt-5 pt-5 border-t border-line">
+                  <div className="font-semibold text-ink text-sm">{t.name}</div>
+                  <div className="text-xs text-muted">{t.role}</div>
                 </figcaption>
               </figure>
             </Reveal>

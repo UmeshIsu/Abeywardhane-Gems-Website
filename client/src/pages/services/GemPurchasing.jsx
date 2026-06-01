@@ -77,11 +77,11 @@ export default function GemPurchasing() {
         <div className="container-x">
           <Reveal>
             <div className="grid lg:grid-cols-[100px_1fr] gap-6 lg:gap-10 items-start max-w-5xl">
-              <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-2xl bg-sapphire-light grid place-items-center font-display text-5xl lg:text-6xl text-sapphire font-medium leading-none shrink-0">
+              <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-2xl bg-sapphire-light grid place-items-center font-display text-3xl lg:text-4xl text-sapphire font-medium leading-none shrink-0">
                 A
               </div>
-              <p className="text-lg lg:text-xl text-ink-soft leading-[1.75]">
-                <span className="font-display text-2xl text-ink">t Abeywardhane Gems,</span> we pride ourselves on being a premier destination for both purchasing and selling high-quality gemstones. Our commitment to authenticity, transparency, and customer satisfaction has established us as a trusted name in the industry. Whether you're looking to acquire a unique gem for your collection or wish to sell a precious stone, we provide a seamless, professional experience tailored to your needs.
+              <p className="text-sm text-ink-soft leading-[1.75]">
+                <span className="font-display text-lg text-ink">t Abeywardhane Gems,</span> we pride ourselves on being a premier destination for both purchasing and selling high-quality gemstones. Our commitment to authenticity, transparency, and customer satisfaction has established us as a trusted name in the industry. Whether you're looking to acquire a unique gem for your collection or wish to sell a precious stone, we provide a seamless, professional experience tailored to your needs.
               </p>
             </div>
           </Reveal>
@@ -107,8 +107,8 @@ export default function GemPurchasing() {
           <Reveal>
             <div className="max-w-4xl mb-12">
               <span className="eyebrow">For Buyers</span>
-              <h2 className="section-title mb-6">Our Gem Purchasing <em>Service</em></h2>
-              <p className="text-ink-soft text-lg leading-relaxed">
+              <h2 className="section-title mb-4">Our Gem Purchasing <em>Service</em></h2>
+              <p className="text-ink-soft text-sm leading-relaxed">
                 We source our gems directly from the finest mines, ensuring that each stone is of the highest quality and ethically obtained. Our team of expert gemologists carefully evaluates each gemstone to ensure it meets our stringent standards for colour, clarity, cut, and carat. This meticulous process guarantees that every gem we offer is a true investment in beauty and value.
               </p>
             </div>
@@ -147,11 +147,11 @@ export default function GemPurchasing() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {trustPoints.map(({ icon: Icon, title, text }) => (
                 <div key={title} className="bg-white rounded-2xl p-6 border border-line">
-                  <div className="w-11 h-11 rounded-xl bg-sapphire-light text-sapphire grid place-items-center mb-4">
-                    <Icon size={20} strokeWidth={1.8} />
+                  <div className="w-10 h-10 rounded-xl bg-sapphire-light text-sapphire grid place-items-center mb-3">
+                    <Icon size={18} strokeWidth={1.8} />
                   </div>
-                  <h3 className="font-semibold text-ink mb-2">{title}</h3>
-                  <p className="text-sm text-muted leading-relaxed">{text}</p>
+                  <h3 className="font-semibold text-ink mb-1.5 text-sm">{title}</h3>
+                  <p className="text-xs text-muted leading-relaxed">{text}</p>
                 </div>
               ))}
             </div>
@@ -165,8 +165,8 @@ export default function GemPurchasing() {
           <Reveal>
             <div className="max-w-4xl mb-12">
               <span className="eyebrow">For Sellers</span>
-              <h2 className="section-title mb-6">Our Gem Selling <em>Service</em></h2>
-              <p className="text-ink-soft text-lg leading-relaxed">
+              <h2 className="section-title mb-4">Our Gem Selling <em>Service</em></h2>
+              <p className="text-ink-soft text-sm leading-relaxed">
                 If you're looking to sell a gemstone, we provide a transparent and fair evaluation process. Our experts assess the stone's market value based on current trends and demand, offering competitive pricing that reflects its true worth. We handle every transaction with the utmost discretion and professionalism, ensuring a smooth and satisfactory experience for our clients.
               </p>
             </div>
@@ -231,10 +231,10 @@ export default function GemPurchasing() {
             <Reveal>
               <div>
                 <div className="text-xs tracking-[0.3em] uppercase text-gold font-bold mb-4">Ready to begin?</div>
-                <h2 className="font-display text-4xl lg:text-5xl font-medium leading-tight mb-4">
+                <h2 className="font-display text-2xl lg:text-3xl font-medium leading-tight mb-3">
                   Buy with confidence, sell with clarity.
                 </h2>
-                <p className="text-white/70 max-w-xl">
+                <p className="text-white/70 max-w-xl text-sm">
                   Talk to one of our gemologists today — it costs nothing to get an expert opinion.
                 </p>
               </div>
@@ -243,7 +243,7 @@ export default function GemPurchasing() {
               <div className="flex flex-wrap gap-4 lg:justify-end">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-3 px-7 py-4 rounded-full font-semibold text-[0.92rem] bg-white text-ink hover:bg-cream transition-all"
+                  className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full font-semibold text-[0.82rem] bg-white text-ink hover:bg-cream transition-all"
                 >
                   Contact Us <ArrowRight size={16} strokeWidth={2.4} />
                 </Link>
@@ -251,7 +251,7 @@ export default function GemPurchasing() {
                   href={whatsappHref("Hi! I'd like to discuss buying / selling a gemstone.")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-7 py-4 rounded-full font-semibold text-[0.92rem] border border-white/25 text-white hover:bg-white/10 transition-all"
+                  className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full font-semibold text-[0.82rem] border border-white/25 text-white hover:bg-white/10 transition-all"
                 >
                   Chat on WhatsApp
                 </a>
@@ -267,20 +267,20 @@ export default function GemPurchasing() {
 /* ---------- sub-components ---------- */
 
 function ProcessCard({ step, highlighted }) {
-  const base = 'h-full p-8 lg:p-10 border-b border-r border-line transition-colors';
+  const base = 'h-full p-6 lg:p-8 border-b border-r border-line transition-colors';
   const colourful = highlighted
     ? 'bg-sapphire text-white border-sapphire'
     : 'bg-white text-ink hover:bg-cream';
 
   return (
     <div className={`${base} ${colourful}`}>
-      <div className={`font-display text-5xl lg:text-6xl font-medium mb-6 ${highlighted ? 'text-white/90' : 'text-ink/70'}`}>
+      <div className={`font-display text-3xl lg:text-4xl font-medium mb-3 ${highlighted ? 'text-white/90' : 'text-ink/70'}`}>
         {step.num}
       </div>
-      <h3 className={`font-display text-2xl font-semibold mb-4 ${highlighted ? 'text-white' : 'text-ink'}`}>
+      <h3 className={`font-display text-lg font-semibold mb-2 ${highlighted ? 'text-white' : 'text-ink'}`}>
         {step.title}
       </h3>
-      <p className={`text-sm leading-relaxed ${highlighted ? 'text-white/85' : 'text-ink-soft'}`}>
+      <p className={`text-xs leading-relaxed ${highlighted ? 'text-white/85' : 'text-ink-soft'}`}>
         {step.body}
       </p>
     </div>
@@ -292,8 +292,8 @@ function SellingPoint({ title, text }) {
     <div className="flex items-start gap-4 p-6 rounded-2xl bg-cream/60 border border-line">
       <div className="w-2 h-2 mt-2.5 rounded-full bg-sapphire shrink-0 ring-4 ring-sapphire/15" />
       <div>
-        <h3 className="font-semibold text-ink mb-1">{title}</h3>
-        <p className="text-sm text-ink-soft leading-relaxed">{text}</p>
+        <h3 className="font-semibold text-ink mb-1 text-sm">{title}</h3>
+        <p className="text-xs text-ink-soft leading-relaxed">{text}</p>
       </div>
     </div>
   );

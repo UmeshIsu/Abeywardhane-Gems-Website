@@ -34,29 +34,29 @@
 
 @layer components {
   .container-x {
-    @apply w-full max-w-[1680px] mx-auto px-5 md:px-8 lg:px-12 xl:px-16 2xl:px-20;
+    @apply w-full max-w-[1320px] mx-auto px-5 md:px-8 lg:px-10 xl:px-12;
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-3 text-[0.72rem] tracking-[0.32em] uppercase text-sapphire font-bold mb-5;
+    @apply inline-flex items-center gap-2.5 text-[0.65rem] tracking-[0.28em] uppercase text-sapphire font-bold mb-4;
   }
 
   .eyebrow::before {
     content: '';
-    @apply block w-8 h-px bg-sapphire/60;
+    @apply block w-6 h-px bg-sapphire/60;
   }
 
   /* Fluid luxury display scale */
   .display-xl {
     @apply font-display font-medium tracking-tight text-ink;
-    font-size: clamp(2.6rem, 6vw, 5.6rem);
-    line-height: 1.02;
+    font-size: clamp(2rem, 4.5vw, 3.8rem);
+    line-height: 1.05;
   }
 
   .section-title {
     @apply font-display font-medium text-ink tracking-tight;
-    font-size: clamp(2rem, 4vw, 3.4rem);
-    line-height: 1.08;
+    font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+    line-height: 1.1;
   }
 
   .section-title em {
@@ -66,8 +66,8 @@
 
   .lead {
     @apply text-ink-soft;
-    font-size: clamp(1rem, 1.2vw, 1.18rem);
-    line-height: 1.7;
+    font-size: clamp(0.875rem, 1vw, 1rem);
+    line-height: 1.65;
   }
 
   /* Premium glass surface */

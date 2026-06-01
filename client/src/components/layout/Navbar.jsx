@@ -15,8 +15,8 @@ export default function Navbar() {
 
   const navCls = `fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
     scrolled
-      ? 'glass shadow-[0_2px_24px_rgba(15,23,42,0.07)] py-2.5'
-      : 'py-4 bg-white/85 backdrop-blur-md'
+      ? 'glass shadow-[0_2px_24px_rgba(15,23,42,0.07)] py-2'
+      : 'py-3 bg-white/85 backdrop-blur-md'
   }`;
 
   return (
@@ -26,14 +26,14 @@ export default function Navbar() {
           <BrandLogo />
 
           {/* Desktop links */}
-          <ul className="hidden lg:flex items-center gap-9">
+          <ul className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => (
               <li key={link.label} className="relative group">
                 <NavLink
                   to={link.to}
                   end={link.to === '/'}
                   className={({ isActive }) =>
-                    `flex items-center gap-1 text-[0.9rem] font-semibold uppercase tracking-[0.07em] py-2 relative transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:bg-sapphire after:transition-all ${
+                    `flex items-center gap-1 text-[0.78rem] font-semibold uppercase tracking-[0.06em] py-1.5 relative transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:bg-sapphire after:transition-all ${
                       isActive ? 'text-sapphire after:w-full' : 'text-ink-soft hover:text-sapphire after:w-0 hover:after:w-full'
                     }`
                   }
@@ -44,7 +44,7 @@ export default function Navbar() {
 
                 {link.dropdown && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
-                    <div className="bg-white rounded-2xl shadow-deep border border-line w-[440px] p-3 grid grid-cols-1 gap-1">
+                    <div className="bg-white rounded-2xl shadow-deep border border-line w-[380px] p-2.5 grid grid-cols-1 gap-0.5">
                       {link.dropdown.map((sub) => {
                         const svc = serviceBySlug[sub.to];
                         const Icon = svc?.icon;
@@ -52,15 +52,15 @@ export default function Navbar() {
                           <Link
                             key={sub.label}
                             to={sub.to}
-                            className="group/item flex items-start gap-3.5 px-4 py-3 rounded-xl hover:bg-cream transition-colors"
+                            className="group/item flex items-start gap-3 px-3.5 py-2.5 rounded-xl hover:bg-cream transition-colors"
                           >
                             {Icon && (
-                              <span className="w-10 h-10 rounded-xl bg-sapphire-light text-sapphire grid place-items-center shrink-0 group-hover/item:bg-sapphire group-hover/item:text-white transition-colors">
-                                <Icon size={18} strokeWidth={1.8} />
+                              <span className="w-8 h-8 rounded-lg bg-sapphire-light text-sapphire grid place-items-center shrink-0 group-hover/item:bg-sapphire group-hover/item:text-white transition-colors">
+                                <Icon size={16} strokeWidth={1.8} />
                               </span>
                             )}
                             <span className="min-w-0">
-                              <span className="flex items-center gap-1 font-semibold text-ink text-[0.92rem] leading-tight">
+                              <span className="flex items-center gap-1 font-semibold text-ink text-[0.82rem] leading-tight">
                                 {sub.label}
                                 <ArrowUpRight size={13} className="opacity-0 group-hover/item:opacity-100 text-sapphire transition-opacity" />
                               </span>
@@ -81,13 +81,13 @@ export default function Navbar() {
           <div className="flex items-center gap-5">
             <a
               href={`tel:${contactInfo.phoneRaw}`}
-              className="hidden md:inline-flex items-center gap-2 font-semibold text-sm text-ink hover:text-sapphire transition"
+              className="hidden md:inline-flex items-center gap-1.5 font-semibold text-xs text-ink hover:text-sapphire transition"
             >
-              <Phone size={14} /> {contactInfo.phone}
+              <Phone size={13} /> {contactInfo.phone}
             </a>
             <Link
               to="/contact"
-              className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-sapphire text-white text-sm font-semibold hover:bg-sapphire-deep transition-all hover:-translate-y-0.5 shadow-glow"
+              className="hidden lg:inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-sapphire text-white text-xs font-semibold hover:bg-sapphire-deep transition-all hover:-translate-y-0.5 shadow-glow"
             >
               Get in Touch
             </Link>

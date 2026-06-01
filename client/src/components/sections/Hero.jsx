@@ -45,8 +45,8 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative z-10 container-x pt-0 pb-20 lg:pt-0 lg:pb-16 lg:min-h-0 lg:flex lg:items-center" style={{ minHeight: 'min(88vh, 820px)' }}>
-        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-10 items-center w-full">
+      <div className="relative z-10 container-x pt-28 pb-0 lg:pt-32 lg:pb-0 lg:min-h-0 lg:flex lg:flex-col lg:justify-center" style={{ minHeight: 'min(75vh, 680px)' }}>
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-24 items-center w-full flex-1">
           {/* Text column */}
           <div className="relative">
             <AnimatePresence mode="wait">
@@ -61,36 +61,34 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Premium 4-up pager */}
-      <div className="absolute bottom-0 inset-x-0 z-20">
-        <div className="container-x">
-          <div className="grid grid-cols-2 md:grid-cols-4 rounded-t-2xl overflow-hidden border-t border-line/80">
-            {heroSlides.map((s, i) => {
-              const active = i === current;
-              return (
-                <button
-                  key={i}
-                  onClick={() => jumpTo(i)}
-                  className={`relative flex items-center gap-3 text-left py-5 px-4 md:px-6 transition-all duration-300 ${active ? 'bg-ink text-white' : 'glass text-muted hover:bg-tint hover:text-ink'
-                    }`}
-                >
-                  <span className={`font-display text-lg ${active ? 'text-frost' : 'text-sapphire'}`}>{s.pagerNum}</span>
-                  <span className={`text-[0.76rem] md:text-sm font-semibold leading-tight whitespace-pre-line ${active ? 'text-white' : 'text-ink'}`}>
-                    {s.pagerLabel}
-                  </span>
-                  {active && (
-                    <motion.span
-                      key={`fill-${i}-${current}`}
-                      className="absolute top-0 left-0 h-[3px] bg-electric w-full origin-left"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ duration: (READING_PAUSE + 2000) / 1000, ease: 'linear' }}
-                    />
-                  )}
-                </button>
-              );
-            })}
-          </div>
+      {/* Premium 4-up pager — now in normal flow at the bottom */}
+      <div className="relative z-20 container-x mt-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 rounded-t-2xl overflow-hidden border-t border-line/80">
+          {heroSlides.map((s, i) => {
+            const active = i === current;
+            return (
+              <button
+                key={i}
+                onClick={() => jumpTo(i)}
+                className={`relative flex items-center gap-2.5 text-left py-3.5 px-3 md:px-5 transition-all duration-300 ${active ? 'bg-ink text-white' : 'glass text-muted hover:bg-tint hover:text-ink'
+                  }`}
+              >
+                <span className={`font-display text-base ${active ? 'text-frost' : 'text-sapphire'}`}>{s.pagerNum}</span>
+                <span className={`text-[0.68rem] md:text-xs font-semibold leading-tight whitespace-pre-line ${active ? 'text-white' : 'text-ink'}`}>
+                  {s.pagerLabel}
+                </span>
+                {active && (
+                  <motion.span
+                    key={`fill-${i}-${current}`}
+                    className="absolute top-0 left-0 h-[3px] bg-electric w-full origin-left"
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: (READING_PAUSE + 2000) / 1000, ease: 'linear' }}
+                  />
+                )}
+              </button>
+            );
+          })}
         </div>
       </div>
     </header>
@@ -114,13 +112,13 @@ function SlideText({ slide, onTypingComplete }) {
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.05 }}
-        className="inline-flex items-center gap-2.5 text-[0.74rem] tracking-[0.32em] uppercase text-sapphire font-bold mb-6"
+        className="inline-flex items-center gap-2 text-[0.65rem] tracking-[0.28em] uppercase text-sapphire font-bold mb-4"
       >
-        <span className="block w-9 h-px bg-sapphire" />
+        <span className="block w-7 h-px bg-sapphire" />
         {slide.eyebrow}
       </motion.span>
 
-      <h1 className="font-display font-medium text-ink tracking-tight max-w-[680px] min-h-[2.1em] mb-7" style={{ fontSize: 'clamp(2.4rem, 5.2vw, 4.4rem)', lineHeight: 1.04 }}>
+      <h1 className="font-display font-medium text-ink tracking-tight max-w-[560px] min-h-[2.1em] mb-5" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', lineHeight: 1.06 }}>
         <TypingHeadline prefix={slide.prefix} em={slide.em} suffix={slide.suffix} onDone={handleTypingDone} />
       </h1>
 
@@ -128,7 +126,7 @@ function SlideText({ slide, onTypingComplete }) {
         initial={{ opacity: 0, y: 14 }}
         animate={typingDone ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="lead max-w-[540px] mb-9"
+        className="lead max-w-[460px] mb-7"
       >
         {slide.subtitle}
       </motion.p>
@@ -141,14 +139,14 @@ function SlideText({ slide, onTypingComplete }) {
       >
         <Link
           to={slide.cta.to}
-          className="group inline-flex items-center gap-3 px-7 py-4 rounded-full font-semibold text-[0.92rem] bg-sapphire text-white shadow-glow hover:bg-sapphire-deep hover:-translate-y-0.5 transition-all"
+          className="group inline-flex items-center gap-2.5 px-5 py-3 rounded-full font-semibold text-[0.82rem] bg-sapphire text-white shadow-glow hover:bg-sapphire-deep hover:-translate-y-0.5 transition-all"
         >
           {slide.cta.label}
           <ArrowRight size={16} strokeWidth={2.4} className="transition-transform group-hover:translate-x-1" />
         </Link>
         <Link
           to={slide.ctaSecondary.to}
-          className="inline-flex items-center gap-3 px-7 py-4 rounded-full font-semibold text-[0.92rem] border border-ink/15 text-ink hover:bg-ink hover:text-white hover:border-ink hover:-translate-y-0.5 transition-all"
+          className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full font-semibold text-[0.82rem] border border-ink/15 text-ink hover:bg-ink hover:text-white hover:border-ink hover:-translate-y-0.5 transition-all"
         >
           {slide.ctaSecondary.label}
         </Link>
@@ -158,9 +156,9 @@ function SlideText({ slide, onTypingComplete }) {
         initial={{ opacity: 0 }}
         animate={typingDone ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.6, delay: 0.25 }}
-        className="mt-9 flex items-center gap-2.5 text-sm text-muted"
+        className="mt-7 flex items-center gap-2 text-xs text-muted"
       >
-        <ShieldCheck size={17} className="text-sapphire" />
+        <ShieldCheck size={15} className="text-sapphire" />
         Gemologist-verified · Ethically sourced · Trusted by 100+ dealers worldwide
       </motion.div>
     </motion.div>
@@ -170,9 +168,9 @@ function SlideText({ slide, onTypingComplete }) {
 function HeroVisual({ slide, slideKey }) {
   const reduce = useReducedMotion();
   return (
-    <div className="relative mx-auto w-full max-w-[660px] aspect-square lg:aspect-auto lg:max-h-[min(64vh,520px)] flex items-center justify-center">
+    <div className="relative mx-auto w-full max-w-[480px] aspect-square lg:aspect-auto lg:max-h-[min(50vh,400px)] flex items-center justify-center">
       {/* Rotating sapphire gemstone video */}
-      <div className="relative w-full max-w-[780px]" style={{ perspective: '1200px' }}>
+      <div className="relative w-full max-w-[520px]" style={{ perspective: '1200px' }}>
         <motion.div
           animate={reduce ? {} : { y: [0, -14, 0] }}
           transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
@@ -193,7 +191,7 @@ function HeroVisual({ slide, slideKey }) {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -16 }}
           transition={{ duration: 0.7, ease: [0.2, 0.7, 0.2, 1] }}
-          className="absolute -bottom-4 -left-14 sm:-left-34 w-[46%] max-w-[220px] aspect-[3/4] rounded-2xl overflow-hidden shadow-deep ring-4 ring-white/90"
+          className="absolute -bottom-3 -left-10 sm:-left-28 w-[42%] max-w-[180px] aspect-[3/4] rounded-xl overflow-hidden shadow-deep ring-3 ring-white/90"
         >
           <motion.img
             src={slide.image}
@@ -204,7 +202,7 @@ function HeroVisual({ slide, slideKey }) {
             transition={{ duration: 9, ease: 'linear' }}
             className="w-full h-full object-cover"
           />
-          <div className="absolute bottom-2.5 left-2.5 right-2.5 inline-flex items-center gap-2 glass px-3 py-2 rounded-full text-[0.62rem] font-bold tracking-[0.12em] uppercase text-ink">
+          <div className="absolute bottom-2 left-2 right-2 inline-flex items-center gap-1.5 glass px-2.5 py-1.5 rounded-full text-[0.55rem] font-bold tracking-[0.1em] uppercase text-ink">
             <span className="w-1.5 h-1.5 rounded-full bg-sapphire ring-4 ring-sapphire/20" />
             {slide.tag}
           </div>

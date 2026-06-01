@@ -158,11 +158,11 @@ export default function InternationalMarket() {
         <div className="container-x">
           <Reveal>
             <div className="grid lg:grid-cols-[100px_1fr] gap-6 lg:gap-10 items-start max-w-5xl mb-12">
-              <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-2xl bg-sapphire-light grid place-items-center font-display text-5xl lg:text-6xl text-sapphire font-medium leading-none shrink-0">
+              <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-2xl bg-sapphire-light grid place-items-center font-display text-3xl lg:text-4xl text-sapphire font-medium leading-none shrink-0">
                 O
               </div>
-              <p className="text-lg lg:text-xl text-ink-soft leading-[1.75]">
-                <span className="font-display text-2xl text-ink">ur global reach</span> is one of the cornerstones of our success in the gem market. We have developed an extensive network of buyers that spans across multiple continents, allowing us to connect with a diverse range of markets. This network is comprised of well-established wholesalers, retailers, and private collectors who are recognized leaders in their respective regions.
+              <p className="text-sm text-ink-soft leading-[1.75]">
+                <span className="font-display text-lg text-ink">ur global reach</span> is one of the cornerstones of our success in the gem market. We have developed an extensive network of buyers that spans across multiple continents, allowing us to connect with a diverse range of markets. This network is comprised of well-established wholesalers, retailers, and private collectors who are recognized leaders in their respective regions.
               </p>
             </div>
           </Reveal>
@@ -205,7 +205,7 @@ export default function InternationalMarket() {
 
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 max-w-6xl">
             <Reveal delay={0.05}>
-              <div className="space-y-5 text-ink-soft text-[1.05rem] leading-[1.8]">
+              <div className="space-y-5 text-ink-soft text-sm leading-[1.8]">
                 <p>
                   In the gem industry, reliability and trust are crucial. We recognize that our clients need assurance that they are dealing with a reputable and dependable partner. This is why we place such a strong emphasis on building and maintaining trustworthy relationships with our buyers.
                 </p>
@@ -222,10 +222,10 @@ export default function InternationalMarket() {
               <div className="grid grid-cols-2 gap-4 self-start lg:sticky lg:top-32">
                 {reachStats.map(({ value, label }) => (
                   <div key={label} className="bg-white rounded-2xl p-6 lg:p-7 border border-line">
-                    <div className="font-display text-4xl lg:text-5xl text-sapphire font-medium leading-none mb-3">
+                    <div className="font-display text-2xl lg:text-3xl text-sapphire font-medium leading-none mb-2">
                       {value}
                     </div>
-                    <div className="text-sm text-ink-soft font-medium">{label}</div>
+                    <div className="text-xs text-ink-soft font-medium">{label}</div>
                   </div>
                 ))}
                 <div className="col-span-2 bg-ink text-white rounded-2xl p-6 lg:p-7">
@@ -254,7 +254,7 @@ export default function InternationalMarket() {
             <div className="max-w-3xl mb-12">
               <span className="eyebrow">On the World Stage</span>
               <h2 className="section-title mb-5">International Gem <em>Exhibitions</em></h2>
-              <p className="text-ink-soft text-lg">
+              <p className="text-ink-soft text-sm">
                 Abeywardhane Gems proudly represents Sri Lanka at leading gem and jewellery exhibitions around the world. These events let us showcase Ceylon's finest stones and build lasting relationships with serious buyers from every continent.
               </p>
             </div>
@@ -280,7 +280,7 @@ export default function InternationalMarket() {
                 <span className="text-xs tracking-[0.35em] uppercase text-gold font-bold">Recognition</span>
               </div>
               <h2 className="section-title mb-5">Awards <em>& Honours</em></h2>
-              <p className="text-ink-soft text-lg">
+              <p className="text-ink-soft text-sm">
                 Years of dedication to ethical sourcing, quality, and international trade have earned us recognition from leading industry bodies — a reflection of the trust our partners place in us.
               </p>
             </div>
@@ -305,10 +305,10 @@ export default function InternationalMarket() {
                 <div className="text-xs tracking-[0.3em] uppercase text-gold font-bold mb-4">
                   Partner With Us
                 </div>
-                <h2 className="font-display text-4xl lg:text-5xl font-medium leading-tight mb-4">
+                <h2 className="font-display text-2xl lg:text-3xl font-medium leading-tight mb-3">
                   Looking for a trusted Sri Lankan gem partner?
                 </h2>
-                <p className="text-white/70 max-w-xl">
+                <p className="text-white/70 max-w-xl text-sm">
                   Whether you're a wholesaler, retailer or private collector, get in touch and we'll find the right stones for your market.
                 </p>
               </div>
@@ -317,7 +317,7 @@ export default function InternationalMarket() {
               <div className="flex flex-wrap gap-4 lg:justify-end">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-3 px-7 py-4 rounded-full font-semibold text-[0.92rem] bg-white text-ink hover:bg-cream transition-all"
+                  className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full font-semibold text-[0.82rem] bg-white text-ink hover:bg-cream transition-all"
                 >
                   Contact Us <ArrowRight size={16} strokeWidth={2.4} />
                 </Link>
@@ -325,7 +325,7 @@ export default function InternationalMarket() {
                   href={whatsappHref("Hi! I'm interested in your international gem trade services.")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-7 py-4 rounded-full font-semibold text-[0.92rem] border border-white/25 text-white hover:bg-white/10 transition-all"
+                  className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full font-semibold text-[0.82rem] border border-white/25 text-white hover:bg-white/10 transition-all"
                 >
                   Chat on WhatsApp
                 </a>
@@ -341,20 +341,20 @@ export default function InternationalMarket() {
 /* ---------- sub-components ---------- */
 
 function ProcessCard({ step, highlighted }) {
-  const base = 'h-full p-8 lg:p-10 border-b border-r border-line transition-colors';
+  const base = 'h-full p-6 lg:p-8 border-b border-r border-line transition-colors';
   const colour = highlighted
     ? 'bg-sapphire text-white border-sapphire'
     : 'bg-white text-ink hover:bg-cream';
 
   return (
     <div className={`${base} ${colour}`}>
-      <div className={`font-display text-5xl lg:text-6xl font-medium mb-6 ${highlighted ? 'text-white/90' : 'text-ink/70'}`}>
+      <div className={`font-display text-3xl lg:text-4xl font-medium mb-3 ${highlighted ? 'text-white/90' : 'text-ink/70'}`}>
         {step.num}
       </div>
-      <h3 className={`font-display text-2xl font-semibold mb-4 ${highlighted ? 'text-white' : 'text-ink'}`}>
+      <h3 className={`font-display text-lg font-semibold mb-2 ${highlighted ? 'text-white' : 'text-ink'}`}>
         {step.title}
       </h3>
-      <p className={`text-sm leading-relaxed ${highlighted ? 'text-white/85' : 'text-ink-soft'}`}>
+      <p className={`text-xs leading-relaxed ${highlighted ? 'text-white/85' : 'text-ink-soft'}`}>
         {step.body}
       </p>
     </div>
@@ -370,10 +370,10 @@ function ExhibitionCard({ src, label, filename, title, location, year }) {
           <Calendar size={12} />
           <span>{year}</span>
         </div>
-        <h3 className="font-display text-xl font-semibold text-ink leading-tight mb-1.5 group-hover:text-sapphire transition-colors">
+        <h3 className="font-display text-lg font-semibold text-ink leading-tight mb-1.5 group-hover:text-sapphire transition-colors">
           {title}
         </h3>
-        <div className="flex items-center gap-1.5 text-sm text-ink-soft">
+        <div className="flex items-center gap-1.5 text-xs text-ink-soft">
           <MapPin size={13} className="text-sapphire shrink-0" />
           <span>{location}</span>
         </div>
@@ -395,10 +395,10 @@ function AwardCard({ src, label, filename, title, issuer, year }) {
         <div className="text-xs tracking-[0.2em] uppercase text-gold font-bold mb-2">
           {year}
         </div>
-        <h3 className="font-display text-xl font-semibold text-ink leading-tight mb-2 group-hover:text-sapphire transition-colors">
+        <h3 className="font-display text-lg font-semibold text-ink leading-tight mb-2 group-hover:text-sapphire transition-colors">
           {title}
         </h3>
-        <p className="text-sm text-ink-soft">{issuer}</p>
+        <p className="text-xs text-ink-soft">{issuer}</p>
       </div>
     </article>
   );
