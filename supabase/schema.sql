@@ -1,5 +1,5 @@
 -- ============================================================
---  ABEYWARDANA GEMS — SUPABASE DATABASE SCHEMA
+--  ABEYWARDHANE GEMS — SUPABASE DATABASE SCHEMA
 -- ============================================================
 --  Run this file in: Supabase Dashboard → SQL Editor → New Query
 --
@@ -48,10 +48,10 @@ comment on table public.site_settings is 'Global config: phone, email, WhatsApp 
 
 -- Seed default settings
 insert into public.site_settings (key, value, description) values
-  ('site_name',           'Abeywardana Gems',                       'Business name'),
+  ('site_name',           'Abeywardhane Gems',                       'Business name'),
   ('phone',               '+94 74 030 4669',                        'Display phone number'),
   ('phone_raw',           '+94740304669',                           'Dialable phone (tel: link)'),
-  ('email',               'info@abeywardanagems.com',               'Contact email'),
+  ('email',               'info@abeywardhanegems.com',              'Contact email'),
   ('whatsapp_number',     '94740304669',                            'WhatsApp (no + or spaces)'),
   ('address',             'Sri Lanka',                              'Business address'),
   ('google_maps_embed',   '',                                       'Google Maps iframe embed URL'),

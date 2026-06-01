@@ -23,7 +23,7 @@ export default function Footer() {
         <div className="grid lg:grid-cols-[1.5fr_1fr_1fr_1.1fr] gap-12 mb-16">
           <div>
             <div className="font-display text-white text-3xl font-semibold mb-4">
-              Abeywardana <span className="italic text-frost">Gems</span>
+              Abeywardhane <span className="italic text-frost">Gems</span>
             </div>
             <p className="text-sm leading-relaxed mb-7 max-w-xs">
               Exposing Ceylon's finest gemstones to the world — curated, ethical and authentic, straight from the heart of Sri Lanka.
@@ -71,7 +71,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-7 flex flex-wrap items-center justify-between gap-4 text-xs">
-          <span>© {year} Abeywardana Gems. All rights reserved.</span>
+          <span>© {year} Abeywardhane Gems. All rights reserved.</span>
           <span className="hidden sm:block text-white/40">Crafted with care in Sri Lanka.</span>
           <button onClick={toTop} className="inline-flex items-center gap-2 text-white/70 hover:text-frost transition group">
             Back to top

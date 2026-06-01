@@ -18,7 +18,7 @@ export const navLinks = [
 export const contactInfo = {
   phone: '+94 74 030 4669',
   phoneRaw: '+94740304669',
-  email: 'info@abeywardanagems.com',
+  email: 'info@abeywardhanegems.com',
   whatsapp: import.meta.env.VITE_WHATSAPP_NUMBER || '94740304669',
   address: 'Kandy, Sri Lanka',
   mapEmbed: import.meta.env.VITE_GOOGLE_MAPS_EMBED ||

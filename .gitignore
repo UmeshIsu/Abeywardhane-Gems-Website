@@ -7,3 +7,10 @@ build/
 *.log
 .vscode/
 .idea/
+# Ignore package files, readmes, and upgrade notes
+package.json
+package-lock.json
+README.md
+readme.md
+UPGRADE_NOTES.md
+upgrade_notes.md

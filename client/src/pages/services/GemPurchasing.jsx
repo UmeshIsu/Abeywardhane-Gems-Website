@@ -65,7 +65,7 @@ export default function GemPurchasing() {
         eyebrow="Services"
         title="Gem Purchasing And Selling"
         breadcrumb={[
-          { label: 'Abeywardana Gems', to: '/' },
+          { label: 'Abeywardhane Gems', to: '/' },
           { label: 'Services', to: '/services' },
           { label: 'Marketing' },
           { label: 'Gem Purchasing and Selling' },
@@ -81,7 +81,7 @@ export default function GemPurchasing() {
                 A
               </div>
               <p className="text-lg lg:text-xl text-ink-soft leading-[1.75]">
-                <span className="font-display text-2xl text-ink">t Abeywardana Gems,</span> we pride ourselves on being a premier destination for both purchasing and selling high-quality gemstones. Our commitment to authenticity, transparency, and customer satisfaction has established us as a trusted name in the industry. Whether you're looking to acquire a unique gem for your collection or wish to sell a precious stone, we provide a seamless, professional experience tailored to your needs.
+                <span className="font-display text-2xl text-ink">t Abeywardhane Gems,</span> we pride ourselves on being a premier destination for both purchasing and selling high-quality gemstones. Our commitment to authenticity, transparency, and customer satisfaction has established us as a trusted name in the industry. Whether you're looking to acquire a unique gem for your collection or wish to sell a precious stone, we provide a seamless, professional experience tailored to your needs.
               </p>
             </div>
           </Reveal>

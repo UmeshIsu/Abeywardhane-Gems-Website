@@ -146,7 +146,7 @@ export default function InternationalMarket() {
         eyebrow="Services"
         title="Coordinating International Gem Market and Buyers"
         breadcrumb={[
-          { label: 'Abeywardana Gems', to: '/' },
+          { label: 'Abeywardhane Gems', to: '/' },
           { label: 'Services', to: '/services' },
           { label: 'Marketing' },
           { label: 'Coordinating International Gem Market and Buyers' },
@@ -238,7 +238,7 @@ export default function InternationalMarket() {
                     </div>
                   </div>
                   <p className="text-white/80 text-sm leading-relaxed">
-                    From Asia to Europe and North America, Abeywardana Gems is a trusted Sri Lankan partner for serious collectors and trade houses worldwide.
+                    From Asia to Europe and North America, Abeywardhane Gems is a trusted Sri Lankan partner for serious collectors and trade houses worldwide.
                   </p>
                 </div>
               </div>
@@ -255,7 +255,7 @@ export default function InternationalMarket() {
               <span className="eyebrow">On the World Stage</span>
               <h2 className="section-title mb-5">International Gem <em>Exhibitions</em></h2>
               <p className="text-ink-soft text-lg">
-                Abeywardana Gems proudly represents Sri Lanka at leading gem and jewellery exhibitions around the world. These events let us showcase Ceylon's finest stones and build lasting relationships with serious buyers from every continent.
+                Abeywardhane Gems proudly represents Sri Lanka at leading gem and jewellery exhibitions around the world. These events let us showcase Ceylon's finest stones and build lasting relationships with serious buyers from every continent.
               </p>
             </div>
           </Reveal>

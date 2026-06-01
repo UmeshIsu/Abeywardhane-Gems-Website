@@ -15,7 +15,7 @@ export const stats = [
   { value: 100, suffix: '%', label: 'Certified authenticity', sub: 'Independently graded' },
 ];
 
-/* Why international buyers choose Abeywardana */
+/* Why international buyers choose Abeywardhane */
 export const differentiators = [
   {
     icon: ShieldCheck,

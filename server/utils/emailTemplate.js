@@ -7,7 +7,7 @@ export function contactEmailTemplate({ name, email, phone, subject, message }) {
       <div style="max-width:600px;margin:0 auto;background:#fff;border-radius:14px;overflow:hidden;border:1px solid #e3e8f1;">
         <div style="background:#0b1530;color:#fff;padding:24px 28px;">
           <div style="font-size:13px;letter-spacing:.25em;text-transform:uppercase;color:#c9a14a;">New Contact Form Submission</div>
-          <h1 style="margin:6px 0 0;font-size:22px;font-family:Georgia,serif;">Abeywardana Gems</h1>
+          <h1 style="margin:6px 0 0;font-size:22px;font-family:Georgia,serif;">Abeywardhane Gems</h1>
         </div>
         <div style="padding:28px;">
           <p style="margin:0 0 18px;color:#354063;">You received a new message through your website contact form.</p>
@@ -23,7 +23,7 @@ export function contactEmailTemplate({ name, email, phone, subject, message }) {
           </div>
         </div>
         <div style="background:#f6f8fc;padding:16px 28px;font-size:12px;color:#6b7794;text-align:center;">
-          Sent from abeywardanagems.com · ${new Date().toLocaleString()}
+          Sent from abeywardhanegems.com · ${new Date().toLocaleString()}
         </div>
       </div>
     </body>

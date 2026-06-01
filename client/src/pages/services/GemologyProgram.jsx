@@ -145,7 +145,7 @@ export default function GemologyProgram() {
         eyebrow="Services"
         title="Organizing an Expose Visit and Internship Program on Gemology"
         breadcrumb={[
-          { label: 'Abeywardana Gems', to: '/' },
+          { label: 'Abeywardhane Gems', to: '/' },
           { label: 'Services', to: '/services' },
           { label: 'Education' },
           { label: 'Expose Visit & Internship Program on Gemology' },
@@ -244,7 +244,7 @@ export default function GemologyProgram() {
             <div className="flex flex-wrap items-end justify-between gap-6 mb-12 max-w-6xl">
               <div className="max-w-2xl">
                 <span className="eyebrow">Step Inside</span>
-                <h2 className="section-title mb-4">The <em>Abeywardana</em> Garden Mine</h2>
+                <h2 className="section-title mb-4">The <em>Abeywardhane</em> Garden Mine</h2>
                 <p className="text-ink-soft text-lg">
                   A few glimpses of what visitors actually see when they arrive at our site.
                 </p>

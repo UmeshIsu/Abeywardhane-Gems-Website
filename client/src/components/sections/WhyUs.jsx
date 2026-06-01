@@ -8,7 +8,7 @@ export default function WhyUs() {
       <div className="container-x">
         <div className="flex flex-wrap items-end justify-between gap-10 mb-16">
           <div className="max-w-2xl">
-            <Reveal><span className="eyebrow">Why Abeywardana</span></Reveal>
+            <Reveal><span className="eyebrow">Why Abeywardhane</span></Reveal>
             <Reveal delay={0.1}>
               <h2 className="section-title">
                 A partner the world's finest<br />buyers <em>trust</em>.

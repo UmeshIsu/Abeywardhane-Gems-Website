@@ -13,7 +13,7 @@ export default function Gallery() {
       <PageHeader
         eyebrow="Our Latest"
         title="Gem Collection"
-        breadcrumb={[{ label: 'Abeywardana Gems', to: '/' }, { label: 'Gallery' }]}
+        breadcrumb={[{ label: 'Abeywardhane Gems', to: '/' }, { label: 'Gallery' }]}
       />
 
       <section className="py-20 bg-white">

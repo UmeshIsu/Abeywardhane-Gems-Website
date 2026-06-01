@@ -18,7 +18,7 @@ export async function submitContact(req, res, next) {
     const transporter = getTransporter();
 
     const info = await transporter.sendMail({
-      from: `"Abeywardana Gems Website" <${process.env.EMAIL_USER}>`,
+      from: `"Abeywardhane Gems Website" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_TO || process.env.EMAIL_USER,
       replyTo: email,
       subject: subject

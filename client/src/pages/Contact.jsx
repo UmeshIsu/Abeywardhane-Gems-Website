@@ -38,7 +38,7 @@ export default function Contact() {
       <PageHeader
         eyebrow="Get in Touch"
         title="Contact Us"
-        breadcrumb={[{ label: 'Abeywardana Gems', to: '/' }, { label: 'Contact' }]}
+        breadcrumb={[{ label: 'Abeywardhane Gems', to: '/' }, { label: 'Contact' }]}
       />
 
       <section className="py-20 bg-white">
@@ -122,7 +122,7 @@ export default function Contact() {
           <Reveal>
             <div className="rounded-3xl overflow-hidden shadow-deep aspect-[16/9] lg:aspect-[21/9] border border-line">
               <iframe
-                title="Abeywardana Gems location"
+                title="Abeywardhane Gems location"
                 src={contactInfo.mapEmbed}
                 width="100%"
                 height="100%"

@@ -20,7 +20,7 @@ export default function Blog() {
       <PageHeader
         eyebrow="Read the Latest"
         title="News & Stories"
-        breadcrumb={[{ label: 'Abeywardana Gems', to: '/' }, { label: 'Blog' }]}
+        breadcrumb={[{ label: 'Abeywardhane Gems', to: '/' }, { label: 'Blog' }]}
       />
 
       <section className="py-20 bg-white">

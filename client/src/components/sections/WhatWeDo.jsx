@@ -45,7 +45,7 @@ export default function WhatWeDo() {
             </Reveal>
             <Reveal delay={0.2}>
               <p className="text-[1.1rem] text-ink-soft max-w-xl mb-8">
-                We are Abeywardana Gems — exposing Ceylon's gems to the global market, arranging immersive gem tourism in Sri Lanka, designing bespoke jewellery on request, and championing the very best value for every Ceylon stone we touch.
+                We are Abeywardhane Gems — exposing Ceylon's gems to the global market, arranging immersive gem tourism in Sri Lanka, designing bespoke jewellery on request, and championing the very best value for every Ceylon stone we touch.
               </p>
             </Reveal>
             <Reveal delay={0.3}>

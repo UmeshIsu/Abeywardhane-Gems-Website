@@ -11,7 +11,7 @@ export default function Services() {
       <PageHeader
         eyebrow="What We Offer"
         title="Our Services"
-        breadcrumb={[{ label: 'Abeywardana Gems', to: '/' }, { label: 'Services' }]}
+        breadcrumb={[{ label: 'Abeywardhane Gems', to: '/' }, { label: 'Services' }]}
       />
 
       <section className="py-24 bg-white">

@@ -105,7 +105,7 @@ export default function GemTourism() {
         eyebrow="Services"
         title="Organizing and Facilitating Gem Tourism"
         breadcrumb={[
-          { label: 'Abeywardana Gems', to: '/' },
+          { label: 'Abeywardhane Gems', to: '/' },
           { label: 'Services', to: '/services' },
           { label: 'Tourism' },
           { label: 'Organizing and Facilitating Gem Tourism' },
@@ -131,7 +131,7 @@ export default function GemTourism() {
           <Reveal delay={0.1}>
             <div className="grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-start">
               <div className="space-y-5 text-ink-soft text-lg leading-[1.8] max-w-2xl">
-                <p>When you register for a gem tour with Abeywardana Gems, you{'\u2019'}re not just booking a visit to a mine {'\u2014'} you{'\u2019'}re stepping into a fully guided, fully hosted experience. From the moment you land at Bandaranaike Airport to the last day of your trip, we take care of <span className="font-semibold text-ink">transport, accommodation, meals, and every purchasing arrangement</span>.</p>
+                <p>When you register for a gem tour with Abeywardhane Gems, you{'\u2019'}re not just booking a visit to a mine {'\u2014'} you{'\u2019'}re stepping into a fully guided, fully hosted experience. From the moment you land at Bandaranaike Airport to the last day of your trip, we take care of <span className="font-semibold text-ink">transport, accommodation, meals, and every purchasing arrangement</span>.</p>
                 <p>We walk you through our garden mines, sit with you at the cutting workshop, take you to the gem markets of Beruwala and Ratnapura, and make sure every stone you buy is certified and fairly priced. If you want to explore the rest of Sri Lanka {'\u2014'} Sigiriya, Kandy, Galle, the tea hills {'\u2014'} we{'\u2019'}ll arrange that too.</p>
                 <p>This isn{'\u2019'}t a package tour sold from a brochure. It{'\u2019'}s a personal relationship, built one visit at a time.</p>
               </div>

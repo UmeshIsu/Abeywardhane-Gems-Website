@@ -10,7 +10,7 @@ export default function BrandLogo({ className = '' }) {
         </svg>
       </span>
       <span>
-        Abeywardana <em className="not-italic text-gold" style={{ fontStyle: 'italic' }}>Gems</em>
+        Abeywardhane <em className="not-italic text-gold" style={{ fontStyle: 'italic' }}>Gems</em>
       </span>
     </Link>
   );
