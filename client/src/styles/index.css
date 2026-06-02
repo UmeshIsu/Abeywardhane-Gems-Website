@@ -112,40 +112,6 @@
   }
 }
 
-/* Hero gemstone 3D rotation */
-.hero-gem-rotate {
-  animation: gemSpin 12s linear infinite;
-  transform-style: preserve-3d;
-  will-change: transform;
-}
-
-@keyframes gemSpin {
-  0% {
-    transform: rotateY(0deg);
-    filter: brightness(1) drop-shadow(0 20px 60px rgba(37, 99, 235, 0.35));
-  }
-  25% {
-    filter: brightness(1.12) drop-shadow(0 20px 70px rgba(37, 99, 235, 0.45));
-  }
-  50% {
-    transform: rotateY(180deg);
-    filter: brightness(1) drop-shadow(0 20px 60px rgba(37, 99, 235, 0.35));
-  }
-  75% {
-    filter: brightness(1.08) drop-shadow(0 20px 70px rgba(37, 99, 235, 0.4));
-  }
-  100% {
-    transform: rotateY(360deg);
-    filter: brightness(1) drop-shadow(0 20px 60px rgba(37, 99, 235, 0.35));
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-gem-rotate {
-    animation: none;
-  }
-}
-
 /* Typing caret */
 .typed-caret {
   display: inline-block;

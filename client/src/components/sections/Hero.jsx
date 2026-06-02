@@ -3,7 +3,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { heroSlides } from '@/data/heroSlides';
-import gemVideo from '@/assets/Object_rotating_360_degrees_202606011636.mp4';
+import GemStage from '@/components/ui/GemStage';
 
 const TYPE_SPEED = 55;
 const TYPE_START_DELAY = 250;
@@ -13,6 +13,16 @@ export default function Hero() {
   const [current, setCurrent] = useState(0);
   const [typingComplete, setTypingComplete] = useState(false);
   const timerRef = useRef(null);
+
+  // Preload every slide photo so the crossfade never waits on a decode
+  useEffect(() => {
+    heroSlides.forEach((s) => {
+      if (s.bgImage) {
+        const img = new Image();
+        img.src = s.bgImage;
+      }
+    });
+  }, []);
 
   useEffect(() => {
     if (!typingComplete) return;
@@ -45,7 +55,63 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative z-10 container-x pt-28 pb-0 lg:pt-32 lg:pb-0 lg:min-h-0 lg:flex lg:flex-col lg:justify-center" style={{ minHeight: 'min(75vh, 680px)' }}>
+      {/* Full-bleed per-slide photo — sits behind BOTH columns so the
+          gems share the same backdrop as the copy (no column seam).
+          Crossfades in sync with the slide timer. */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <AnimatePresence>
+          <motion.div
+            key={slide.bgImage}
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url(${slide.bgImage})`,
+              backgroundSize: slide.bgSize || 'cover',
+              backgroundPosition: slide.bgPosition || 'center center',
+              backgroundRepeat: 'no-repeat',
+              willChange: 'opacity, transform',
+              transform: 'translateZ(0)',
+            }}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 0.4, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{
+              opacity: { duration: 1.1, ease: [0.4, 0, 0.2, 1] },
+              scale: { duration: 7, ease: 'linear' },
+            }}
+          />
+        </AnimatePresence>
+
+        {/* DESKTOP washes (two-column blend) */}
+        {/* Horizontal: strong over the copy, light across the middle and
+            gems, gently lifting again at the far edge. */}
+        <div
+          className="absolute inset-0 hidden lg:block"
+          style={{
+            background:
+              'linear-gradient(90deg, rgba(248,250,253,0.9) 0%, rgba(248,250,253,0.55) 34%, rgba(248,250,253,0.32) 62%, rgba(248,250,253,0.55) 100%)',
+          }}
+        />
+        {/* Vertical vignette: melts into the navbar above and the pager below */}
+        <div
+          className="absolute inset-0 hidden lg:block"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(248,250,253,0.7) 0%, rgba(248,250,253,0) 16%, rgba(248,250,253,0) 70%, rgba(248,250,253,0.95) 100%)',
+          }}
+        />
+
+        {/* MOBILE wash (stacked layout): keep the copy crisp up top, let the
+            photo show through the middle, fade into the pager below. */}
+        <div
+          className="absolute inset-0 lg:hidden"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(248,250,253,0.93) 0%, rgba(248,250,253,0.7) 26%, rgba(248,250,253,0.4) 52%, rgba(248,250,253,0.42) 78%, rgba(248,250,253,0.96) 100%)',
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 container-x pt-20 pb-0 lg:pt-24 lg:pb-0 lg:min-h-0 lg:flex lg:flex-col lg:justify-center" style={{ minHeight: 'min(58vh, 520px)' }}>
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-24 items-center w-full flex-1">
           {/* Text column */}
           <div className="relative">
@@ -54,15 +120,15 @@ export default function Hero() {
             </AnimatePresence>
           </div>
 
-          {/* Visual column: 3D gem + framed slide photo */}
+          {/* Visual column: rotating 3D gemstone cluster */}
           <div className="relative">
-            <HeroVisual slide={slide} slideKey={current} />
+            <HeroVisual />
           </div>
         </div>
       </div>
 
       {/* Premium 4-up pager — now in normal flow at the bottom */}
-      <div className="relative z-20 container-x mt-12">
+      <div className="relative z-20 container-x mt-6">
         <div className="grid grid-cols-2 md:grid-cols-4 rounded-t-2xl overflow-hidden border-t border-line/80">
           {heroSlides.map((s, i) => {
             const active = i === current;
@@ -165,193 +231,23 @@ function SlideText({ slide, onTypingComplete }) {
   );
 }
 
-function HeroVisual({ slide, slideKey }) {
+function HeroVisual() {
   const reduce = useReducedMotion();
   return (
-    <div className="relative mx-auto w-full max-w-[480px] aspect-square lg:aspect-auto lg:max-h-[min(50vh,400px)] flex items-center justify-center">
-      {/* Rotating sapphire gemstone video */}
-      <div className="relative w-full max-w-[520px]" style={{ perspective: '1200px' }}>
+    <div className="relative mx-auto w-full max-w-[620px] aspect-square lg:aspect-auto lg:max-h-[min(66vh,580px)] flex items-center justify-center">
+      {/* Rotating gemstone cluster — real-time 3D models (no video).
+          Outer wrapper handles desktop placement (down + left); the inner
+          motion layer owns the float so its inline transform doesn't
+          clash with the positioning. */}
+      <div className="relative w-full max-w-[600px] aspect-square lg:translate-y-[22%] lg:-translate-x-[10%]">
         <motion.div
-          animate={reduce ? {} : { y: [0, -14, 0] }}
-          transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute inset-0"
+          animate={reduce ? {} : { y: [0, -12, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <ChromaKeyVideo
-            src={gemVideo}
-            className="w-full h-auto select-none pointer-events-none"
-            cropBottom={0.15}
-          />
+          <GemStage className="absolute inset-0" />
         </motion.div>
       </div>
-
-      {/* Framed slide photo (preserves the original imagery / content) */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={slideKey}
-          initial={{ opacity: 0, y: 24, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: -16 }}
-          transition={{ duration: 0.7, ease: [0.2, 0.7, 0.2, 1] }}
-          className="absolute -bottom-3 -left-10 sm:-left-28 w-[42%] max-w-[180px] aspect-[3/4] rounded-xl overflow-hidden shadow-deep ring-3 ring-white/90"
-        >
-          <motion.img
-            src={slide.image}
-            alt={slide.tag}
-            loading="eager"
-            initial={{ scale: 1 }}
-            animate={reduce ? { scale: 1 } : { scale: 1.1 }}
-            transition={{ duration: 9, ease: 'linear' }}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute bottom-2 left-2 right-2 inline-flex items-center gap-1.5 glass px-2.5 py-1.5 rounded-full text-[0.55rem] font-bold tracking-[0.1em] uppercase text-ink">
-            <span className="w-1.5 h-1.5 rounded-full bg-sapphire ring-4 ring-sapphire/20" />
-            {slide.tag}
-          </div>
-        </motion.div>
-      </AnimatePresence>
-
-    </div>
-  );
-}
-
-/* ---- Chroma-key (green screen removal) video player ---- */
-
-function ChromaKeyVideo({ src, className = '', cropBottom = 0 }) {
-  const videoRef = useRef(null);
-  const canvasRef = useRef(null);
-  const rafRef = useRef(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    const canvas = canvasRef.current;
-    if (!video || !canvas) return;
-
-    const ctx = canvas.getContext('2d', { willReadFrequently: true });
-
-    const processFrame = () => {
-      if (video.paused || video.ended) {
-        rafRef.current = requestAnimationFrame(processFrame);
-        return;
-      }
-
-      const vw = video.videoWidth;
-      const vh = video.videoHeight;
-      if (!vw || !vh) {
-        rafRef.current = requestAnimationFrame(processFrame);
-        return;
-      }
-
-      // Crop bottom portion to remove watermark
-      const cropH = Math.floor(vh * (1 - cropBottom));
-
-      if (canvas.width !== vw || canvas.height !== cropH) {
-        canvas.width = vw;
-        canvas.height = cropH;
-      }
-
-      // Draw only the top portion (excluding bottom crop)
-      ctx.drawImage(video, 0, 0, vw, cropH, 0, 0, vw, cropH);
-
-      const frame = ctx.getImageData(0, 0, vw, cropH);
-      const data = frame.data;
-
-      for (let i = 0; i < data.length; i += 4) {
-        const r = data[i];
-        const g = data[i + 1];
-        const b = data[i + 2];
-
-        // Convert RGB to HSL for reliable green detection across all brightness levels
-        const rn = r / 255;
-        const gn = g / 255;
-        const bn = b / 255;
-        const max = Math.max(rn, gn, bn);
-        const min = Math.min(rn, gn, bn);
-        const delta = max - min;
-        const lightness = (max + min) / 2;
-
-        let hue = 0;
-        let saturation = 0;
-
-        if (delta > 0) {
-          saturation = delta / (1 - Math.abs(2 * lightness - 1));
-          if (max === gn) {
-            hue = 60 * (((bn - rn) / delta) % 6);
-          } else if (max === rn) {
-            hue = 60 * (((gn - bn) / delta) % 6);
-          } else {
-            hue = 60 * (((rn - gn) / delta) + 4);
-          }
-          if (hue < 0) hue += 360;
-        }
-
-        // Green hue range: ~60° to ~170° covers all greens
-        const isGreenHue = hue >= 55 && hue <= 175;
-
-        if (isGreenHue && saturation > 0.15) {
-          data[i + 3] = 0;
-        } else if (isGreenHue && saturation > 0.05) {
-          const alpha = Math.max(0, Math.min(255, ((0.15 - saturation) / 0.10) * 255));
-          data[i + 3] = alpha;
-          data[i + 1] = Math.min(g, Math.max(r, b) + 5);
-        } else {
-          const greenExcess = g - Math.max(r, b);
-          if (greenExcess > 15) {
-            data[i + 3] = 0;
-          } else if (greenExcess > 5) {
-            const alpha = Math.max(0, Math.min(255, 255 - ((greenExcess - 5) / 10) * 255));
-            data[i + 3] = alpha;
-            data[i + 1] = Math.min(g, Math.max(r, b) + 5);
-          }
-        }
-      }
-
-      ctx.putImageData(frame, 0, 0);
-      rafRef.current = requestAnimationFrame(processFrame);
-    };
-
-    const handlePlay = () => {
-      rafRef.current = requestAnimationFrame(processFrame);
-    };
-
-    const startVideo = () => {
-      video.play().catch(() => { });
-    };
-
-    video.addEventListener('play', handlePlay);
-    video.addEventListener('loadeddata', startVideo);
-    video.addEventListener('canplay', startVideo);
-
-    // Try to play immediately in case already loaded
-    if (video.readyState >= 2) {
-      video.play().catch(() => { });
-    }
-    if (!video.paused) {
-      rafRef.current = requestAnimationFrame(processFrame);
-    }
-
-    return () => {
-      video.removeEventListener('play', handlePlay);
-      video.removeEventListener('loadeddata', startVideo);
-      video.removeEventListener('canplay', startVideo);
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    };
-  }, [cropBottom]);
-
-  return (
-    <div className={className} style={{ position: 'relative' }}>
-      <video
-        ref={videoRef}
-        src={src}
-        autoPlay
-        loop
-        muted
-        playsInline
-        crossOrigin="anonymous"
-        style={{ position: 'absolute', width: '1px', height: '1px', opacity: 0, pointerEvents: 'none', overflow: 'hidden' }}
-      />
-      <canvas
-        ref={canvasRef}
-        style={{ width: '100%', height: 'auto', display: 'block', imageRendering: 'auto' }}
-      />
     </div>
   );
 }

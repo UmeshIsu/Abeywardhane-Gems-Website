@@ -64,7 +64,7 @@ export default function GemStage({ className = '' }) {
     <div className={`relative ${className}`}>
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(closest-side, rgba(37,99,235,0.16), transparent 72%)' }}
+        style={{ background: 'radial-gradient(60% 50% at 50% 40%, rgba(37,99,235,0.16), transparent 72%)' }}
       />
       {enabled ? (
         <GemErrorBoundary>
