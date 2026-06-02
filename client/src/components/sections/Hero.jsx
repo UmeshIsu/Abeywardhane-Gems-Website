@@ -239,7 +239,7 @@ function HeroVisual() {
           Outer wrapper handles desktop placement (down + left); the inner
           motion layer owns the float so its inline transform doesn't
           clash with the positioning. */}
-      <div className="relative w-full max-w-[600px] aspect-square lg:translate-y-[22%] lg:-translate-x-[10%]">
+      <div className="relative w-full max-w-[600px] aspect-square lg:w-[122%] lg:max-w-none lg:translate-y-[32%] lg:-translate-x-[14%]">
         <motion.div
           className="absolute inset-0"
           animate={reduce ? {} : { y: [0, -12, 0] }}

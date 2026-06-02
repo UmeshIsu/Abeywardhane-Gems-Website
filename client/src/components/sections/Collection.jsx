@@ -38,7 +38,7 @@ export default function Collection() {
 
 function GemCard({ gem }) {
   return (
-    <div className="group relative aspect-[3/4] rounded-2xl overflow-hidden shadow-soft hover:shadow-deep transition-all duration-500 hover:-translate-y-1.5 cursor-pointer">
+    <div className="group relative aspect-[4/4] rounded-2xl overflow-hidden shadow-soft hover:shadow-deep transition-all duration-500 hover:-translate-y-1.5 cursor-pointer">
       <div
         className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
         style={{ backgroundImage: `url(${gem.image})` }}

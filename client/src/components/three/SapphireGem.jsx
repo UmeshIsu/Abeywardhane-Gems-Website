@@ -277,7 +277,7 @@ export default function SapphireGem() {
   return (
     <Canvas
       dpr={[1, 1.6]}
-      camera={{ position: [0, 0.25, 5], fov: 50 }}
+      camera={{ position: [0, 0.25, 5], fov: 54 }}
       gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
       style={{ background: 'transparent' }}
     >
@@ -285,43 +285,17 @@ export default function SapphireGem() {
 
       {/* Whole cluster (screen placement handled in CSS) */}
       <group position={[0, 0, 0]}>
-        {/* Soft contact shadows beneath each stone */}
-        <ContactShadow texture={shadowTex} position={[0, -1.95, 0]} width={3.1} height={0.85} />
-        <ContactShadow texture={shadowTex} position={[-2.68, -1.4, -0.74]} width={1.6} height={0.5} />
-        <ContactShadow texture={shadowTex} position={[2.98, -0.62, -0.74]} width={1.6} height={0.5} />
+        {/* Soft contact shadow beneath the stone */}
+        <ContactShadow texture={shadowTex} position={[0, -2.35, 0]} width={3.8} height={1.0} />
 
-        {/* Centre — large royal-blue Ceylon sapphire (the hero stone) */}
+        {/* Single large royal-blue Ceylon sapphire (the hero stone) */}
         <Gem
           geo={geo}
           palette={PALETTES.sapphire}
-          scale={2.05}
+          scale={2.55}
           position={[0, 0, 0]}
           spin={0.5}
           parallax
-          reducedMotion={reducedMotion}
-        />
-
-        {/* Left — royal-blue sapphire */}
-        <Gem
-          geo={geo}
-          palette={PALETTES.sapphire}
-          scale={1.0}
-          position={[-2.68, -0.34, -0.74]}
-          tilt={[0.22, 0, -0.12]}
-          spin={-0.42}
-          phase={1.6}
-          reducedMotion={reducedMotion}
-        />
-
-        {/* Right — royal-blue sapphire */}
-        <Gem
-          geo={geo}
-          palette={PALETTES.sapphire}
-          scale={1.0}
-          position={[2.98, 0.44, -0.74]}
-          tilt={[0.14, 0, 0.14]}
-          spin={0.46}
-          phase={3.4}
           reducedMotion={reducedMotion}
         />
 
