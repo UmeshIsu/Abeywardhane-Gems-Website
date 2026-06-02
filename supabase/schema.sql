@@ -24,14 +24,39 @@ create extension if not exists "uuid-ossp";
 -- ────────────────────────────────────────────────────────────
 create table public.admin_profiles (
   id          uuid primary key references auth.users(id) on delete cascade,
-  full_name   text not null,
-  role        text not null default 'editor' check (role in ('owner', 'editor')),
+  full_name   text,
+  email       text,                                     -- synchronized from auth.users
+  role        text not null default 'editor' check (role in ('super_admin', 'admin', 'editor')),
   avatar_url  text,
   created_at  timestamptz not null default now(),
   updated_at  timestamptz not null default now()
 );
 
 comment on table public.admin_profiles is 'Extended profile for admin users (linked to Supabase Auth)';
+
+-- Automatic user sync trigger from auth.users to public.admin_profiles
+create or replace function public.handle_new_auth_user()
+returns trigger as $$
+begin
+  insert into public.admin_profiles (id, full_name, email, role, avatar_url)
+  values (
+    new.id,
+    coalesce(new.raw_user_meta_data->>'full_name', ''),
+    new.email,
+    'editor', -- default role
+    new.raw_user_meta_data->>'avatar_url'
+  )
+  on conflict (id) do update
+  set
+    email = excluded.email,
+    full_name = coalesce(nullif(excluded.full_name, ''), public.admin_profiles.full_name);
+  return new;
+end;
+$$ language plpgsql security definer;
+
+create or replace trigger on_auth_user_created
+  after insert on auth.users
+  for each row execute function public.handle_new_auth_user();
 
 
 -- ────────────────────────────────────────────────────────────
@@ -53,7 +78,7 @@ insert into public.site_settings (key, value, description) values
   ('phone_raw',           '+94740304669',                           'Dialable phone (tel: link)'),
   ('email',               'info@abeywardhanegems.com',              'Contact email'),
   ('whatsapp_number',     '94740304669',                            'WhatsApp (no + or spaces)'),
-  ('address',             'Sri Lanka',                              'Business address'),
+  ('address',             '142/A, Gem Land, Ratnapura, Sri Lanka',  'Business address'),
   ('google_maps_embed',   '',                                       'Google Maps iframe embed URL'),
   ('facebook_url',        '',                                       'Facebook page URL'),
   ('instagram_url',       '',                                       'Instagram profile URL'),
@@ -433,6 +458,51 @@ create index idx_awards_order on public.awards (sort_order) where is_published =
 comment on table public.awards is 'Awards and industry recognition received';
 
 
+-- ────────────────────────────────────────────────────────────
+-- 15. EVENTS
+-- ────────────────────────────────────────────────────────────
+create table public.events (
+  id                uuid primary key default uuid_generate_v4(),
+  name              text not null,
+  slug              text unique,
+  description       text,
+  event_date        date,
+  venue             text,
+  country           text,
+  banner_url        text,
+  banner_public_id  text,
+  status            text default 'upcoming' check (status in ('upcoming', 'completed', 'cancelled')),
+  is_published      boolean not null default true,
+  sort_order        int not null default 0,
+  created_at        timestamptz not null default now(),
+  updated_at        timestamptz not null default now()
+);
+
+create index idx_events_order on public.events (sort_order) where is_published = true;
+
+comment on table public.events is 'Events (separate from exhibitions)';
+
+
+-- ────────────────────────────────────────────────────────────
+-- 16. ACTIVITY LOGS
+-- ────────────────────────────────────────────────────────────
+create table public.activity_logs (
+  id              uuid primary key default uuid_generate_v4(),
+  user_id         uuid references auth.users(id) on delete set null,
+  action          text not null, -- create, update, delete, login, logout
+  entity_type     text, -- blog, gem, gallery, etc.
+  entity_id       uuid,
+  entity_title    text,
+  details         jsonb,
+  created_at      timestamptz not null default now()
+);
+
+create index idx_activity_logs_user on public.activity_logs (user_id);
+create index idx_activity_logs_created on public.activity_logs (created_at desc);
+
+comment on table public.activity_logs is 'Audit trail of administrative actions';
+
+
 -- ════════════════════════════════════════════════════════════
 -- AUTO-UPDATE TIMESTAMPS
 -- ════════════════════════════════════════════════════════════
@@ -456,7 +526,7 @@ begin
   foreach tbl in array array[
     'admin_profiles', 'site_settings', 'hero_slides', 'gems',
     'services', 'blog_posts', 'contact_submissions',
-    'tour_registrations'
+    'tour_registrations', 'events'
   ] loop
     execute format(
       'create trigger set_updated_at before update on public.%I
@@ -481,7 +551,8 @@ begin
     'admin_profiles', 'site_settings', 'hero_slides', 'gems',
     'gem_images', 'services', 'service_images', 'blog_categories',
     'blog_posts', 'gallery_images', 'contact_submissions',
-    'tour_registrations', 'testimonials', 'exhibitions', 'awards'
+    'tour_registrations', 'testimonials', 'exhibitions', 'awards',
+    'events', 'activity_logs'
   ] loop
     execute format('alter table public.%I enable row level security', tbl);
   end loop;
@@ -497,7 +568,7 @@ begin
   foreach tbl in array array[
     'site_settings', 'hero_slides', 'gems', 'gem_images',
     'services', 'service_images', 'blog_categories', 'blog_posts',
-    'gallery_images', 'testimonials', 'exhibitions', 'awards'
+    'gallery_images', 'testimonials', 'exhibitions', 'awards', 'events'
   ] loop
     execute format(
       'create policy "Public read %1$s" on public.%1$I
@@ -517,7 +588,8 @@ begin
   foreach tbl in array array[
     'admin_profiles', 'site_settings', 'hero_slides', 'gems',
     'gem_images', 'services', 'service_images', 'blog_categories',
-    'blog_posts', 'gallery_images', 'testimonials', 'exhibitions', 'awards'
+    'blog_posts', 'gallery_images', 'testimonials', 'exhibitions', 'awards',
+    'events'
   ] loop
     execute format(
       'create policy "Admin insert %1$s" on public.%1$I
@@ -585,6 +657,17 @@ create policy "Users read own profile"
   on public.admin_profiles
   for select
   using (auth.uid() = id);
+
+-- ── ACTIVITY LOGS: only admin can read/insert ──
+create policy "Admin read activity logs"
+  on public.activity_logs
+  for select
+  using (auth.role() = 'authenticated');
+
+create policy "Admin insert activity logs"
+  on public.activity_logs
+  for insert
+  with check (auth.role() = 'authenticated');
 
 
 -- ════════════════════════════════════════════════════════════
