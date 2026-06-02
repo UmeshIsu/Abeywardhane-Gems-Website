@@ -3,6 +3,33 @@ import { blogsApi } from '@/lib/api';
 import PageHeader from '@/components/layout/PageHeader';
 import Reveal from '@/components/ui/Reveal';
 
+const staticBlogs = [
+  {
+    slug: "ceylon-blue-sapphires",
+    title: "Ceylon Blue Sapphires: The Story Behind the Stone",
+    excerpt: "From the riverbeds of Ratnapura to the world's finest jewellery houses — discover what makes Ceylon blue sapphires the most sought-after gems on the planet.",
+    category: "Gems",
+    date: "April 08, 2023",
+    image: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=1200&q=80"
+  },
+  {
+    slug: "why-ceylon-gems",
+    title: "Why These Gorgeous Gemstones From Sri Lanka Captivate Collectors",
+    excerpt: "Sri Lanka — known as Ratna-Dweepa or 'Gem Island' — has produced extraordinary gemstones for centuries. Here's why connoisseurs keep coming back.",
+    category: "Gem Tourism",
+    date: "April 08, 2023",
+    image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1200&q=80"
+  },
+  {
+    slug: "custom-design-process",
+    title: "From Sketch to Heirloom: Our Custom Jewellery Design Process",
+    excerpt: "A behind-the-scenes look at how we turn an idea into a finished piece of jewellery — and why the gemstone always leads the design.",
+    category: "Jewellery",
+    date: "March 22, 2023",
+    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=1200&q=80"
+  }
+];
+
 export default function Blog() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -10,8 +37,17 @@ export default function Blog() {
   useEffect(() => {
     blogsApi
       .list()
-      .then((data) => setPosts(data))
-      .catch(() => setPosts([]))
+      .then((data) => {
+        if (data && data.length > 0) {
+          setPosts(data);
+        } else {
+          setPosts(staticBlogs);
+        }
+      })
+      .catch((err) => {
+        console.warn('Failed to fetch dynamic blog posts, using fallback static data:', err);
+        setPosts(staticBlogs);
+      })
       .finally(() => setLoading(false));
   }, []);
 

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -13,6 +14,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import ImagePlaceholder from '@/components/ui/ImagePlaceholder';
 import Reveal from '@/components/ui/Reveal';
 import { whatsappHref } from '@/lib/whatsapp';
+import { exhibitionsApi, awardsApi } from '@/lib/api';
 
 /* =========================================================
  *  ✏️  HOW TO ADD YOUR OWN PHOTOS
@@ -47,7 +49,7 @@ import { whatsappHref } from '@/lib/whatsapp';
 // import award3 from '@/assets/images/services/international-market/awards/award-3.jpg';
 
 /* ---------- Data: edit dates/locations/titles freely ---------- */
-const exhibitions = [
+const staticExhibitions = [
   {
     label: 'Exhibition photo',
     filename: 'exhibition-1.jpg',
@@ -82,7 +84,7 @@ const exhibitions = [
   },
 ];
 
-const awards = [
+const staticAwards = [
   {
     label: 'Award photo',
     filename: 'award-1.jpg',
@@ -140,6 +142,23 @@ const reachStats = [
 ];
 
 export default function InternationalMarket() {
+  const [exhibitions, setExhibitions] = useState(staticExhibitions);
+  const [awards, setAwards] = useState(staticAwards);
+
+  useEffect(() => {
+    exhibitionsApi.list()
+      .then(data => {
+        if (data && data.length > 0) setExhibitions(data);
+      })
+      .catch(err => console.warn('Failed to load dynamic exhibitions, falling back to static:', err));
+
+    awardsApi.list()
+      .then(data => {
+        if (data && data.length > 0) setAwards(data);
+      })
+      .catch(err => console.warn('Failed to load dynamic awards, falling back to static:', err));
+  }, []);
+
   return (
     <>
       <PageHeader
