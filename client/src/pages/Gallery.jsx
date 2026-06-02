@@ -10,14 +10,12 @@ export default function Gallery() {
   const [active, setActive] = useState('All');
 
   useEffect(() => {
+    // The curated gem collection (Precious / Semi-Precious / Rare) ships in the
+    // code and always shows in the gallery. DB-synced images (Exhibitions, etc.)
+    // are merged in on top.
     galleryApi.list()
       .then(data => {
-        if (data && data.length > 0) {
-          setImages(data);
-        } else {
-          // Fallback if DB is empty
-          setImages(gems);
-        }
+        setImages([...gems, ...(data || [])]);
       })
       .catch((err) => {
         console.error('Failed to load gallery images from Supabase, falling back to static data:', err);

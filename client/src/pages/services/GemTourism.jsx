@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -147,9 +148,7 @@ export default function GemTourism() {
       <section className="py-20 lg:py-24 bg-cream">
         <div className="container-x">
           <Reveal><div className="max-w-3xl mb-14"><span className="eyebrow">How It Works</span><h2 className="section-title">Four steps from <em>registration</em> to gems in hand.</h2></div></Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-line">
-            {howItWorks.map((step, i) => (<Reveal key={step.num} delay={i * 0.08}><StepCard step={step} highlighted={i === 0} /></Reveal>))}
-          </div>
+          <HowItWorksSteps />
         </div>
       </section>
 
@@ -281,16 +280,35 @@ export default function GemTourism() {
   );
 }
 
-function StepCard({ step, highlighted }) {
-  const { icon: Icon } = step;
-  const base = 'h-full p-6 lg:p-8 border-b border-r border-line transition-colors';
-  const colour = highlighted ? 'bg-sapphire text-white border-sapphire' : 'bg-white text-ink hover:bg-cream';
+function HowItWorksSteps() {
+  // Blue highlight follows the hovered card; defaults to the first and snaps
+  // back to it when the pointer leaves the row.
+  const [active, setActive] = useState(0);
+
   return (
-    <div className={`${base} ${colour}`}>
-      <div className={`w-10 h-10 rounded-xl mb-4 grid place-items-center ${highlighted ? 'bg-white/15 text-white' : 'bg-sapphire-light text-sapphire'}`}><Icon size={20} strokeWidth={1.8} /></div>
-      <div className={`font-display text-3xl lg:text-4xl font-medium mb-3 ${highlighted ? 'text-white/90' : 'text-ink/70'}`}>{step.num}</div>
-      <h3 className={`font-display text-lg font-semibold mb-2 ${highlighted ? 'text-white' : 'text-ink'}`}>{step.title}</h3>
-      <p className={`text-xs leading-relaxed ${highlighted ? 'text-white/85' : 'text-ink-soft'}`}>{step.text}</p>
+    <div
+      className="grid sm:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-line"
+      onMouseLeave={() => setActive(0)}
+    >
+      {howItWorks.map((step, i) => (
+        <Reveal key={step.num} delay={i * 0.08}>
+          <StepCard step={step} highlighted={i === active} onHover={() => setActive(i)} />
+        </Reveal>
+      ))}
+    </div>
+  );
+}
+
+function StepCard({ step, highlighted, onHover }) {
+  const { icon: Icon } = step;
+  const base = 'h-full p-6 lg:p-8 border-b border-r border-line transition-colors duration-300 cursor-default';
+  const colour = highlighted ? 'bg-sapphire text-white border-sapphire' : 'bg-white text-ink';
+  return (
+    <div className={`${base} ${colour}`} onMouseEnter={onHover}>
+      <div className={`w-10 h-10 rounded-xl mb-4 grid place-items-center transition-colors duration-300 ${highlighted ? 'bg-white/15 text-white' : 'bg-sapphire-light text-sapphire'}`}><Icon size={20} strokeWidth={1.8} /></div>
+      <div className={`font-display text-3xl lg:text-4xl font-medium mb-3 transition-colors duration-300 ${highlighted ? 'text-white/90' : 'text-ink/70'}`}>{step.num}</div>
+      <h3 className={`font-display text-lg font-semibold mb-2 transition-colors duration-300 ${highlighted ? 'text-white' : 'text-ink'}`}>{step.title}</h3>
+      <p className={`text-xs leading-relaxed transition-colors duration-300 ${highlighted ? 'text-white/85' : 'text-ink-soft'}`}>{step.text}</p>
     </div>
   );
 }

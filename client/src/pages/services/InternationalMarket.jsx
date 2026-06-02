@@ -202,13 +202,7 @@ export default function InternationalMarket() {
       {/* ===================== 4-STEP PROCESS ===================== */}
       <section className="pb-20 lg:pb-24 bg-white">
         <div className="container-x">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-line">
-            {processSteps.map((step, i) => (
-              <Reveal key={step.num} delay={i * 0.08}>
-                <ProcessCard step={step} highlighted={i === 0} />
-              </Reveal>
-            ))}
-          </div>
+          <ProcessSteps />
         </div>
       </section>
 
@@ -359,21 +353,41 @@ export default function InternationalMarket() {
 
 /* ---------- sub-components ---------- */
 
-function ProcessCard({ step, highlighted }) {
-  const base = 'h-full p-6 lg:p-8 border-b border-r border-line transition-colors';
-  const colour = highlighted
-    ? 'bg-sapphire text-white border-sapphire'
-    : 'bg-white text-ink hover:bg-cream';
+function ProcessSteps() {
+  // Blue highlight follows the hovered card; defaults to the first and snaps
+  // back to it when the pointer leaves the row.
+  const [active, setActive] = useState(0);
 
   return (
-    <div className={`${base} ${colour}`}>
-      <div className={`font-display text-3xl lg:text-4xl font-medium mb-3 ${highlighted ? 'text-white/90' : 'text-ink/70'}`}>
+    <div
+      className="grid sm:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-line"
+      onMouseLeave={() => setActive(0)}
+    >
+      {processSteps.map((step, i) => (
+        <Reveal key={step.num} delay={i * 0.08}>
+          <ProcessCard step={step} highlighted={i === active} onHover={() => setActive(i)} />
+        </Reveal>
+      ))}
+    </div>
+  );
+}
+
+function ProcessCard({ step, highlighted, onHover }) {
+  const base =
+    'h-full p-6 lg:p-8 border-b border-r border-line transition-colors duration-300 cursor-default';
+  const colour = highlighted
+    ? 'bg-sapphire text-white border-sapphire'
+    : 'bg-white text-ink';
+
+  return (
+    <div className={`${base} ${colour}`} onMouseEnter={onHover}>
+      <div className={`font-display text-3xl lg:text-4xl font-medium mb-3 transition-colors duration-300 ${highlighted ? 'text-white/90' : 'text-ink/70'}`}>
         {step.num}
       </div>
-      <h3 className={`font-display text-lg font-semibold mb-2 ${highlighted ? 'text-white' : 'text-ink'}`}>
+      <h3 className={`font-display text-lg font-semibold mb-2 transition-colors duration-300 ${highlighted ? 'text-white' : 'text-ink'}`}>
         {step.title}
       </h3>
-      <p className={`text-xs leading-relaxed ${highlighted ? 'text-white/85' : 'text-ink-soft'}`}>
+      <p className={`text-xs leading-relaxed transition-colors duration-300 ${highlighted ? 'text-white/85' : 'text-ink-soft'}`}>
         {step.body}
       </p>
     </div>

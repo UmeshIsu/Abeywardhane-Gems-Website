@@ -20,15 +20,14 @@ export default function Footer() {
         style={{ background: 'radial-gradient(700px 360px at 90% 0%, rgba(37,99,235,0.30), transparent 60%)' }}
       />
       <div className="relative container-x pt-16 pb-6">
-        <div className="grid lg:grid-cols-[1.5fr_1fr_1fr_1.1fr] gap-10 mb-12">
+        <div className="grid lg:grid-cols-[1.5fr_1fr_1fr_1.1fr] gap-10 mb-12 items-start">
           <div>
-            <div className="font-display text-white text-2xl font-semibold mb-3">
-              Abeywardhane <span className="italic text-frost">Gems</span>
-            </div>
-            <p className="text-xs leading-relaxed mb-5 max-w-xs">
-              Exposing Ceylon's finest gemstones to the world — curated, ethical and authentic, straight from the heart of Sri Lanka.
-            </p>
-            <div className="flex gap-3">
+            <img
+              src="/logo-full.png"
+              alt="Abeywardhane Gems (Pvt) Ltd — Ceylon Gemstones"
+              className="w-full max-w-[320px] h-auto -ml-2 -mt-6 mb-1"
+            />
+            <div className="flex gap-3 -mt-2">
               {[{ Icon: Facebook, href: '#', label: 'Facebook' }, { Icon: Instagram, href: '#', label: 'Instagram' }].map(({ Icon, href, label }) => (
                 <a key={label} href={href} aria-label={label} className="w-9 h-9 grid place-items-center border border-white/15 rounded-full hover:bg-sapphire hover:border-sapphire transition-colors">
                   <Icon size={15} />
