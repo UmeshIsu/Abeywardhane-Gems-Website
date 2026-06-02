@@ -1,9 +1,7 @@
-import { Gem, Globe2, BookOpen, Bus } from 'lucide-react';
-
 export const services = [
   {
     id: 'gem-purchasing',
-    icon: Gem,
+    image: '/service-purchasing.jpg',
     tag: 'Marketing',
     title: 'Gem Purchasing\nand Selling',
     description:
@@ -12,7 +10,7 @@ export const services = [
   },
   {
     id: 'international-market',
-    icon: Globe2,
+    image: '/service-market.jpg',
     tag: 'Marketing · Research',
     title: "Coordinating Int'l\nGem Market",
     description:
@@ -21,7 +19,7 @@ export const services = [
   },
   {
     id: 'gemology-program',
-    icon: BookOpen,
+    image: '/service-gemology.jpg',
     tag: 'Education · Research',
     title: 'Gemology Expose\n& Internship',
     description:
@@ -30,7 +28,7 @@ export const services = [
   },
   {
     id: 'gem-tourism',
-    icon: Bus,
+    image: '/service-tourism.jpg',
     tag: 'Tourism',
     title: 'Gem Tourism\nin Sri Lanka',
     description:

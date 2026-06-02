@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { CheckCircle2 } from 'lucide-react';
 import Reveal from '@/components/ui/Reveal';
 import Button from '@/components/ui/Button';
 import { useCountUp } from '@/hooks/useCountUp';
@@ -61,25 +60,15 @@ export default function WhatWeDo() {
           <Reveal delay={0.2}>
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-deep group">
               <img
-                src="https://images.unsplash.com/photo-1615655406736-b37c4fabf923?w=900&q=80"
-                alt="Hand-cut Ceylon sapphire"
-                className="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
+                src="/team.jpg"
+                alt="The Abeywardhane Gems team representing Ceylon at an international gem fair"
+                className="w-full h-full object-cover object-top transition-transform duration-[1200ms] group-hover:scale-105"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5 text-white">
                 <span className="block w-6 h-px bg-gold mb-2" />
-                <span className="font-display italic text-lg">Cut & polished<br />in Sri Lanka</span>
-              </div>
-
-              <div className="absolute top-5 -right-3 sm:right-5 lg:-right-5 bg-white px-4 py-3 rounded-xl shadow-card flex items-center gap-2.5 max-w-[210px]">
-                <div className="w-9 h-9 rounded-full bg-sapphire-light grid place-items-center text-sapphire shrink-0">
-                  <CheckCircle2 size={18} />
-                </div>
-                <div>
-                  <strong className="block text-xs text-ink">Certified Authentic</strong>
-                  <span className="text-[0.68rem] text-muted">Gemologist verified</span>
-                </div>
+                <span className="font-display italic text-lg">Showcasing Ceylon<br />to the world</span>
               </div>
             </div>
           </Reveal>

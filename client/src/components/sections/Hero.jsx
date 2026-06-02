@@ -14,6 +14,16 @@ export default function Hero() {
   const [typingComplete, setTypingComplete] = useState(false);
   const timerRef = useRef(null);
 
+  // Preload every slide photo so the crossfade never waits on a decode
+  useEffect(() => {
+    heroSlides.forEach((s) => {
+      if (s.bgImage) {
+        const img = new Image();
+        img.src = s.bgImage;
+      }
+    });
+  }, []);
+
   useEffect(() => {
     if (!typingComplete) return;
     timerRef.current = setTimeout(() => {
@@ -41,6 +51,62 @@ export default function Hero() {
           style={{
             background:
               'radial-gradient(1100px 700px at 88% 6%, rgba(37,99,235,0.12) 0%, transparent 58%), radial-gradient(800px 560px at 4% 96%, rgba(59,130,246,0.07) 0%, transparent 60%), linear-gradient(180deg,#ffffff 0%, #f6f9fe 100%)',
+          }}
+        />
+      </div>
+
+      {/* Full-bleed per-slide photo — sits behind BOTH columns so the
+          gems share the same backdrop as the copy (no column seam).
+          Crossfades in sync with the slide timer. */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <AnimatePresence>
+          <motion.div
+            key={slide.bgImage}
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url(${slide.bgImage})`,
+              backgroundSize: slide.bgSize || 'cover',
+              backgroundPosition: slide.bgPosition || 'center center',
+              backgroundRepeat: 'no-repeat',
+              willChange: 'opacity, transform',
+              transform: 'translateZ(0)',
+            }}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 0.4, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{
+              opacity: { duration: 1.1, ease: [0.4, 0, 0.2, 1] },
+              scale: { duration: 7, ease: 'linear' },
+            }}
+          />
+        </AnimatePresence>
+
+        {/* DESKTOP washes (two-column blend) */}
+        {/* Horizontal: strong over the copy, light across the middle and
+            gems, gently lifting again at the far edge. */}
+        <div
+          className="absolute inset-0 hidden lg:block"
+          style={{
+            background:
+              'linear-gradient(90deg, rgba(248,250,253,0.9) 0%, rgba(248,250,253,0.55) 34%, rgba(248,250,253,0.32) 62%, rgba(248,250,253,0.55) 100%)',
+          }}
+        />
+        {/* Vertical vignette: melts into the navbar above and the pager below */}
+        <div
+          className="absolute inset-0 hidden lg:block"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(248,250,253,0.7) 0%, rgba(248,250,253,0) 16%, rgba(248,250,253,0) 70%, rgba(248,250,253,0.95) 100%)',
+          }}
+        />
+
+        {/* MOBILE wash (stacked layout): keep the copy crisp up top, let the
+            photo show through the middle, fade into the pager below. */}
+        <div
+          className="absolute inset-0 lg:hidden"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(248,250,253,0.93) 0%, rgba(248,250,253,0.7) 26%, rgba(248,250,253,0.4) 52%, rgba(248,250,253,0.42) 78%, rgba(248,250,253,0.96) 100%)',
           }}
         />
       </div>
