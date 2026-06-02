@@ -3,6 +3,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import Reveal from '@/components/ui/Reveal';
 import { galleryApi } from '@/lib/api';
 import { gems } from '@/data/gems';
+import SEO from '@/components/layout/SEO';
 
 export default function Gallery() {
   const [images, setImages] = useState([]);
@@ -29,8 +30,36 @@ export default function Gallery() {
   const tags = useMemo(() => ['All', ...Array.from(new Set(images.map((g) => g.tag)))], [images]);
   const list = active === 'All' ? images : images.filter((g) => g.tag === active);
 
+  const gallerySchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "numberOfItems": list.length,
+    "itemListElement": list.map((gem, idx) => ({
+      "@type": "Product",
+      "position": idx + 1,
+      "name": gem.name,
+      "image": gem.image,
+      "description": gem.description,
+      "brand": {
+        "@type": "Brand",
+        "name": "Abeywardhane Gems"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    }))
+  };
+
   return (
     <>
+      <SEO 
+        title="Ceylon Gemstone Gallery | Fine Blue Sapphire, Ruby, Spinel"
+        description="Browse our handpicked natural Ceylon gemstone gallery. Rare precious and semi-precious stones direct from the source in Sri Lanka, certified by GIA/FGA gemologists."
+        keywords="buy natural gemstones, ceylon sapphire gallery, certified gemstones online, precious gems sri lanka"
+        schema={gallerySchema}
+      />
       <PageHeader
         eyebrow="Our Latest"
         title="Gem Collection"

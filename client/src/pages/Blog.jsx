@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { blogsApi } from '@/lib/api';
 import PageHeader from '@/components/layout/PageHeader';
 import Reveal from '@/components/ui/Reveal';
+import SEO from '@/components/layout/SEO';
 
 const staticBlogs = [
   {
@@ -51,8 +52,28 @@ export default function Blog() {
       .finally(() => setLoading(false));
   }, []);
 
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "numberOfItems": posts.length,
+    "itemListElement": posts.map((post, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "url": `${window.location.origin}/blog#${post.slug}`,
+      "name": post.title,
+      "description": post.excerpt,
+      "image": post.image
+    }))
+  };
+
   return (
     <>
+      <SEO 
+        title="Gems & Jewellery News, Guides, and Mining Stories"
+        description="Learn about Ceylon sapphire quality, gemstone authentication, custom jewellery design guides, and Ratnapura gem mining field history."
+        keywords="sri lanka gem industry, ceylon blue sapphire guide, buy gems ratnapura, natural gemstone care"
+        schema={blogSchema}
+      />
       <PageHeader
         eyebrow="Read the Latest"
         title="News & Stories"
