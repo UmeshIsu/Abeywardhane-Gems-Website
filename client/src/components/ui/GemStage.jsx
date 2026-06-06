@@ -41,8 +41,8 @@ export default function GemStage({ className = '' }) {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const okSize = window.matchMedia('(min-width: 640px)').matches;
     // Verify a WebGL context can actually be created before mounting.
+    // (We render the 3D gem on mobile too — it's a single lightweight mesh.)
     let webgl = false;
     try {
       const c = document.createElement('canvas');
@@ -50,7 +50,7 @@ export default function GemStage({ className = '' }) {
     } catch (_) {
       webgl = false;
     }
-    if (!okSize || !webgl) return;
+    if (!webgl) return;
     const idle = window.requestIdleCallback || ((cb) => setTimeout(cb, 300));
     const id = idle(() => setEnabled(true));
     return () => {
