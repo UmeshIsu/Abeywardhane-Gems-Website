@@ -113,7 +113,7 @@ export default function GlobalReach() {
                     <MapPin size={18} className="text-electric mt-0.5 shrink-0" />
                     <div>
                       <div className="font-semibold text-white">{m.region}</div>
-                      <div className="text-sm text-white/55">{m.cities}</div>
+                      {/* <div className="text-sm text-white/55">{m.cities}</div> */}
                     </div>
                   </div>
                 ))}
