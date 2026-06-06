@@ -5,7 +5,7 @@ import { testimonials } from '@/data/company';
 /* Modern, trust-building testimonial layout. */
 export default function Testimonials() {
   return (
-    <section className="py-20 lg:py-24 bg-white">
+    <section className="py-14 sm:py-20 lg:py-24 bg-white">
       <div className="container-x">
         <div className="flex flex-wrap items-end justify-between gap-8 mb-12">
           <div className="max-w-2xl">

@@ -70,11 +70,20 @@
     line-height: 1.65;
   }
 
-  /* Premium glass surface */
+  /* Premium glass surface.
+     backdrop-filter on a fixed element re-blurs the page every scroll frame,
+     which causes heavy jank on phones. So we use a near-opaque solid on small
+     screens (visually almost identical) and only enable the real frosted blur
+     on tablet/desktop where the GPU can handle it. */
   .glass {
-    background: rgba(255, 255, 255, 0.72);
-    backdrop-filter: saturate(160%) blur(14px);
-    -webkit-backdrop-filter: saturate(160%) blur(14px);
+    background: rgba(255, 255, 255, 0.9);
+  }
+  @media (min-width: 768px) {
+    .glass {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: saturate(160%) blur(14px);
+      -webkit-backdrop-filter: saturate(160%) blur(14px);
+    }
   }
 
   /* Shimmering text used for the counting statistics */

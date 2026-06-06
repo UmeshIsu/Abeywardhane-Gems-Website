@@ -14,7 +14,7 @@ export default function Services() {
         breadcrumb={[{ label: 'Abeywardhane Gems', to: '/' }, { label: 'Services' }]}
       />
 
-      <section className="py-24 bg-white">
+      <section className="py-16 sm:py-24 bg-white">
         <div className="container-x">
           <Reveal>
             <p className="lead max-w-3xl mb-14">

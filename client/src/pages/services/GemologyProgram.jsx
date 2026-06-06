@@ -210,7 +210,7 @@ export default function GemologyProgram() {
       </section>
 
       {/* ===================== UNIQUE POINTS ===================== */}
-      <section className="py-20 lg:py-24 bg-cream">
+      <section className="py-14 sm:py-20 lg:py-24 bg-cream">
         <div className="container-x">
           <Reveal>
             <div className="max-w-3xl mb-14">
@@ -238,7 +238,7 @@ export default function GemologyProgram() {
       </section>
 
       {/* ===================== GARDEN GALLERY ===================== */}
-      <section className="py-20 lg:py-24 bg-white">
+      <section className="py-14 sm:py-20 lg:py-24 bg-white">
         <div className="container-x">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-6 mb-12 max-w-6xl">
@@ -317,7 +317,7 @@ export default function GemologyProgram() {
       </section>
 
       {/* ===================== HOW THIS DRIVES THE BUSINESS ===================== */}
-      <section className="py-20 lg:py-24 bg-ink text-white relative overflow-hidden">
+      <section className="py-14 sm:py-20 lg:py-24 bg-ink text-white relative overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none opacity-40"
           style={{
@@ -359,7 +359,7 @@ export default function GemologyProgram() {
       </section>
 
       {/* ===================== COMPREHENSIVE LEARNING ===================== */}
-      <section className="py-20 lg:py-24 bg-white">
+      <section className="py-14 sm:py-20 lg:py-24 bg-white">
         <div className="container-x">
           <Reveal>
             <div className="max-w-3xl mb-12">
@@ -388,7 +388,7 @@ export default function GemologyProgram() {
       </section>
 
       {/* ===================== HOW IT WORKS — 4 STEPS ===================== */}
-      <section className="py-20 lg:py-24 bg-cream">
+      <section className="py-14 sm:py-20 lg:py-24 bg-cream">
         <div className="container-x">
           <Reveal>
             <div className="max-w-3xl mb-14 text-center mx-auto">
@@ -408,7 +408,7 @@ export default function GemologyProgram() {
       </section>
 
       {/* ===================== INDUSTRY CONNECTIONS ===================== */}
-      <section className="py-20 lg:py-24 bg-white">
+      <section className="py-14 sm:py-20 lg:py-24 bg-white">
         <div className="container-x">
           <Reveal>
             <div className="max-w-3xl mb-12">
@@ -437,7 +437,7 @@ export default function GemologyProgram() {
       </section>
 
       {/* ===================== PROGRAM PHOTO GALLERY ===================== */}
-      <section className="py-20 lg:py-24 bg-cream">
+      <section className="py-14 sm:py-20 lg:py-24 bg-cream">
         <div className="container-x">
           <Reveal>
             <div className="max-w-3xl mb-12">
@@ -462,7 +462,7 @@ export default function GemologyProgram() {
       </section>
 
       {/* ===================== CTA ===================== */}
-      <section className="py-16 lg:py-20 bg-ink text-white">
+      <section className="py-12 sm:py-16 lg:py-20 bg-ink text-white">
         <div className="container-x">
           <div className="grid lg:grid-cols-[1.4fr_1fr] gap-10 items-center">
             <Reveal>

@@ -16,7 +16,7 @@ export default function Navbar() {
   const navCls = `fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
     scrolled
       ? 'glass shadow-[0_2px_24px_rgba(15,23,42,0.07)] py-2'
-      : 'py-3 bg-white/85 backdrop-blur-md'
+      : 'py-3 bg-white/90 md:bg-white/85 md:backdrop-blur-md'
   }`;
 
   return (

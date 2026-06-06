@@ -6,7 +6,7 @@ import { whatsappHref } from '@/lib/whatsapp';
 /* Closing conversion block. */
 export default function CtaBand() {
   return (
-    <section className="py-16 lg:py-20 bg-ink text-white relative overflow-hidden">
+    <section className="py-12 sm:py-16 lg:py-20 bg-ink text-white relative overflow-hidden">
       <div
         className="absolute inset-0 opacity-50 pointer-events-none"
         style={{ background: 'radial-gradient(700px 400px at 85% 50%, rgba(37,99,235,0.4), transparent 60%)' }}

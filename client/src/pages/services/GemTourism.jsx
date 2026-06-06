@@ -145,7 +145,7 @@ export default function GemTourism() {
       </section>
 
       {/* ===================== HOW IT WORKS ===================== */}
-      <section className="py-20 lg:py-24 bg-cream">
+      <section className="py-14 sm:py-20 lg:py-24 bg-cream">
         <div className="container-x">
           <Reveal><div className="max-w-3xl mb-14"><span className="eyebrow">How It Works</span><h2 className="section-title">Four steps from <em>registration</em> to gems in hand.</h2></div></Reveal>
           <HowItWorksSteps />
@@ -153,7 +153,7 @@ export default function GemTourism() {
       </section>
 
       {/* ===================== WHAT'S INCLUDED ===================== */}
-      <section className="py-20 lg:py-24 bg-white">
+      <section className="py-14 sm:py-20 lg:py-24 bg-white">
         <div className="container-x">
           <Reveal><div className="max-w-3xl mb-14"><span className="eyebrow">Everything Taken Care Of</span><h2 className="section-title mb-5">What{'\u2019'}s <em>included</em> in every tour.</h2><p className="text-ink-soft text-sm">Register with us, fly to Sri Lanka, and we handle the rest.</p></div></Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -171,7 +171,7 @@ export default function GemTourism() {
       </section>
 
       {/* ===================== TRANSPORT & ACCOMMODATION GALLERY ===================== */}
-      <section className="py-20 lg:py-24 bg-cream">
+      <section className="py-14 sm:py-20 lg:py-24 bg-cream">
         <div className="container-x">
           <Reveal><div className="max-w-3xl mb-12"><span className="eyebrow">Your Comfort, Our Priority</span><h2 className="section-title mb-5">Transport & <em>Accommodation</em></h2><p className="text-ink-soft text-sm">Airport pickup, comfortable domestic travel, and free lodging at our own property.</p></div></Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -183,7 +183,7 @@ export default function GemTourism() {
       </section>
 
       {/* ===================== IMMERSIVE EXPERIENCES ===================== */}
-      <section className="py-20 lg:py-24 bg-white">
+      <section className="py-14 sm:py-20 lg:py-24 bg-white">
         <div className="container-x">
           <Reveal><div className="max-w-3xl mb-14"><span className="eyebrow">What You{'\u2019'}ll Experience</span><h2 className="section-title mb-5">Immersive Tour Activities & <em>Experiences</em></h2><p className="text-ink-soft text-sm">From the raw earth of the mine to a polished gem in your hand {'\u2014'} and everything in between.</p></div></Reveal>
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
@@ -200,7 +200,7 @@ export default function GemTourism() {
       </section>
 
       {/* ===================== PRICING & TRANSPARENCY ===================== */}
-      <section className="py-20 lg:py-24 bg-ink text-white relative overflow-hidden">
+      <section className="py-14 sm:py-20 lg:py-24 bg-ink text-white relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none opacity-40" style={{ background: 'radial-gradient(700px 400px at 80% 20%, rgba(47,76,219,0.45) 0%, transparent 60%), radial-gradient(500px 300px at 10% 90%, rgba(201,161,74,0.25) 0%, transparent 60%)' }} />
         <div className="relative container-x">
           <Reveal><div className="max-w-3xl mb-14"><div className="text-xs tracking-[0.3em] uppercase text-gold font-bold mb-4">Transparent Pricing</div><h2 className="font-display text-2xl lg:text-3xl xl:text-4xl font-medium leading-tight mb-4">No hidden fees.<br /><span className="text-gold italic">Just 10% of your purchase.</span></h2><p className="text-white/70 text-sm">Our tour service fee is simple: 10% of the total value of gems you purchase. Transport, accommodation, meals and guide services are all included. Gem certification is included too. Island-wide sightseeing is quoted separately upfront.</p></div></Reveal>
@@ -219,7 +219,7 @@ export default function GemTourism() {
       </section>
 
       {/* ===================== HOW THE TOUR STARTS ===================== */}
-      <section className="py-20 lg:py-24 bg-white">
+      <section className="py-14 sm:py-20 lg:py-24 bg-white">
         <div className="container-x">
           <div className="grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center">
             <Reveal><div>
@@ -247,7 +247,7 @@ export default function GemTourism() {
       </section>
 
       {/* ===================== EXPLORE SRI LANKA ===================== */}
-      <section className="py-20 lg:py-24 bg-cream">
+      <section className="py-14 sm:py-20 lg:py-24 bg-cream">
         <div className="container-x">
           <Reveal><div className="flex flex-wrap items-end justify-between gap-6 mb-12"><div className="max-w-2xl"><div className="inline-flex items-center gap-2 mb-4"><Palmtree size={18} className="text-sapphire" /><span className="eyebrow !mb-0">While You{'\u2019'}re Here</span></div><h2 className="section-title mb-4">Explore <em>Sri Lanka</em></h2><p className="text-ink-soft text-sm">Extend your gem tour into a full Sri Lankan holiday. We{'\u2019'}ll organise transport, accommodation and guides for any destination on the island.</p></div><Link to="/contact" className="inline-flex items-center gap-2 text-sapphire font-semibold hover:gap-3 transition-all">Plan your trip <ArrowRight size={16} strokeWidth={2.4} /></Link></div></Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
@@ -265,7 +265,7 @@ export default function GemTourism() {
       </section>
 
       {/* ===================== CTA ===================== */}
-      <section className="py-16 lg:py-20 bg-ink text-white">
+      <section className="py-12 sm:py-16 lg:py-20 bg-ink text-white">
         <div className="container-x">
           <div className="grid lg:grid-cols-[1.4fr_1fr] gap-10 items-center">
             <Reveal><div><div className="text-xs tracking-[0.3em] uppercase text-gold font-bold mb-3">Ready to Experience Ceylon?</div><h2 className="font-display text-2xl lg:text-3xl font-medium leading-tight mb-3">Register today.<br /><span className="text-gold italic">We{'\u2019'}ll take it from there.</span></h2><p className="text-white/70 max-w-xl text-sm">Send us a message or chat on WhatsApp. Our tour coordinator will be in touch within 24 hours.</p></div></Reveal>
