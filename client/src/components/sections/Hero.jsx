@@ -202,7 +202,7 @@ function SlideText({ slide, onTypingComplete }) {
         initial={{ opacity: 0, y: 14 }}
         animate={typingDone ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="lead max-w-[460px] mb-7"
+        className="lead text-ink max-w-[460px] mb-7"
       >
         {slide.subtitle}
       </motion.p>
@@ -232,7 +232,7 @@ function SlideText({ slide, onTypingComplete }) {
         initial={{ opacity: 0 }}
         animate={typingDone ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.6, delay: 0.25 }}
-        className="mt-7 flex items-center gap-2 text-xs text-muted"
+        className="mt-7 flex items-center gap-2 text-xs font-medium text-ink-soft"
       >
         <ShieldCheck size={15} className="text-sapphire" />
         Gemologist-verified · Ethically sourced · Trusted by 100+ dealers worldwide
