@@ -7,10 +7,10 @@ import PageHeader from '@/components/layout/PageHeader';
 
 const initialForm = { name: '', email: '', phone: '', subject: '', message: '' };
 
-// Formspree endpoint — no backend needed. Create a free form at
-// https://formspree.io and paste its endpoint here (e.g. https://formspree.io/f/abcdwxyz).
-const FORMSPREE_ENDPOINT =
-  import.meta.env.VITE_FORMSPREE_ENDPOINT || 'https://formspree.io/f/your-form-id';
+// Web3Forms — free contact form, no backend, no DNS setup.
+// Get a free access key at https://web3forms.com (just enter your email),
+// then paste it into client/.env as VITE_WEB3FORMS_KEY.
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || 'your-web3forms-access-key';
 
 export default function Contact() {
   const [form, setForm] = useState(initialForm);
@@ -26,14 +26,20 @@ export default function Contact() {
     }
     setStatus({ state: 'sending', msg: '' });
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          from_name: 'Abeywardhane Gems Website',
+          botcheck: false, // Web3Forms server-side spam protection
+          ...form,
+          subject: form.subject ? `Website inquiry: ${form.subject}` : 'New website inquiry',
+        }),
       });
-      if (!res.ok) {
-        const data = await res.json().catch(() => null);
-        throw new Error(data?.errors?.[0]?.message || 'Request failed');
+      const data = await res.json().catch(() => null);
+      if (!data?.success) {
+        throw new Error(data?.message || 'Request failed');
       }
       setStatus({ state: 'success', msg: "Thanks! We'll get back to you soon." });
       setForm(initialForm);

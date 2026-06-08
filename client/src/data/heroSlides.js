@@ -42,7 +42,7 @@ export const heroSlides = [
     suffix: '.',
     subtitle:
       "Every stone carries our promise — authenticity, transparency, and the deep heritage of Sri Lanka's gem trade passed down through generations.",
-    cta: { label: 'About Us', to: '/contact' },
+    cta: { label: 'About Us', to: '/#services' },
     ctaSecondary: { label: 'Contact Us', to: '/contact' },
     image: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=1000&q=85',
     bgImage: '/hero-trust.jpg',
