@@ -138,9 +138,8 @@ export default function Hero() {
                 <button
                   key={i}
                   onClick={() => jumpTo(i)}
-                  className={`relative flex items-center gap-2.5 text-left py-3.5 px-3 md:px-5 transition-all duration-300 ${
-                    active ? 'bg-ink text-white' : 'glass text-muted hover:bg-tint hover:text-ink'
-                  }`}
+                  className={`relative flex items-center gap-2.5 text-left py-3.5 px-3 md:px-5 transition-all duration-300 ${active ? 'bg-ink text-white' : 'glass text-muted hover:bg-tint hover:text-ink'
+                    }`}
                 >
                   <span className={`font-display text-base ${active ? 'text-frost' : 'text-sapphire'}`}>{s.pagerNum}</span>
                   <span className={`text-[0.68rem] md:text-xs font-semibold leading-tight whitespace-pre-line ${active ? 'text-white' : 'text-ink'}`}>
@@ -192,7 +191,7 @@ function SlideText({ slide, onTypingComplete }) {
       </motion.span>
 
       <h1
-        className="font-display font-medium text-ink tracking-tight max-w-[560px] min-h-[2.1em] mb-5"
+        className={`font-display font-medium text-ink tracking-tight max-w-[560px] min-h-[2.1em] mb-5${!typingDone ? ' notranslate' : ''}`}
         style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', lineHeight: 1.06 }}
       >
         <TypingHeadline prefix={slide.prefix} em={slide.em} suffix={slide.suffix} onDone={handleTypingDone} />
