@@ -1,12 +1,16 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle } from 'lucide-react';
-import { contactApi } from '@/lib/api';
 import { whatsappHref } from '@/lib/whatsapp';
 import { contactInfo } from '@/data/site';
 import Reveal from '@/components/ui/Reveal';
 import PageHeader from '@/components/layout/PageHeader';
 
 const initialForm = { name: '', email: '', phone: '', subject: '', message: '' };
+
+// Formspree endpoint — no backend needed. Create a free form at
+// https://formspree.io and paste its endpoint here (e.g. https://formspree.io/f/abcdwxyz).
+const FORMSPREE_ENDPOINT =
+  import.meta.env.VITE_FORMSPREE_ENDPOINT || 'https://formspree.io/f/your-form-id';
 
 export default function Contact() {
   const [form, setForm] = useState(initialForm);
@@ -22,13 +26,21 @@ export default function Contact() {
     }
     setStatus({ state: 'sending', msg: '' });
     try {
-      await contactApi.submit(form);
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.errors?.[0]?.message || 'Request failed');
+      }
       setStatus({ state: 'success', msg: "Thanks! We'll get back to you soon." });
       setForm(initialForm);
     } catch (err) {
       setStatus({
         state: 'error',
-        msg: err?.response?.data?.error || 'Could not send your message. Please try again or use WhatsApp.',
+        msg: 'Could not send your message. Please try again or use WhatsApp.',
       });
     }
   };

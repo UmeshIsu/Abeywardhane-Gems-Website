@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -14,77 +14,10 @@ import PageHeader from '@/components/layout/PageHeader';
 import ImagePlaceholder from '@/components/ui/ImagePlaceholder';
 import Reveal from '@/components/ui/Reveal';
 import { whatsappHref } from '@/lib/whatsapp';
-import { exhibitionsApi, awardsApi } from '@/lib/api';
-
-/* =========================================================
- *  ✏️  HOW TO ADD YOUR OWN PHOTOS
- * =========================================================
- *  Two galleries on this page need photos:
- *
- *  1. INTERNATIONAL GEM EXHIBITIONS
- *     Drop into:
- *       client/src/assets/images/services/international-market/exhibitions/
- *     Suggested names: exhibition-1.jpg, exhibition-2.jpg, ...
- *
- *  2. AWARDS & RECOGNITION
- *     Drop into:
- *       client/src/assets/images/services/international-market/awards/
- *     Suggested names: award-1.jpg, award-2.jpg, ...
- *
- *  Then uncomment the matching `import` lines below and the
- *  `src={...}` lines on each <ImagePlaceholder>.
- *
- *  See the README.md inside each folder for full instructions.
- * ========================================================= */
-
-// --- Exhibition photo imports ---
-// import exhibition1 from '@/assets/images/services/international-market/exhibitions/exhibition-1.jpg';
-// import exhibition2 from '@/assets/images/services/international-market/exhibitions/exhibition-2.jpg';
-// import exhibition3 from '@/assets/images/services/international-market/exhibitions/exhibition-3.jpg';
-// import exhibition4 from '@/assets/images/services/international-market/exhibitions/exhibition-4.jpg';
-
-// --- Award photo imports ---
-// import award1 from '@/assets/images/services/international-market/awards/award-1.jpg';
-// import award2 from '@/assets/images/services/international-market/awards/award-2.jpg';
-// import award3 from '@/assets/images/services/international-market/awards/award-3.jpg';
+import { exhibitions } from '@/data/exhibitions';
 
 /* ---------- Data: edit dates/locations/titles freely ---------- */
-const staticExhibitions = [
-  {
-    label: 'Exhibition photo',
-    filename: 'exhibition-1.jpg',
-    // src: exhibition1,
-    title: 'JCK Las Vegas',
-    location: 'Las Vegas, USA',
-    year: '2024',
-  },
-  {
-    label: 'Exhibition photo',
-    filename: 'exhibition-2.jpg',
-    // src: exhibition2,
-    title: 'Hong Kong Jewellery & Gem Fair',
-    location: 'Hong Kong',
-    year: '2023',
-  },
-  {
-    label: 'Exhibition photo',
-    filename: 'exhibition-3.jpg',
-    // src: exhibition3,
-    title: 'FACETS Sri Lanka',
-    location: 'Colombo, Sri Lanka',
-    year: '2023',
-  },
-  {
-    label: 'Exhibition photo',
-    filename: 'exhibition-4.jpg',
-    // src: exhibition4,
-    title: 'Bangkok Gems & Jewelry Fair',
-    location: 'Bangkok, Thailand',
-    year: '2022',
-  },
-];
-
-const staticAwards = [
+const awards = [
   {
     label: 'Award photo',
     filename: 'award-1.jpg',
@@ -142,23 +75,6 @@ const reachStats = [
 ];
 
 export default function InternationalMarket() {
-  const [exhibitions, setExhibitions] = useState(staticExhibitions);
-  const [awards, setAwards] = useState(staticAwards);
-
-  useEffect(() => {
-    exhibitionsApi.list()
-      .then(data => {
-        if (data && data.length > 0) setExhibitions(data);
-      })
-      .catch(err => console.warn('Failed to load dynamic exhibitions, falling back to static:', err));
-
-    awardsApi.list()
-      .then(data => {
-        if (data && data.length > 0) setAwards(data);
-      })
-      .catch(err => console.warn('Failed to load dynamic awards, falling back to static:', err));
-  }, []);
-
   return (
     <>
       <PageHeader
@@ -273,7 +189,7 @@ export default function InternationalMarket() {
             </div>
           </Reveal>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+          <div className="grid sm:grid-cols-2 gap-5 lg:gap-6 max-w-3xl">
             {exhibitions.map((ex, i) => (
               <Reveal key={ex.filename} delay={i * 0.08}>
                 <ExhibitionCard {...ex} />
