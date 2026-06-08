@@ -164,7 +164,35 @@
   border-radius: 8px;
   border: 2px solid #f1f5fc;
 }
+::-webkit-scrollbar-thumb:hover { background: #2563EB; }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #2563EB;
+/* ==========================================================================
+   Google Translate — hide all default UI so translation feels native
+   ========================================================================== */
+body {
+  top: 0 !important;
+  position: static !important;
 }
+
+.skiptranslate,
+.goog-te-banner-frame,
+.goog-te-banner,
+#goog-gt-tt,
+.goog-te-balloon-frame {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.goog-text-highlight {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+#google_translate_element {
+  display: none !important;
+}
+
+iframe.goog-te-banner-frame {
+  display: none !important;
+}
+
