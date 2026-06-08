@@ -173,7 +173,7 @@ export default function InternationalMarket() {
       />
 
       {/* ===================== INTRO ===================== */}
-      <section className="py-20 lg:py-24 bg-white">
+      <section className="py-14 sm:py-20 lg:py-24 bg-white">
         <div className="container-x">
           <Reveal>
             <div className="grid lg:grid-cols-[100px_1fr] gap-6 lg:gap-10 items-start max-w-5xl mb-12">
@@ -207,7 +207,7 @@ export default function InternationalMarket() {
       </section>
 
       {/* ===================== RELIABILITY AND TRUST ===================== */}
-      <section className="py-20 lg:py-24 bg-cream">
+      <section className="py-14 sm:py-20 lg:py-24 bg-cream">
         <div className="container-x">
           <Reveal>
             <div className="max-w-4xl mb-10">
@@ -261,7 +261,7 @@ export default function InternationalMarket() {
       </section>
 
       {/* ===================== INTERNATIONAL EXHIBITIONS GALLERY ===================== */}
-      <section className="py-20 lg:py-24 bg-white">
+      <section className="py-14 sm:py-20 lg:py-24 bg-white">
         <div className="container-x">
           <Reveal>
             <div className="max-w-3xl mb-12">
@@ -284,7 +284,7 @@ export default function InternationalMarket() {
       </section>
 
       {/* ===================== AWARDS & RECOGNITION ===================== */}
-      <section className="py-20 lg:py-24 bg-cream">
+      <section className="py-14 sm:py-20 lg:py-24 bg-cream">
         <div className="container-x">
           <Reveal>
             <div className="max-w-3xl mb-12">
@@ -310,7 +310,7 @@ export default function InternationalMarket() {
       </section>
 
       {/* ===================== CTA ===================== */}
-      <section className="py-16 lg:py-20 bg-ink text-white">
+      <section className="py-12 sm:py-16 lg:py-20 bg-ink text-white">
         <div className="container-x">
           <div className="grid lg:grid-cols-[1.4fr_1fr] gap-10 items-center">
             <Reveal>

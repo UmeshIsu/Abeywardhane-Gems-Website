@@ -85,7 +85,7 @@ function ReachGraphic() {
 export default function GlobalReach() {
   const [ref, inView] = useInView(0.3);
   return (
-    <section className="relative py-20 lg:py-24 bg-ink text-white overflow-hidden">
+    <section className="relative py-14 sm:py-20 lg:py-24 bg-ink text-white overflow-hidden">
       <div
         className="absolute inset-0 opacity-40 pointer-events-none"
         style={{ background: 'radial-gradient(800px 500px at 80% 10%, rgba(37,99,235,0.45), transparent 60%), radial-gradient(600px 400px at 0% 100%, rgba(59,130,246,0.18), transparent 60%)' }}
@@ -113,7 +113,7 @@ export default function GlobalReach() {
                     <MapPin size={18} className="text-electric mt-0.5 shrink-0" />
                     <div>
                       <div className="font-semibold text-white">{m.region}</div>
-                      <div className="text-sm text-white/55">{m.cities}</div>
+                      {/* <div className="text-sm text-white/55">{m.cities}</div> */}
                     </div>
                   </div>
                 ))}
@@ -122,7 +122,7 @@ export default function GlobalReach() {
           </div>
 
           <Reveal delay={0.2} x={30}>
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 lg:p-8 backdrop-blur-sm">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 lg:p-8 md:backdrop-blur-sm">
               <ReachGraphic />
             </div>
           </Reveal>

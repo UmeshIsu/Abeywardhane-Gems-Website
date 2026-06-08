@@ -1,6 +1,5 @@
 import SEO from '@/components/layout/SEO';
 import Hero from '@/components/sections/Hero';
-import TrustBar from '@/components/sections/TrustBar';
 import WhatWeDo from '@/components/sections/WhatWeDo';
 import WhyUs from '@/components/sections/WhyUs';
 import ServicesSection from '@/components/sections/ServicesSection';
@@ -46,7 +45,6 @@ export default function Home() {
         schema={homeSchema}
       />
       <Hero />
-      <TrustBar />
       <WhatWeDo />
       <WhyUs />
       <ServicesSection />

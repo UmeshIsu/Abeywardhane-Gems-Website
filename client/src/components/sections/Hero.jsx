@@ -1,9 +1,9 @@
 import { useEffect, useState, useRef } from 'react';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { heroSlides } from '@/data/heroSlides';
-import GemStage from '@/components/ui/GemStage';
+import TrustBar from '@/components/sections/TrustBar';
 
 const TYPE_SPEED = 55;
 const TYPE_START_DELAY = 250;
@@ -42,7 +42,7 @@ export default function Hero() {
   const slide = heroSlides[current];
 
   return (
-    <header className="relative overflow-hidden bg-white">
+    <header className="relative overflow-hidden bg-white" style={{ minHeight: '100dvh' }}>
       {/* Atmospheric background: grid + sapphire glow */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-grid-faint [background-size:64px_64px] opacity-[0.5]" />
@@ -55,9 +55,7 @@ export default function Hero() {
         />
       </div>
 
-      {/* Full-bleed per-slide photo — sits behind BOTH columns so the
-          gems share the same backdrop as the copy (no column seam).
-          Crossfades in sync with the slide timer. */}
+      {/* Full-bleed per-slide photo — crossfades in sync with the slide timer */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <AnimatePresence>
           <motion.div
@@ -72,7 +70,7 @@ export default function Hero() {
               transform: 'translateZ(0)',
             }}
             initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 0.4, scale: 1 }}
+            animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{
               opacity: { duration: 1.1, ease: [0.4, 0, 0.2, 1] },
@@ -81,38 +79,41 @@ export default function Hero() {
           />
         </AnimatePresence>
 
-        {/* DESKTOP washes (two-column blend) */}
-        {/* Horizontal: strong over the copy, light across the middle and
-            gems, gently lifting again at the far edge. */}
+        {/* DESKTOP washes — heavy on the left so text stays crisp,
+            light toward the right so the gem photo shines through */}
         <div
           className="absolute inset-0 hidden lg:block"
           style={{
             background:
-              'linear-gradient(90deg, rgba(248,250,253,0.9) 0%, rgba(248,250,253,0.55) 34%, rgba(248,250,253,0.32) 62%, rgba(248,250,253,0.55) 100%)',
+              'linear-gradient(90deg, rgba(248,250,253,0.98) 0%, rgba(248,250,253,0.92) 26%, rgba(248,250,253,0.55) 46%, rgba(248,250,253,0.12) 70%, rgba(248,250,253,0) 100%)',
           }}
         />
-        {/* Vertical vignette: melts into the navbar above and the pager below */}
+        {/* Vertical vignette: melts into the navbar above and pager below */}
         <div
           className="absolute inset-0 hidden lg:block"
           style={{
             background:
-              'linear-gradient(180deg, rgba(248,250,253,0.7) 0%, rgba(248,250,253,0) 16%, rgba(248,250,253,0) 70%, rgba(248,250,253,0.95) 100%)',
+              'linear-gradient(180deg, rgba(248,250,253,0.5) 0%, rgba(248,250,253,0) 18%, rgba(248,250,253,0) 64%, rgba(248,250,253,0.85) 100%)',
           }}
         />
 
-        {/* MOBILE wash (stacked layout): keep the copy crisp up top, let the
-            photo show through the middle, fade into the pager below. */}
+        {/* MOBILE wash */}
         <div
           className="absolute inset-0 lg:hidden"
           style={{
             background:
-              'linear-gradient(180deg, rgba(248,250,253,0.93) 0%, rgba(248,250,253,0.7) 26%, rgba(248,250,253,0.4) 52%, rgba(248,250,253,0.42) 78%, rgba(248,250,253,0.96) 100%)',
+              'linear-gradient(180deg, rgba(248,250,253,0.95) 0%, rgba(248,250,253,0.72) 22%, rgba(248,250,253,0.32) 48%, rgba(248,250,253,0.28) 72%, rgba(248,250,253,0.96) 100%)',
           }}
         />
       </div>
 
-      <div className="relative z-10 container-x pt-20 pb-0 lg:pt-24 lg:pb-0 lg:min-h-0 lg:flex lg:flex-col lg:justify-center" style={{ minHeight: 'min(58vh, 520px)' }}>
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-24 items-center w-full flex-1">
+      {/* Two-column content: text on left, open space (gem image visible) on right.
+          padding-bottom reserves space for the absolutely-pinned pager + trustbar (~116px) */}
+      <div
+        className="relative z-10 container-x pt-24 lg:pt-28 flex flex-col justify-center"
+        style={{ minHeight: '100dvh', paddingBottom: '168px' }}
+      >
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-24 items-center w-full">
           {/* Text column */}
           <div className="relative">
             <AnimatePresence mode="wait">
@@ -120,42 +121,48 @@ export default function Hero() {
             </AnimatePresence>
           </div>
 
-          {/* Visual column: rotating 3D gemstone cluster */}
-          <div className="relative">
-            <HeroVisual />
-          </div>
+          {/* Right column — intentionally empty so the background gem photo shines through */}
+          <div className="hidden lg:block" />
         </div>
       </div>
 
-      {/* Premium 4-up pager — now in normal flow at the bottom */}
-      <div className="relative z-20 container-x mt-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 rounded-t-2xl overflow-hidden border-t border-line/80">
-          {heroSlides.map((s, i) => {
-            const active = i === current;
-            return (
-              <button
-                key={i}
-                onClick={() => jumpTo(i)}
-                className={`relative flex items-center gap-2.5 text-left py-3.5 px-3 md:px-5 transition-all duration-300 ${active ? 'bg-ink text-white' : 'glass text-muted hover:bg-tint hover:text-ink'
+      {/* Pager + TrustBar — absolutely pinned to the bottom of the hero.
+          This means slide transitions in the text area never move them. */}
+      <div className="absolute bottom-0 left-0 right-0 z-30">
+        {/* 4-up pager */}
+        <div className="container-x">
+          <div className="grid grid-cols-2 md:grid-cols-4 rounded-t-2xl overflow-hidden border-t border-line/80">
+            {heroSlides.map((s, i) => {
+              const active = i === current;
+              return (
+                <button
+                  key={i}
+                  onClick={() => jumpTo(i)}
+                  className={`relative flex items-center gap-2.5 text-left py-3.5 px-3 md:px-5 transition-all duration-300 ${
+                    active ? 'bg-ink text-white' : 'glass text-muted hover:bg-tint hover:text-ink'
                   }`}
-              >
-                <span className={`font-display text-base ${active ? 'text-frost' : 'text-sapphire'}`}>{s.pagerNum}</span>
-                <span className={`text-[0.68rem] md:text-xs font-semibold leading-tight whitespace-pre-line ${active ? 'text-white' : 'text-ink'}`}>
-                  {s.pagerLabel}
-                </span>
-                {active && (
-                  <motion.span
-                    key={`fill-${i}-${current}`}
-                    className="absolute top-0 left-0 h-[3px] bg-electric w-full origin-left"
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: (READING_PAUSE + 2000) / 1000, ease: 'linear' }}
-                  />
-                )}
-              </button>
-            );
-          })}
+                >
+                  <span className={`font-display text-base ${active ? 'text-frost' : 'text-sapphire'}`}>{s.pagerNum}</span>
+                  <span className={`text-[0.68rem] md:text-xs font-semibold leading-tight whitespace-pre-line ${active ? 'text-white' : 'text-ink'}`}>
+                    {s.pagerLabel}
+                  </span>
+                  {active && (
+                    <motion.span
+                      key={`fill-${i}-${current}`}
+                      className="absolute top-0 left-0 h-[3px] bg-electric w-full origin-left"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: (READING_PAUSE + 2000) / 1000, ease: 'linear' }}
+                    />
+                  )}
+                </button>
+              );
+            })}
+          </div>
         </div>
+
+        {/* Trust marquee */}
+        <TrustBar />
       </div>
     </header>
   );
@@ -184,7 +191,10 @@ function SlideText({ slide, onTypingComplete }) {
         {slide.eyebrow}
       </motion.span>
 
-      <h1 className="font-display font-medium text-ink tracking-tight max-w-[560px] min-h-[2.1em] mb-5" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', lineHeight: 1.06 }}>
+      <h1
+        className="font-display font-medium text-ink tracking-tight max-w-[560px] min-h-[2.1em] mb-5"
+        style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', lineHeight: 1.06 }}
+      >
         <TypingHeadline prefix={slide.prefix} em={slide.em} suffix={slide.suffix} onDone={handleTypingDone} />
       </h1>
 
@@ -228,27 +238,6 @@ function SlideText({ slide, onTypingComplete }) {
         Gemologist-verified · Ethically sourced · Trusted by 100+ dealers worldwide
       </motion.div>
     </motion.div>
-  );
-}
-
-function HeroVisual() {
-  const reduce = useReducedMotion();
-  return (
-    <div className="relative mx-auto w-full max-w-[620px] aspect-square lg:aspect-auto lg:max-h-[min(66vh,580px)] flex items-center justify-center">
-      {/* Rotating gemstone cluster — real-time 3D models (no video).
-          Outer wrapper handles desktop placement (down + left); the inner
-          motion layer owns the float so its inline transform doesn't
-          clash with the positioning. */}
-      <div className="relative w-full max-w-[600px] aspect-square lg:w-[122%] lg:max-w-none lg:translate-y-[32%] lg:-translate-x-[14%]">
-        <motion.div
-          className="absolute inset-0"
-          animate={reduce ? {} : { y: [0, -12, 0] }}
-          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <GemStage className="absolute inset-0" />
-        </motion.div>
-      </div>
-    </div>
   );
 }
 
@@ -307,4 +296,3 @@ function TypingHeadline({ prefix, em, suffix, onDone }) {
     </>
   );
 }
-

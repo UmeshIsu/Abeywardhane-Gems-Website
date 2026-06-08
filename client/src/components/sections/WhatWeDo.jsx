@@ -27,7 +27,7 @@ export default function WhatWeDo() {
 
   return (
     <section
-      className="py-20 lg:py-24 relative"
+      className="py-14 sm:py-20 lg:py-24 relative"
       style={{
         background:
           'radial-gradient(1200px 600px at 90% -10%, #e8edff 0%, transparent 60%), #fff',

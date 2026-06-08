@@ -4,7 +4,7 @@ import { gems } from '@/data/gems';
 
 export default function Collection() {
   return (
-    <section id="collection" className="py-20 lg:py-24 bg-white">
+    <section id="collection" className="py-14 sm:py-20 lg:py-24 bg-white">
       <div className="container-x">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <Reveal><span className="eyebrow">See Our Latest</span></Reveal>

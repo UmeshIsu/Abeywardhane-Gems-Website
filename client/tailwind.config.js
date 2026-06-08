@@ -33,7 +33,7 @@ export default {
         mist: '#F1F5FC',
       },
       fontFamily: {
-        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        display: ['"Playfair Display"', 'Georgia', 'serif'],
         body: ['Manrope', 'system-ui', 'sans-serif'],
       },
       letterSpacing: { luxe: '0.35em' },

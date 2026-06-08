@@ -13,10 +13,10 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const scrolled = useScrollNav(40);
 
-  const navCls = `fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+  const navCls = `fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-ink text-white ${
     scrolled
-      ? 'glass shadow-[0_2px_24px_rgba(15,23,42,0.07)] py-2'
-      : 'py-3 bg-white/85 backdrop-blur-md'
+      ? 'shadow-[0_2px_24px_rgba(0,0,0,0.35)] py-2'
+      : 'py-3'
   }`;
 
   return (
@@ -33,8 +33,8 @@ export default function Navbar() {
                   to={link.to}
                   end={link.to === '/'}
                   className={({ isActive }) =>
-                    `flex items-center gap-1 text-[0.78rem] font-semibold uppercase tracking-[0.06em] py-1.5 relative transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:bg-sapphire after:transition-all ${
-                      isActive ? 'text-sapphire after:w-full' : 'text-ink-soft hover:text-sapphire after:w-0 hover:after:w-full'
+                    `flex items-center gap-1 text-[0.78rem] font-bold uppercase tracking-[0.06em] py-1.5 relative transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:bg-frost after:transition-all ${
+                      isActive ? 'text-white after:w-full' : 'text-white/80 hover:text-white after:w-0 hover:after:w-full'
                     }`
                   }
                 >
@@ -81,7 +81,7 @@ export default function Navbar() {
           <div className="flex items-center gap-5">
             <a
               href={`tel:${contactInfo.phoneRaw}`}
-              className="hidden md:inline-flex items-center gap-1.5 font-semibold text-xs text-ink hover:text-sapphire transition"
+              className="hidden md:inline-flex items-center gap-1.5 font-semibold text-xs text-white/80 hover:text-white transition"
             >
               <Phone size={13} /> {contactInfo.phone}
             </a>
@@ -94,7 +94,7 @@ export default function Navbar() {
             <button
               type="button"
               aria-label="Toggle menu"
-              className="lg:hidden w-10 h-10 grid place-items-center text-ink"
+              className="lg:hidden w-10 h-10 grid place-items-center text-white"
               onClick={() => setOpen((o) => !o)}
             >
               {open ? <X size={22} /> : <Menu size={22} />}

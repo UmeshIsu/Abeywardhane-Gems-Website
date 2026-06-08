@@ -4,7 +4,7 @@ import { certifications } from '@/data/company';
 /* Luxury trust section: certification & quality-assurance pillars. */
 export default function Certifications() {
   return (
-    <section className="py-20 lg:py-24 bg-cream">
+    <section className="py-14 sm:py-20 lg:py-24 bg-cream">
       <div className="container-x">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <Reveal><span className="eyebrow justify-center">Certification & Assurance</span></Reveal>

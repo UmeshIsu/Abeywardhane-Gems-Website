@@ -5,7 +5,7 @@ import { services } from '@/data/services';
 
 export default function ServicesSection() {
   return (
-    <section className="py-20 lg:py-24 bg-cream overflow-hidden">
+    <section className="py-14 sm:py-20 lg:py-24 bg-cream overflow-hidden">
       <div className="container-x">
         <div className="flex flex-wrap items-end justify-between gap-8 mb-10">
           <div>
