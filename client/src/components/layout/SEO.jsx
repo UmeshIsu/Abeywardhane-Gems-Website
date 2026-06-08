@@ -14,7 +14,7 @@ export default function SEO({
   const defaultImage = `${window.location.origin}/sapphire-hero.png`;
   const canonicalUrl = `${window.location.origin}${window.location.pathname}`;
 
-  const metaTitle = title ? `${title} | ${siteName}` : defaultTitle;
+  const metaTitle = title ? `${siteName} — ${title}` : defaultTitle;
   const metaDescription = description || defaultDescription;
   const metaImage = image || defaultImage;
   const metaKeywords = keywords || 'gems sri lanka, buy sapphire online, ceylon gemstones, natural blue sapphire, ratnapura gem mines, ethical gemstone sourcing';
