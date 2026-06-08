@@ -195,7 +195,6 @@ export default function Navbar() {
                 className="flex items-center gap-2 text-[0.78rem] font-bold uppercase tracking-[0.06em] py-1.5 text-white/80 hover:text-white transition-colors"
                 aria-label="Select language"
               >
-                <Globe size={15} strokeWidth={2} />
                 <activeEntry.Flag size={18} />
                 <ChevronDown size={14} className={`transition-transform duration-200 ${langOpen ? 'rotate-180' : ''}`} />
               </button>
