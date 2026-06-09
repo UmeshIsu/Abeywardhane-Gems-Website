@@ -28,8 +28,8 @@ export default function Footer() {
               className="w-full max-w-[320px] h-auto -ml-2 -mt-6 mb-1"
             />
             <div className="flex gap-3 -mt-2">
-              {[{ Icon: Facebook, href: '#', label: 'Facebook' }, { Icon: Instagram, href: '#', label: 'Instagram' }].map(({ Icon, href, label }) => (
-                <a key={label} href={href} aria-label={label} className="w-9 h-9 grid place-items-center border border-white/15 rounded-full hover:bg-sapphire hover:border-sapphire transition-colors">
+              {[{ Icon: Facebook, href: 'https://web.facebook.com/profile.php?id=61558997588300', label: 'Facebook' }, { Icon: Instagram, href: 'https://www.instagram.com/abeywardhanegems/', label: 'Instagram' }].map(({ Icon, href, label }) => (
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="w-9 h-9 grid place-items-center border border-white/15 rounded-full hover:bg-sapphire hover:border-sapphire transition-colors">
                   <Icon size={15} />
                 </a>
               ))}
