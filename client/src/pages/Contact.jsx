@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle } from 'lucide-react';
-import { contactApi } from '@/lib/api';
 import { whatsappHref } from '@/lib/whatsapp';
 import { contactInfo } from '@/data/site';
 import Reveal from '@/components/ui/Reveal';
@@ -21,6 +20,11 @@ const contactSchema = graph(
   },
 );
 
+// Web3Forms — free contact form, no backend, no DNS setup.
+// Get a free access key at https://web3forms.com (just enter your email),
+// then paste it into client/.env as VITE_WEB3FORMS_KEY.
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || 'your-web3forms-access-key';
+
 export default function Contact() {
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState({ state: 'idle', msg: '' }); // idle|sending|success|error
@@ -35,13 +39,27 @@ export default function Contact() {
     }
     setStatus({ state: 'sending', msg: '' });
     try {
-      await contactApi.submit(form);
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          from_name: 'Abeywardhane Gems Website',
+          botcheck: false, // Web3Forms server-side spam protection
+          ...form,
+          subject: form.subject ? `Website inquiry: ${form.subject}` : 'New website inquiry',
+        }),
+      });
+      const data = await res.json().catch(() => null);
+      if (!data?.success) {
+        throw new Error(data?.message || 'Request failed');
+      }
       setStatus({ state: 'success', msg: "Thanks! We'll get back to you soon." });
       setForm(initialForm);
     } catch (err) {
       setStatus({
         state: 'error',
-        msg: err?.response?.data?.error || 'Could not send your message. Please try again or use WhatsApp.',
+        msg: 'Could not send your message. Please try again or use WhatsApp.',
       });
     }
   };

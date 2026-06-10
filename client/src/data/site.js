@@ -60,8 +60,8 @@ export const businessInfo = {
 /* Social / external profiles — also used as schema `sameAs`. Only links with a
    real URL render in the footer; '' entries are skipped (no dead `href="#"`). */
 export const socialLinks = {
-  facebook: 'https://www.facebook.com/abeywardhanegems', // TODO-VERIFY
-  instagram: '', // TODO-VERIFY add real profile URL or leave '' to hide
+  facebook: 'https://web.facebook.com/profile.php?id=61558997588300',
+  instagram: 'https://www.instagram.com/abeywardhanegems/',
   whatsapp: `https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER || '94740304669'}`,
 };
 

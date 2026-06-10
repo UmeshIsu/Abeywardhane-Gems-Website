@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-import { blogsApi } from '@/lib/api';
 import PageHeader from '@/components/layout/PageHeader';
 import Reveal from '@/components/ui/Reveal';
 import SEO from '@/components/layout/SEO';
@@ -33,21 +31,7 @@ const staticBlogs = [
 ];
 
 export default function Blog() {
-  // Seed with the static posts so they're present in the prerendered HTML;
-  // live DB posts replace them on the client when available.
-  const [posts, setPosts] = useState(staticBlogs);
-  const [loading] = useState(false);
-
-  useEffect(() => {
-    blogsApi
-      .list()
-      .then((data) => {
-        if (data && data.length > 0) setPosts(data);
-      })
-      .catch((err) => {
-        console.warn('Failed to fetch dynamic blog posts, using fallback static data:', err);
-      });
-  }, []);
+  const posts = staticBlogs;
 
   const blogSchema = {
     "@context": "https://schema.org",
@@ -79,9 +63,7 @@ export default function Blog() {
 
       <section className="py-20 bg-white">
         <div className="container-x">
-          {loading ? (
-            <p className="text-muted text-center">Loading…</p>
-          ) : posts.length === 0 ? (
+          {posts.length === 0 ? (
             <p className="text-muted text-center">No posts yet. Check back soon.</p>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

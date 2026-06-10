@@ -3,7 +3,6 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import ScrollProgress from '@/components/ui/ScrollProgress';
 import WhatsAppFAB from '@/components/ui/WhatsAppFAB';
 
 export default function Layout() {
@@ -23,7 +22,6 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <ScrollProgress />
       <Navbar />
       <main className="flex-1">
         <AnimatePresence mode="wait">

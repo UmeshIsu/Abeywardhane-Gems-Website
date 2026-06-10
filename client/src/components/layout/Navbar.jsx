@@ -40,7 +40,7 @@ const TaiwanFlag = ({ size = 20 }) => (
     <circle cx="225" cy="150" r="73" fill="#FFF" />
     <circle cx="225" cy="150" r="60" fill="#000095" />
     <g fill="#FFF" transform="translate(225,150)">
-      {[0,30,60,90,120,150,180,210,240,270,300,330].map((a) => (
+      {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((a) => (
         <line key={a} x1="0" y1="-73" x2="0" y2="-95" stroke="#FFF" strokeWidth="5" transform={`rotate(${a})`} />
       ))}
     </g>
@@ -75,8 +75,8 @@ const ThaiFlag = ({ size = 20 }) => (
 const LANGUAGES = [
   { code: 'zh-CN', label: '简体中文', Flag: ChinaFlag },
   { code: 'zh-TW', label: '繁體中文', Flag: TaiwanFlag },
-  { code: 'en',    label: 'English',  Flag: UKFlag },
-  { code: 'th',    label: 'ไทย',      Flag: ThaiFlag },
+  { code: 'en', label: 'English', Flag: UKFlag },
+  { code: 'th', label: 'ไทย', Flag: ThaiFlag },
 ];
 
 /* ====================================================================
@@ -90,12 +90,27 @@ function getActiveLanguage() {
 
 function setLanguage(langCode) {
   const val = langCode === 'en' ? '/en/en' : `/en/${langCode}`;
-  // Clear old cookie
-  document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-  document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`;
-  // Set new
+  const host = window.location.hostname; // e.g. www.abeywardhanegems.com
+
+  // Resolve the apex domain (e.g. www.abeywardhanegems.com → .abeywardhanegems.com)
+  const parts = host.split('.');
+  const apex = parts.length >= 2 ? '.' + parts.slice(-2).join('.') : '';
+
+  // Aggressively clear old googtrans cookies at every domain level
+  const expiry = 'expires=Thu, 01 Jan 1970 00:00:00 UTC';
+  document.cookie = `googtrans=; ${expiry}; path=/;`;
+  document.cookie = `googtrans=; ${expiry}; path=/; domain=${host};`;
+  document.cookie = `googtrans=; ${expiry}; path=/; domain=.${host};`;
+  if (apex) {
+    document.cookie = `googtrans=; ${expiry}; path=/; domain=${apex};`;
+  }
+
+  // Set the new cookie — must be on the apex domain for Google Translate to read it
   document.cookie = `googtrans=${val}; path=/;`;
-  document.cookie = `googtrans=${val}; path=/; domain=${window.location.hostname};`;
+  if (apex) {
+    document.cookie = `googtrans=${val}; path=/; domain=${apex};`;
+  }
+
   window.location.reload();
 }
 
@@ -126,11 +141,10 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClick);
   }, []);
 
-  const navCls = `fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-ink text-white ${
-    scrolled
+  const navCls = `fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-ink text-white ${scrolled
       ? 'shadow-[0_2px_24px_rgba(0,0,0,0.35)] py-2'
       : 'py-3'
-  }`;
+    }`;
 
   return (
     <>
@@ -146,8 +160,7 @@ export default function Navbar() {
                   to={link.to}
                   end={link.to === '/'}
                   className={({ isActive }) =>
-                    `flex items-center gap-1 text-[0.78rem] font-bold uppercase tracking-[0.06em] py-1.5 relative transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:bg-frost after:transition-all ${
-                      isActive ? 'text-white after:w-full' : 'text-white/80 hover:text-white after:w-0 hover:after:w-full'
+                    `flex items-center gap-1 text-[0.78rem] font-bold uppercase tracking-[0.06em] py-1.5 relative transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:bg-frost after:transition-all ${isActive ? 'text-white after:w-full' : 'text-white/80 hover:text-white after:w-0 hover:after:w-full'
                     }`
                   }
                 >
@@ -218,11 +231,10 @@ export default function Navbar() {
                         key={code}
                         type="button"
                         onClick={() => { setLangOpen(false); setLanguage(code); }}
-                        className={`w-full flex items-center gap-3 px-4 py-2.5 text-left text-[0.82rem] transition-colors ${
-                          code === activeLang
+                        className={`w-full flex items-center gap-3 px-4 py-2.5 text-left text-[0.82rem] transition-colors ${code === activeLang
                             ? 'bg-sapphire-light text-sapphire font-semibold'
                             : 'text-ink hover:bg-cream'
-                        }`}
+                          }`}
                       >
                         <Flag size={22} />
                         <span className="font-semibold">{label}</span>
@@ -306,11 +318,10 @@ export default function Navbar() {
                       key={code}
                       type="button"
                       onClick={() => { setOpen(false); setLanguage(code); }}
-                      className={`flex items-center gap-2.5 px-3.5 py-3 rounded-xl text-left text-sm font-semibold transition-colors ${
-                        code === activeLang
+                      className={`flex items-center gap-2.5 px-3.5 py-3 rounded-xl text-left text-sm font-semibold transition-colors ${code === activeLang
                           ? 'bg-sapphire text-white'
                           : 'bg-cream text-ink hover:bg-sapphire-light'
-                      }`}
+                        }`}
                     >
                       <Flag size={22} />
                       {label}
