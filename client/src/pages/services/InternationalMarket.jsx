@@ -15,6 +15,8 @@ import ImagePlaceholder from '@/components/ui/ImagePlaceholder';
 import Reveal from '@/components/ui/Reveal';
 import { whatsappHref } from '@/lib/whatsapp';
 import { exhibitionsApi, awardsApi } from '@/lib/api';
+import SEO from '@/components/layout/SEO';
+import { graph, serviceSchema } from '@/lib/seo';
 
 /* =========================================================
  *  ✏️  HOW TO ADD YOUR OWN PHOTOS
@@ -161,6 +163,12 @@ export default function InternationalMarket() {
 
   return (
     <>
+      <SEO
+        title="International Gem Market Coordination & Wholesale Buyers"
+        description="We connect international wholesale buyers, retailers and collectors with certified Sri Lankan gemstones through global gem exhibitions — JCK Las Vegas, Hong Kong, FACETS Sri Lanka and more."
+        path="/services/international-market"
+        schema={graph(serviceSchema({ name: 'Coordinating the International Gem Market', description: 'Connecting global wholesale buyers, retailers and collectors with certified Sri Lankan gemstones.', path: '/services/international-market' }))}
+      />
       <PageHeader
         eyebrow="Services"
         title="Coordinating International Gem Market and Buyers"

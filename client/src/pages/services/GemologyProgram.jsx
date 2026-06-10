@@ -17,6 +17,8 @@ import PageHeader from '@/components/layout/PageHeader';
 import ImagePlaceholder from '@/components/ui/ImagePlaceholder';
 import Reveal from '@/components/ui/Reveal';
 import { whatsappHref } from '@/lib/whatsapp';
+import SEO from '@/components/layout/SEO';
+import { graph, serviceSchema } from '@/lib/seo';
 
 /* =========================================================
  *  ✏️  HOW TO ADD YOUR OWN PHOTOS
@@ -141,6 +143,12 @@ const networkingPoints = [
 export default function GemologyProgram() {
   return (
     <>
+      <SEO
+        title="Gemology Internship & Expose Program in Sri Lanka"
+        description="Hands-on gemology internships and exposure visits inside Sri Lanka's gem industry — classroom theory, lab work and field trips to working garden mines in Ratnapura."
+        path="/services/gemology-program"
+        schema={graph(serviceSchema({ name: 'Gemology Expose Visit & Internship Program', description: 'Hands-on gemology education combining theory, lab work and field experience in Sri Lanka.', path: '/services/gemology-program' }))}
+      />
       <PageHeader
         eyebrow="Services"
         title="Organizing an Expose Visit and Internship Program on Gemology"

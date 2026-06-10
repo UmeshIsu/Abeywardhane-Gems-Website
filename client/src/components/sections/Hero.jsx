@@ -13,6 +13,12 @@ export default function Hero() {
   const [current, setCurrent] = useState(0);
   const [typingComplete, setTypingComplete] = useState(false);
   const timerRef = useRef(null);
+  // The first slide renders fully on first paint (so the <h1> is present in the
+  // prerendered HTML for SEO/LCP). Subsequent slides use the typewriter effect.
+  const instantRef = useRef(true);
+  useEffect(() => {
+    instantRef.current = false;
+  }, []);
 
   // Preload every slide photo so the crossfade never waits on a decode
   useEffect(() => {
@@ -117,7 +123,12 @@ export default function Hero() {
           {/* Text column */}
           <div className="relative">
             <AnimatePresence mode="wait">
-              <SlideText key={current} slide={slide} onTypingComplete={() => setTypingComplete(true)} />
+              <SlideText
+                key={current}
+                slide={slide}
+                instant={instantRef.current}
+                onTypingComplete={() => setTypingComplete(true)}
+              />
             </AnimatePresence>
           </div>
 
@@ -170,9 +181,10 @@ export default function Hero() {
 
 /* ---------------- Sub-components ---------------- */
 
-function SlideText({ slide, onTypingComplete }) {
-  const [typingDone, setTypingDone] = useState(false);
-  useEffect(() => setTypingDone(false), [slide]);
+function SlideText({ slide, onTypingComplete, instant = false }) {
+  // SlideText remounts per slide (key={current} in <Hero>), so initial state
+  // already resets correctly — no reset effect needed.
+  const [typingDone, setTypingDone] = useState(instant);
 
   const handleTypingDone = () => {
     setTypingDone(true);
@@ -195,7 +207,7 @@ function SlideText({ slide, onTypingComplete }) {
         className="font-display font-medium text-ink tracking-tight max-w-[560px] min-h-[2.1em] mb-5"
         style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', lineHeight: 1.06 }}
       >
-        <TypingHeadline prefix={slide.prefix} em={slide.em} suffix={slide.suffix} onDone={handleTypingDone} />
+        <TypingHeadline prefix={slide.prefix} em={slide.em} suffix={slide.suffix} onDone={handleTypingDone} instant={instant} />
       </h1>
 
       <motion.p
@@ -241,13 +253,20 @@ function SlideText({ slide, onTypingComplete }) {
   );
 }
 
-function TypingHeadline({ prefix, em, suffix, onDone }) {
+function TypingHeadline({ prefix, em, suffix, onDone, instant = false }) {
   const full = prefix + em + suffix;
-  const [charIndex, setCharIndex] = useState(0);
+  // When `instant`, start fully revealed so the headline is in the prerendered
+  // HTML and paints immediately (no empty <h1>); otherwise type from empty.
+  const [charIndex, setCharIndex] = useState(instant ? full.length : 0);
   const onDoneRef = useRef(onDone);
   onDoneRef.current = onDone;
 
   useEffect(() => {
+    if (instant) {
+      // Already fully shown — just signal completion so the subtitle/CTAs reveal.
+      if (onDoneRef.current) onDoneRef.current();
+      return;
+    }
     setCharIndex(0);
     let cancelled = false;
     const cleanupRef = { current: null };
@@ -272,7 +291,7 @@ function TypingHeadline({ prefix, em, suffix, onDone }) {
       clearTimeout(startTimer);
       if (cleanupRef.current) cleanupRef.current();
     };
-  }, [full]);
+  }, [full, instant]);
 
   const shown = Math.min(charIndex, full.length);
   let preStr = '', emStr = '', sufStr = '';

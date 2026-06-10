@@ -8,6 +8,17 @@ export default defineConfig({
     alias: { '@': path.resolve(__dirname, './src') },
   },
   server: { port: 5173, open: true },
+  // Build-time static-site generation (vite-react-ssg).
+  ssgOptions: {
+    entry: 'src/main.jsx',
+    script: 'async',
+    dirStyle: 'nested', // /services -> /services/index.html (clean URLs on Vercel)
+    formatting: 'none', // never prettify — it breaks hydration
+    // Only prerender public routes; never prerender the admin panel.
+    includedRoutes(paths) {
+      return paths.filter((p) => !p.startsWith('/admin'));
+    },
+  },
   build: {
     chunkSizeWarningLimit: 900,
     rollupOptions: {

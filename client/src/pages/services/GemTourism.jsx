@@ -22,6 +22,8 @@ import PageHeader from '@/components/layout/PageHeader';
 import ImagePlaceholder from '@/components/ui/ImagePlaceholder';
 import Reveal from '@/components/ui/Reveal';
 import { whatsappHref } from '@/lib/whatsapp';
+import SEO from '@/components/layout/SEO';
+import { graph, serviceSchema } from '@/lib/seo';
 
 /* =========================================================
  *  HOW TO ADD YOUR OWN PHOTOS
@@ -102,6 +104,12 @@ const pricingPoints = [
 export default function GemTourism() {
   return (
     <>
+      <SEO
+        title="Sri Lanka Gem Tourism — Guided Ratnapura Mine Tours"
+        description="Experience Sri Lanka's gem heritage with Abeywardhane Gems: guided tours of Ratnapura garden mines, cutting workshops and Beruwala gem markets. Airport transport, accommodation and gem certification included."
+        path="/services/gem-tourism"
+        schema={graph(serviceSchema({ name: 'Gem Tourism in Sri Lanka', description: 'Guided gem-field tourism through Ratnapura mines, cutting workshops and gem markets, with transport, accommodation and certification.', path: '/services/gem-tourism' }))}
+      />
       <PageHeader
         eyebrow="Services"
         title="Organizing and Facilitating Gem Tourism"

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, MapPin, Mail, Phone, ArrowUp } from 'lucide-react';
 import { whatsappHref } from '@/lib/whatsapp';
-import { contactInfo } from '@/data/site';
+import { contactInfo, socialLinks } from '@/data/site';
 
 const WhatsAppIcon = (props) => (
   <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -28,11 +28,23 @@ export default function Footer() {
               className="w-full max-w-[320px] h-auto -ml-2 -mt-6 mb-1"
             />
             <div className="flex gap-3 -mt-2">
-              {[{ Icon: Facebook, href: '#', label: 'Facebook' }, { Icon: Instagram, href: '#', label: 'Instagram' }].map(({ Icon, href, label }) => (
-                <a key={label} href={href} aria-label={label} className="w-9 h-9 grid place-items-center border border-white/15 rounded-full hover:bg-sapphire hover:border-sapphire transition-colors">
-                  <Icon size={15} />
-                </a>
-              ))}
+              {[
+                { Icon: Facebook, href: socialLinks.facebook, label: 'Facebook' },
+                { Icon: Instagram, href: socialLinks.instagram, label: 'Instagram' },
+              ]
+                .filter(({ href }) => href)
+                .map(({ Icon, href, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="w-9 h-9 grid place-items-center border border-white/15 rounded-full hover:bg-sapphire hover:border-sapphire transition-colors"
+                  >
+                    <Icon size={15} />
+                  </a>
+                ))}
               <a href={whatsappHref()} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="w-9 h-9 grid place-items-center border border-white/15 rounded-full hover:bg-[#25D366] hover:border-[#25D366] transition-colors">
                 <WhatsAppIcon className="w-[15px] h-[15px]" />
               </a>

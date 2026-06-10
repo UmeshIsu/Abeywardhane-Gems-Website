@@ -3,6 +3,7 @@ import { blogsApi } from '@/lib/api';
 import PageHeader from '@/components/layout/PageHeader';
 import Reveal from '@/components/ui/Reveal';
 import SEO from '@/components/layout/SEO';
+import { absoluteUrl } from '@/lib/seo';
 
 const staticBlogs = [
   {
@@ -32,24 +33,20 @@ const staticBlogs = [
 ];
 
 export default function Blog() {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // Seed with the static posts so they're present in the prerendered HTML;
+  // live DB posts replace them on the client when available.
+  const [posts, setPosts] = useState(staticBlogs);
+  const [loading] = useState(false);
 
   useEffect(() => {
     blogsApi
       .list()
       .then((data) => {
-        if (data && data.length > 0) {
-          setPosts(data);
-        } else {
-          setPosts(staticBlogs);
-        }
+        if (data && data.length > 0) setPosts(data);
       })
       .catch((err) => {
         console.warn('Failed to fetch dynamic blog posts, using fallback static data:', err);
-        setPosts(staticBlogs);
-      })
-      .finally(() => setLoading(false));
+      });
   }, []);
 
   const blogSchema = {
@@ -59,7 +56,7 @@ export default function Blog() {
     "itemListElement": posts.map((post, idx) => ({
       "@type": "ListItem",
       "position": idx + 1,
-      "url": `${window.location.origin}/blog#${post.slug}`,
+      "url": absoluteUrl(`/blog#${post.slug}`),
       "name": post.title,
       "description": post.excerpt,
       "image": post.image
@@ -68,10 +65,10 @@ export default function Blog() {
 
   return (
     <>
-      <SEO 
-        title="Gems & Jewellery News, Guides, and Mining Stories"
-        description="Learn about Ceylon sapphire quality, gemstone authentication, custom jewellery design guides, and Ratnapura gem mining field history."
-        keywords="sri lanka gem industry, ceylon blue sapphire guide, buy gems ratnapura, natural gemstone care"
+      <SEO
+        title="Ceylon Gemstone Guides, Sapphire News & Mining Stories"
+        description="Expert guides on Ceylon sapphire quality, gemstone authentication and certification, custom jewellery design, and the Ratnapura gem mining trade."
+        path="/blog"
         schema={blogSchema}
       />
       <PageHeader

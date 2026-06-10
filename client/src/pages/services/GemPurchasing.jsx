@@ -5,6 +5,8 @@ import PageHeader from '@/components/layout/PageHeader';
 import ImagePlaceholder from '@/components/ui/ImagePlaceholder';
 import Reveal from '@/components/ui/Reveal';
 import { whatsappHref } from '@/lib/whatsapp';
+import SEO from '@/components/layout/SEO';
+import { graph, serviceSchema } from '@/lib/seo';
 
 /* =========================================================
  *  ✏️  HOW TO ADD YOUR OWN PHOTOS
@@ -62,6 +64,12 @@ const trustPoints = [
 export default function GemPurchasing() {
   return (
     <>
+      <SEO
+        title="Buy & Sell Ceylon Gemstones — Certified Sapphires & Rubies"
+        description="Buy and sell high-quality natural Ceylon gemstones with Abeywardhane Gems. Gemologist-authenticated sapphires and rubies, transparent valuations and fair market pricing in Sri Lanka."
+        path="/services/gem-purchasing"
+        schema={graph(serviceSchema({ name: 'Gem Purchasing and Selling', description: 'Buying and selling high-quality, authenticated Ceylon gemstones with transparent valuations.', path: '/services/gem-purchasing' }))}
+      />
       <PageHeader
         eyebrow="Services"
         title="Gem Purchasing And Selling"

@@ -4,10 +4,28 @@ import PageHeader from '@/components/layout/PageHeader';
 import Reveal from '@/components/ui/Reveal';
 import CtaBand from '@/components/sections/CtaBand';
 import { services } from '@/data/services';
+import SEO from '@/components/layout/SEO';
+import { graph, serviceSchema } from '@/lib/seo';
 
 export default function Services() {
+  const servicesSchema = graph(
+    ...services.map((s) =>
+      serviceSchema({
+        name: s.title.replace(/\n/g, ' '),
+        description: s.description,
+        path: s.slug,
+      }),
+    ),
+  );
+
   return (
     <>
+      <SEO
+        title="Ceylon Gem Services — Purchasing, Export, Gemology & Tourism"
+        description="Sri Lanka gem services from Abeywardhane Gems: buying & selling certified Ceylon gemstones, international gem-market coordination, gemology internships and guided gem tourism."
+        path="/services"
+        schema={servicesSchema}
+      />
       <PageHeader
         eyebrow="What We Offer"
         title="Our Services"

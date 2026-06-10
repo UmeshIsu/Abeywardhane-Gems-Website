@@ -4,25 +4,24 @@ import Reveal from '@/components/ui/Reveal';
 import { galleryApi } from '@/lib/api';
 import { gems } from '@/data/gems';
 import SEO from '@/components/layout/SEO';
+import { productSchema } from '@/lib/seo';
 
 export default function Gallery() {
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // Seed with the curated static collection so it's present in the prerendered
+  // HTML (and on first paint). DB-synced images merge in on the client.
+  const [images, setImages] = useState(gems);
+  const [loading] = useState(false);
   const [active, setActive] = useState('All');
 
   useEffect(() => {
-    // The curated gem collection (Precious / Semi-Precious / Rare) ships in the
-    // code and always shows in the gallery. DB-synced images (Exhibitions, etc.)
-    // are merged in on top.
+    // DB-synced images (Exhibitions, etc.) are merged on top of the static set.
     galleryApi.list()
       .then(data => {
-        setImages([...gems, ...(data || [])]);
+        if (data && data.length) setImages([...gems, ...data]);
       })
       .catch((err) => {
-        console.error('Failed to load gallery images from Supabase, falling back to static data:', err);
-        setImages(gems);
-      })
-      .finally(() => setLoading(false));
+        console.error('Failed to load gallery images from Supabase, using static collection:', err);
+      });
   }, []);
 
   const tags = useMemo(() => ['All', ...Array.from(new Set(images.map((g) => g.tag)))], [images]);
@@ -33,29 +32,18 @@ export default function Gallery() {
     "@type": "ItemList",
     "numberOfItems": list.length,
     "itemListElement": list.map((gem, idx) => ({
-      "@type": "Product",
+      "@type": "ListItem",
       "position": idx + 1,
-      "name": gem.name,
-      "image": gem.image,
-      "description": gem.description,
-      "brand": {
-        "@type": "Brand",
-        "name": "Abeywardhane Gems"
-      },
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
-      }
-    }))
+      "item": productSchema(gem),
+    })),
   };
 
   return (
     <>
-      <SEO 
-        title="Ceylon Gemstone Gallery | Fine Blue Sapphire, Ruby, Spinel"
-        description="Browse our handpicked natural Ceylon gemstone gallery. Rare precious and semi-precious stones direct from the source in Sri Lanka, certified by GIA/FGA gemologists."
-        keywords="buy natural gemstones, ceylon sapphire gallery, certified gemstones online, precious gems sri lanka"
+      <SEO
+        title="Ceylon Gemstone Gallery — Blue Sapphire, Ruby & Rare Gems"
+        description="Browse our handpicked natural Ceylon gemstone collection — rare precious and semi-precious stones direct from the source in Sri Lanka, independently certified."
+        path="/gallery"
         schema={gallerySchema}
       />
       <PageHeader

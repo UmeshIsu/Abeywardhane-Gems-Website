@@ -1,12 +1,24 @@
 import { Link } from 'react-router-dom';
+import { Head } from 'vite-react-ssg';
+import { breadcrumbSchema, graph } from '@/lib/seo';
 
 /**
  * Premium dark header at the top of every inner page.
  *   <PageHeader eyebrow="Services" title="…" breadcrumb={[{label,to?}, …]} />
+ *
+ * Automatically emits BreadcrumbList JSON-LD from the same `breadcrumb` data,
+ * so every page using it gets breadcrumb structured data with no extra code.
  */
 export default function PageHeader({ eyebrow, title, breadcrumb = [] }) {
   return (
     <section className="relative bg-gradient-to-br from-ink via-[#13224a] to-ink text-white pt-28 pb-14 lg:pt-36 lg:pb-20 overflow-hidden">
+      {breadcrumb.length > 0 && (
+        <Head>
+          <script type="application/ld+json">
+            {JSON.stringify(graph(breadcrumbSchema(breadcrumb)))}
+          </script>
+        </Head>
+      )}
       <div
         className="absolute inset-0 opacity-40 pointer-events-none"
         style={{

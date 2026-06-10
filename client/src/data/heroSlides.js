@@ -3,9 +3,9 @@
 export const heroSlides = [
   {
     eyebrow: "Ceylon's Finest Gemstones",
-    prefix: 'Discover our exclusive collection of ',
-    em: 'handpicked',
-    suffix: ' gems.',
+    prefix: 'Discover handpicked ',
+    em: 'Ceylon sapphires',
+    suffix: ' & rare natural gemstones.',
     subtitle:
       'Authentic Ceylon sapphires, rubies and rare stones — ethically sourced and gemologist verified, straight from the heart of Sri Lanka.',
     cta: { label: 'View Collection', to: '/gallery' },

@@ -83,6 +83,7 @@ const LANGUAGES = [
    Cookie helpers — Google Translate reads /googtrans to decide language
    ==================================================================== */
 function getActiveLanguage() {
+  if (typeof document === 'undefined') return 'en'; // SSR / prerender
   const match = document.cookie.match(/googtrans=\/en\/([^;]+)/);
   return match ? match[1] : 'en';
 }
@@ -107,8 +108,12 @@ export default function Navbar() {
   const scrolled = useScrollNav(40);
   const langRef = useRef(null);
 
-  const activeLang = getActiveLanguage();
+  // SSR-safe default; the real language is read from the cookie on the client
+  // (avoids a hydration mismatch when a visitor previously picked a language).
+  const [activeLang, setActiveLang] = useState('en');
   const activeEntry = LANGUAGES.find((l) => l.code === activeLang) || LANGUAGES[2]; // default English
+
+  useEffect(() => { setActiveLang(getActiveLanguage()); }, []);
 
   // Close language dropdown on outside click
   useEffect(() => {

@@ -5,8 +5,21 @@ import { whatsappHref } from '@/lib/whatsapp';
 import { contactInfo } from '@/data/site';
 import Reveal from '@/components/ui/Reveal';
 import PageHeader from '@/components/layout/PageHeader';
+import SEO from '@/components/layout/SEO';
+import { graph, localBusinessSchema, absoluteUrl } from '@/lib/seo';
 
 const initialForm = { name: '', email: '', phone: '', subject: '', message: '' };
+
+const contactSchema = graph(
+  localBusinessSchema(),
+  {
+    '@type': 'ContactPage',
+    name: 'Contact Abeywardhane Gems',
+    url: absoluteUrl('/contact'),
+    description:
+      'Contact Abeywardhane Gems to enquire about natural Ceylon sapphires, certified gemstones, wholesale supply and gem export from Sri Lanka.',
+  },
+);
 
 export default function Contact() {
   const [form, setForm] = useState(initialForm);
@@ -35,6 +48,12 @@ export default function Contact() {
 
   return (
     <>
+      <SEO
+        title="Contact Us — Enquire About Ceylon Sapphires & Gem Export"
+        description="Get in touch with Abeywardhane Gems in Sri Lanka. Enquire about natural Ceylon sapphires, certified gemstones, wholesale orders and worldwide gem export. Call, email or WhatsApp us."
+        path="/contact"
+        schema={contactSchema}
+      />
       <PageHeader
         eyebrow="Get in Touch"
         title="Contact Us"
