@@ -8,7 +8,16 @@ import GemTourism from '@/pages/services/GemTourism';
 import Gallery from '@/pages/Gallery';
 import Blog from '@/pages/Blog';
 import Contact from '@/pages/Contact';
+import About from '@/pages/About';
 import NotFound from '@/pages/NotFound';
+import GemstonePage from '@/pages/gemstones/GemstonePage';
+import GemExportServices from '@/pages/GemExportServices';
+import WholesaleGemstones from '@/pages/WholesaleGemstones';
+import LocalPage from '@/pages/local/LocalPage';
+import ArticlePage from '@/pages/blog/ArticlePage';
+import { gemstones } from '@/data/gemstones';
+import { localPages } from '@/data/localPages';
+import { articles } from '@/data/articles';
 
 /**
  * Data-router route table consumed by ViteReactSSG (see main.jsx).
@@ -26,9 +35,30 @@ export const routes = [
       { path: 'services/international-market', element: <InternationalMarket /> },
       { path: 'services/gemology-program', element: <GemologyProgram /> },
       { path: 'services/gem-tourism', element: <GemTourism /> },
+      { path: 'about', element: <About /> },
       { path: 'gallery', element: <Gallery /> },
       { path: 'blog', element: <Blog /> },
       { path: 'contact', element: <Contact /> },
+
+      // Money / SEO landing pages
+      { path: 'gem-export-services', element: <GemExportServices /> },
+      { path: 'wholesale-gemstones-sri-lanka', element: <WholesaleGemstones /> },
+      // Per-gemstone money pages (generated from data — one route per slug)
+      ...gemstones.map((g) => ({
+        path: g.slug,
+        element: <GemstonePage slug={g.slug} />,
+      })),
+      // Local / regional authority pages
+      ...localPages.map((p) => ({
+        path: p.slug,
+        element: <LocalPage slug={p.slug} />,
+      })),
+      // Knowledge-hub article pages (/blog/:slug)
+      ...articles.map((a) => ({
+        path: `blog/${a.slug}`,
+        element: <ArticlePage slug={a.slug} />,
+      })),
+
       { path: '*', element: <NotFound /> },
     ],
   },

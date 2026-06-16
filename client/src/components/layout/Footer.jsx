@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { Facebook, Instagram, MapPin, Mail, Phone, ArrowUp } from 'lucide-react';
 import { whatsappHref } from '@/lib/whatsapp';
 import { contactInfo, socialLinks } from '@/data/site';
+import { gemstoneLinks } from '@/data/gemstones';
+import Picture from '@/components/ui/Picture';
 
 const WhatsAppIcon = (props) => (
   <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -20,9 +22,9 @@ export default function Footer() {
         style={{ background: 'radial-gradient(700px 360px at 90% 0%, rgba(37,99,235,0.30), transparent 60%)' }}
       />
       <div className="relative container-x pt-16 pb-6">
-        <div className="grid lg:grid-cols-[1.5fr_1fr_1fr_1.1fr] gap-10 mb-12 items-start">
+        <div className="grid lg:grid-cols-[1.3fr_1fr_1fr_1fr_1.1fr] gap-10 mb-12 items-start">
           <div>
-            <img
+            <Picture
               src="/logo-full.png"
               alt="Abeywardhane Gems (Pvt) Ltd — Ceylon Gemstones"
               className="w-full max-w-[320px] h-auto -ml-2 -mt-6 mb-1"
@@ -62,10 +64,22 @@ export default function Footer() {
           </div>
 
           <div>
+            <h4 className="text-white text-xs tracking-[0.25em] uppercase mb-5 font-semibold">Gemstones</h4>
+            <ul className="space-y-2.5 text-sm">
+              {gemstoneLinks.map((g) => (
+                <li key={g.slug}><Link to={g.to} className="hover:text-frost transition">{g.name}</Link></li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
             <h4 className="text-white text-xs tracking-[0.25em] uppercase mb-5 font-semibold">Quick Links</h4>
             <ul className="space-y-2.5 text-sm">
-              <li><Link to="/" className="hover:text-frost transition">Home</Link></li>
+              <li><Link to="/about" className="hover:text-frost transition">About Us</Link></li>
               <li><Link to="/gallery" className="hover:text-frost transition">Gallery</Link></li>
+              <li><Link to="/wholesale-gemstones-sri-lanka" className="hover:text-frost transition">Wholesale Gemstones</Link></li>
+              <li><Link to="/gem-export-services" className="hover:text-frost transition">Gem Export Services</Link></li>
+              <li><Link to="/gem-exporters-sri-lanka" className="hover:text-frost transition">Gem Exporters Sri Lanka</Link></li>
               <li><Link to="/blog" className="hover:text-frost transition">Blog</Link></li>
               <li><Link to="/contact" className="hover:text-frost transition">Contact Us</Link></li>
             </ul>

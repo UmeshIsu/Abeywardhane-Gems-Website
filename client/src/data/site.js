@@ -22,9 +22,10 @@ export const SITE_TAGLINE = 'Natural Ceylon Sapphires & Certified Gemstones';
 export const SITE_DESCRIPTION =
   'Buy natural, certified Ceylon sapphires and gemstones direct from the source in Sri Lanka. Ethically sourced, gemologist-verified blue, yellow, pink & padparadscha sapphires — wholesale and export worldwide.';
 
-/* Absolute social-share image (1200×630 recommended). Must be absolute so
-   non-JS crawlers (Facebook, LinkedIn, WhatsApp, X) can resolve it. */
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/sapphire-hero.png`; // TODO-VERIFY swap for a dedicated 1200×630 OG card
+/* Absolute social-share image (1200×630). Must be absolute so non-JS crawlers
+   (Facebook, LinkedIn, WhatsApp, X) can resolve it. Replace /public/og-default.jpg
+   with a branded 1200×630 card any time — keep the filename or update this line. */
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-default.jpg`;
 
 /* -----------------------------------------------------------------------------
  *  Structured business identity (drives LocalBusiness / Organization schema).
@@ -72,6 +73,7 @@ export const sameAs = Object.values(socialLinks).filter(
 
 export const navLinks = [
   { label: 'Home', to: '/' },
+  { label: 'About', to: '/about' },
   {
     label: 'Services',
     to: '/services',

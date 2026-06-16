@@ -1,6 +1,17 @@
+import { Link } from 'react-router-dom';
 import Reveal from '@/components/ui/Reveal';
 import Button from '@/components/ui/Button';
 import { gems } from '@/data/gems';
+
+/* Map collection cards to their dedicated gemstone money pages (where one exists). */
+const gemPagePath = {
+  'blue-sapphire': '/ceylon-blue-sapphire',
+  'white-sapphire': '/white-sapphire',
+  'yellow-sapphire': '/yellow-sapphire',
+  'pink-sapphire': '/pink-sapphire',
+  'ruby': '/ceylon-ruby',
+  'padparadscha': '/padparadscha-sapphire',
+};
 
 export default function Collection() {
   return (
@@ -37,8 +48,9 @@ export default function Collection() {
 }
 
 function GemCard({ gem }) {
-  return (
-    <div className="group relative aspect-[4/4] rounded-2xl overflow-hidden shadow-soft hover:shadow-deep transition-all duration-500 hover:-translate-y-1.5 cursor-pointer">
+  const to = gemPagePath[gem.id];
+  const inner = (
+    <>
       <div
         className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
         style={{ backgroundImage: `url(${gem.image})` }}
@@ -59,8 +71,19 @@ function GemCard({ gem }) {
           </span>
           <h3 className="font-display text-xl font-semibold leading-tight mb-1.5">{gem.name}</h3>
           <p className="text-xs text-white/80 max-w-xs leading-snug">{gem.description}</p>
+          {to && (
+            <span className="inline-block mt-2 text-[0.7rem] font-semibold text-frost">Learn more →</span>
+          )}
         </div>
       </div>
-    </div>
+    </>
+  );
+
+  const cls = 'group relative block aspect-[4/4] rounded-2xl overflow-hidden shadow-soft hover:shadow-deep transition-all duration-500 hover:-translate-y-1.5';
+
+  return to ? (
+    <Link to={to} className={cls} aria-label={`${gem.name} — learn more`}>{inner}</Link>
+  ) : (
+    <div className={`${cls} cursor-pointer`}>{inner}</div>
   );
 }

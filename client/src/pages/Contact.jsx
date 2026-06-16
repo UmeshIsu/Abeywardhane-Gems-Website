@@ -1,13 +1,11 @@
-import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import { whatsappHref } from '@/lib/whatsapp';
 import { contactInfo } from '@/data/site';
 import Reveal from '@/components/ui/Reveal';
 import PageHeader from '@/components/layout/PageHeader';
 import SEO from '@/components/layout/SEO';
+import InquiryForm from '@/components/ui/InquiryForm';
 import { graph, localBusinessSchema, absoluteUrl } from '@/lib/seo';
-
-const initialForm = { name: '', email: '', phone: '', subject: '', message: '' };
 
 const contactSchema = graph(
   localBusinessSchema(),
@@ -20,50 +18,7 @@ const contactSchema = graph(
   },
 );
 
-// Web3Forms — free contact form, no backend, no DNS setup.
-// Get a free access key at https://web3forms.com (just enter your email),
-// then paste it into client/.env as VITE_WEB3FORMS_KEY.
-const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || 'your-web3forms-access-key';
-
 export default function Contact() {
-  const [form, setForm] = useState(initialForm);
-  const [status, setStatus] = useState({ state: 'idle', msg: '' }); // idle|sending|success|error
-
-  const update = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
-
-  const submit = async (e) => {
-    e.preventDefault();
-    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
-      setStatus({ state: 'error', msg: 'Please fill in name, email and message.' });
-      return;
-    }
-    setStatus({ state: 'sending', msg: '' });
-    try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          from_name: 'Abeywardhane Gems Website',
-          botcheck: false, // Web3Forms server-side spam protection
-          ...form,
-          subject: form.subject ? `Website inquiry: ${form.subject}` : 'New website inquiry',
-        }),
-      });
-      const data = await res.json().catch(() => null);
-      if (!data?.success) {
-        throw new Error(data?.message || 'Request failed');
-      }
-      setStatus({ state: 'success', msg: "Thanks! We'll get back to you soon." });
-      setForm(initialForm);
-    } catch (err) {
-      setStatus({
-        state: 'error',
-        msg: 'Could not send your message. Please try again or use WhatsApp.',
-      });
-    }
-  };
-
   return (
     <>
       <SEO
@@ -110,45 +65,7 @@ export default function Contact() {
 
           {/* Form */}
           <Reveal delay={0.1}>
-            <form onSubmit={submit} className="bg-cream rounded-3xl p-8 lg:p-10 shadow-soft">
-              <div className="grid sm:grid-cols-2 gap-5 mb-5">
-                <Field label="Your name" value={form.name} onChange={update('name')} placeholder="Your name" />
-                <Field label="Email" type="email" value={form.email} onChange={update('email')} placeholder="you@example.com" />
-              </div>
-              <div className="grid sm:grid-cols-2 gap-5 mb-5">
-                <Field label="Phone (optional)" value={form.phone} onChange={update('phone')} placeholder="+94 ..." />
-                <Field label="Subject" value={form.subject} onChange={update('subject')} placeholder="Inquiry about a sapphire" />
-              </div>
-              <div className="mb-6">
-                <label className="block text-xs uppercase tracking-[0.15em] text-ink-soft font-semibold mb-2">Message</label>
-                <textarea
-                  rows={5}
-                  value={form.message}
-                  onChange={update('message')}
-                  placeholder="Tell us a bit about what you're looking for…"
-                  className="w-full px-4 py-3.5 rounded-xl border border-line bg-white focus:border-sapphire focus:ring-2 focus:ring-sapphire/20 outline-none transition resize-none"
-                />
-              </div>
-
-              {status.state === 'success' && (
-                <div className="flex items-center gap-2 text-green-700 bg-green-50 border border-green-200 rounded-xl px-4 py-3 mb-5 text-sm">
-                  <CheckCircle2 size={18} /> {status.msg}
-                </div>
-              )}
-              {status.state === 'error' && (
-                <div className="flex items-center gap-2 text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-3 mb-5 text-sm">
-                  <AlertCircle size={18} /> {status.msg}
-                </div>
-              )}
-
-              <button
-                type="submit"
-                disabled={status.state === 'sending'}
-                className="inline-flex items-center gap-3 px-7 py-4 rounded-full bg-sapphire text-white font-semibold hover:bg-sapphire-deep transition disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_14px_30px_-10px_rgba(47,76,219,0.4)]"
-              >
-                {status.state === 'sending' ? 'Sending…' : (<>Send Message <Send size={16} /></>)}
-              </button>
-            </form>
+            <InquiryForm className="bg-cream rounded-3xl p-8 lg:p-10 shadow-soft" />
           </Reveal>
         </div>
       </section>
@@ -173,18 +90,6 @@ export default function Contact() {
         </div>
       </section>
     </>
-  );
-}
-
-function Field({ label, ...props }) {
-  return (
-    <label className="block">
-      <span className="block text-xs uppercase tracking-[0.15em] text-ink-soft font-semibold mb-2">{label}</span>
-      <input
-        {...props}
-        className="w-full px-4 py-3.5 rounded-xl border border-line bg-white focus:border-sapphire focus:ring-2 focus:ring-sapphire/20 outline-none transition"
-      />
-    </label>
   );
 }
 
