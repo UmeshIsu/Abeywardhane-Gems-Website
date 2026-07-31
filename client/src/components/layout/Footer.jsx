@@ -26,7 +26,7 @@ export default function Footer() {
           <div>
             <Picture
               src="/logo-full.png"
-              alt="Abeywardhane Gems (Pvt) Ltd — Ceylon Gemstones"
+              alt="Abeywardhane Gems (Pvt) Ltd: Ceylon Gemstones"
               className="w-full max-w-[320px] h-auto -ml-2 -mt-6 mb-1"
             />
             <div className="flex gap-3 -mt-2">
