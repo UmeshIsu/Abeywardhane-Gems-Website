@@ -18,7 +18,7 @@ export default function ServicesSection() {
           </div>
           <Reveal delay={0.2}>
             <p className="text-muted max-w-md text-sm">
-              From sourcing and selling to gemology education and immersive tourism — we are your partner at every step.
+              From sourcing and selling to gemology education and immersive tourism, we are your partner at every step.
             </p>
           </Reveal>
         </div>
