@@ -103,7 +103,7 @@ export default function GlobalReach() {
             </Reveal>
             <Reveal delay={0.2}>
               <p className="text-white/70 text-base max-w-xl mb-6">
-                Our trading network connects Sri Lanka's finest stones to established wholesalers, retailers and collectors across four continents — moving gems securely and transparently, wherever demand is highest.
+                Our trading network connects Sri Lanka's finest stones to established wholesalers, retailers and collectors across four continents, moving gems securely and transparently, wherever demand is highest.
               </p>
             </Reveal>
             <Reveal delay={0.3}>
