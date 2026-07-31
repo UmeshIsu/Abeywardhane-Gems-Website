@@ -1,6 +1,6 @@
 import { trustMarks } from '@/data/company';
 
-/* Slim navy marquee of trust marks — sits directly beneath the hero. */
+/* Slim navy marquee of trust marks, sits directly beneath the hero. */
 export default function TrustBar() {
   return (
     <section className="bg-ink-deep py-3.5 overflow-hidden border-y border-white/5">
