@@ -21,7 +21,7 @@ export default function CtaBand() {
                 Source Ceylon's finest gems with <span className="italic text-frost">complete confidence</span>.
               </h2>
               <p className="text-white/70 max-w-xl text-sm">
-                Whether you're buying, selling, or planning a visit to the source — talk to our gemologists. An expert opinion costs nothing.
+                Whether you're buying, selling, or planning a visit to the source, talk to our gemologists. An expert opinion costs nothing.
               </p>
             </div>
           </Reveal>
