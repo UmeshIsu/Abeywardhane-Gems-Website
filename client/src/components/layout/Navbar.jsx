@@ -80,7 +80,7 @@ const LANGUAGES = [
 ];
 
 /* ====================================================================
-   Cookie helpers — Google Translate reads /googtrans to decide language
+   Cookie helpers, Google Translate reads /googtrans to decide language
    ==================================================================== */
 function getActiveLanguage() {
   if (typeof document === 'undefined') return 'en'; // SSR / prerender
@@ -105,7 +105,7 @@ function setLanguage(langCode) {
     document.cookie = `googtrans=; ${expiry}; path=/; domain=${apex};`;
   }
 
-  // Set the new cookie — must be on the apex domain for Google Translate to read it
+  // Set the new cookie, must be on the apex domain for Google Translate to read it
   document.cookie = `googtrans=${val}; path=/;`;
   if (apex) {
     document.cookie = `googtrans=${val}; path=/; domain=${apex};`;
