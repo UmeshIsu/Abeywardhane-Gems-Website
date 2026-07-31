@@ -1,7 +1,7 @@
 import Reveal from '@/components/ui/Reveal';
 import { differentiators } from '@/data/company';
 
-/* "Why international buyers choose us" — credibility differentiators. */
+/* "Why international buyers choose us", credibility differentiators. */
 export default function WhyUs() {
   return (
     <section className="py-14 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
