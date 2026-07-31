@@ -24,7 +24,7 @@ export default function Collection() {
           </Reveal>
           <Reveal delay={0.2}>
             <p className="text-muted text-[0.92rem]">
-              Hover over each piece to discover its story — every gem in our collection is handpicked, ethically sourced and gemologist certified.
+              Hover over each piece to discover its story, every gem in our collection is handpicked, ethically sourced and gemologist certified.
             </p>
           </Reveal>
         </div>
@@ -82,7 +82,7 @@ function GemCard({ gem }) {
   const cls = 'group relative block aspect-[4/4] rounded-2xl overflow-hidden shadow-soft hover:shadow-deep transition-all duration-500 hover:-translate-y-1.5';
 
   return to ? (
-    <Link to={to} className={cls} aria-label={`${gem.name} — learn more`}>{inner}</Link>
+    <Link to={to} className={cls} aria-label={`${gem.name}, learn more`}>{inner}</Link>
   ) : (
     <div className={`${cls} cursor-pointer`}>{inner}</div>
   );
