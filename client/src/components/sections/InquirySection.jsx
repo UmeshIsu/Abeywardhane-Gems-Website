@@ -18,7 +18,7 @@ const WhatsAppIcon = (props) => (
 export default function InquirySection({
   subject = '',
   heading = 'Request a certified stone',
-  blurb = 'Tell us what you’re looking for and our gemologists will reply with matched, certified options and transparent pricing — no obligation.',
+  blurb = 'Tell us what you’re looking for and our gemologists will reply with matched, certified options and transparent pricing, no obligation.',
   whatsappMessage = 'Hi! I would like to make an enquiry.',
 }) {
   return (
