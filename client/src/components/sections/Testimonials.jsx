@@ -16,7 +16,7 @@ export default function Testimonials() {
           </div>
           <Reveal delay={0.2}>
             <p className="lead max-w-md">
-              Relationships built on authenticity and transparency — the foundation of every partnership we form.
+              Relationships built on authenticity and transparency, the foundation of every partnership we form.
             </p>
           </Reveal>
         </div>
