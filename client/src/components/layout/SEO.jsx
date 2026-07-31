@@ -8,7 +8,7 @@ import {
 } from '@/data/site';
 
 /**
- * Per-page <head>. SSR-safe — every value is derived from static config or
+ * Per-page <head>. SSR-safe, every value is derived from static config or
  * props (never `window`), so it renders identically during the build-time
  * prerender and on the client.
  *
@@ -33,7 +33,7 @@ export default function SEO({
   noindex = false,
   schema,
 }) {
-  const metaTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} — ${SITE_TAGLINE}`;
+  const metaTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME}, ${SITE_TAGLINE}`;
   const metaDescription = description || SITE_DESCRIPTION;
   const canonicalUrl = path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`;
   const rawImage = image || DEFAULT_OG_IMAGE;
