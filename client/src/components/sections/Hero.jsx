@@ -61,7 +61,7 @@ export default function Hero() {
         />
       </div>
 
-      {/* Full-bleed per-slide photo — crossfades in sync with the slide timer */}
+      {/* Full-bleed per-slide photo, crossfades in sync with the slide timer */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <AnimatePresence>
           <motion.div
@@ -85,7 +85,7 @@ export default function Hero() {
           />
         </AnimatePresence>
 
-        {/* DESKTOP washes — heavy on the left so text stays crisp,
+        {/* DESKTOP washes, heavy on the left so text stays crisp,
             light toward the right so the gem photo shines through */}
         <div
           className="absolute inset-0 hidden lg:block"
@@ -132,12 +132,12 @@ export default function Hero() {
             </AnimatePresence>
           </div>
 
-          {/* Right column — intentionally empty so the background gem photo shines through */}
+          {/* Right column, intentionally empty so the background gem photo shines through */}
           <div className="hidden lg:block" />
         </div>
       </div>
 
-      {/* Pager + TrustBar — absolutely pinned to the bottom of the hero.
+      {/* Pager + TrustBar, absolutely pinned to the bottom of the hero.
           This means slide transitions in the text area never move them. */}
       <div className="absolute bottom-0 left-0 right-0 z-30">
         {/* 4-up pager */}
@@ -182,7 +182,7 @@ export default function Hero() {
 
 function SlideText({ slide, onTypingComplete, instant = false }) {
   // SlideText remounts per slide (key={current} in <Hero>), so initial state
-  // already resets correctly — no reset effect needed.
+  // already resets correctly, no reset effect needed.
   const [typingDone, setTypingDone] = useState(instant);
 
   const handleTypingDone = () => {
@@ -262,7 +262,7 @@ function TypingHeadline({ prefix, em, suffix, onDone, instant = false }) {
 
   useEffect(() => {
     if (instant) {
-      // Already fully shown — just signal completion so the subtitle/CTAs reveal.
+      // Already fully shown, just signal completion so the subtitle/CTAs reveal.
       if (onDoneRef.current) onDoneRef.current();
       return;
     }
