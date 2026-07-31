@@ -7,7 +7,7 @@ export const heroSlides = [
     em: 'Ceylon sapphires',
     suffix: ' & rare natural gemstones.',
     subtitle:
-      'Authentic Ceylon sapphires, rubies and rare stones — ethically sourced and gemologist verified, straight from the heart of Sri Lanka.',
+      'Authentic Ceylon sapphires, rubies and rare stones, ethically sourced and gemologist verified, straight from the heart of Sri Lanka.',
     cta: { label: 'View Collection', to: '/gallery' },
     ctaSecondary: { label: 'Our Services', to: '/services' },
     image: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=1000&q=85',
@@ -24,7 +24,7 @@ export const heroSlides = [
     em: 'Custom jewellery design',
     suffix: ' crafted around your vision.',
     subtitle:
-      'From a single sketch to a finished heirloom — our master artisans shape every detail to celebrate the gemstone you choose.',
+      'From a single sketch to a finished heirloom, our master artisans shape every detail to celebrate the gemstone you choose.',
     cta: { label: 'Start a Design', to: '/services' },
     ctaSecondary: { label: 'View Gallery', to: '/gallery' },
     image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=1000&q=85',
@@ -41,7 +41,7 @@ export const heroSlides = [
     em: 'trust & tradition',
     suffix: '.',
     subtitle:
-      "Every stone carries our promise — authenticity, transparency, and the deep heritage of Sri Lanka's gem trade passed down through generations.",
+      "Every stone carries our promise, authenticity, transparency, and the deep heritage of Sri Lanka's gem trade passed down through generations.",
     cta: { label: 'About Us', to: '/#services' },
     ctaSecondary: { label: 'Contact Us', to: '/contact' },
     image: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=1000&q=85',
@@ -58,7 +58,7 @@ export const heroSlides = [
     em: 'Gem field tourism',
     suffix: ' at the source of beauty.',
     subtitle:
-      "Walk the mines of Ratnapura, witness traditional cutting, and explore Ceylon's living gem heritage with our expert-guided tours.",
+      "Walk the mines of Ratnapura, witness traditional cutting, and explore Ceylon's living gem heritage with our expert guided tours.",
     cta: { label: 'Plan Your Tour', to: '/services' },
     ctaSecondary: { label: 'Learn More', to: '/services' },
     image: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1000&q=85',

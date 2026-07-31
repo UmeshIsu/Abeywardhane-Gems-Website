@@ -1,4 +1,4 @@
-// International gem exhibitions — photos bundled straight from the repo (no backend).
+// International gem exhibitions, photos bundled straight from the repo (no backend).
 // To add another exhibition, drop the image into
 //   client/src/assets/images/services/international-market/exhibitions/
 // then add an `import` and a new entry below.

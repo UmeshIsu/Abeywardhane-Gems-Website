@@ -4,7 +4,7 @@ export const gems = [
     name: 'Ceylon Blue Sapphire',
     tag: 'Precious',
     image: '/gem-blue-sapphire.jpg',
-    description: "Sri Lanka's signature gem — deep cornflower blue with unmatched clarity.",
+    description: "Sri Lanka's signature gem, deep cornflower blue with unmatched clarity.",
   },
   {
     id: 'white-sapphire',
@@ -32,14 +32,14 @@ export const gems = [
     name: 'Ceylon Ruby',
     tag: 'Precious',
     image: '/gem-ruby.jpg',
-    description: 'Fiery red ruby — symbolic of passion, sourced from Sri Lankan deposits.',
+    description: 'Fiery red ruby, symbolic of passion, sourced from Sri Lankan deposits.',
   },
   {
     id: 'padparadscha',
     name: 'Ceylon Padparadscha Sapphire',
     tag: 'Rare',
     image: '/gem-padparadscha.jpg',
-    description: "Sri Lanka's legendary pink-orange sapphire — the rarest and most coveted of all Ceylon sapphires.",
+    description: "Sri Lanka's legendary pink-orange sapphire, the rarest and most coveted of all Ceylon sapphires.",
   },
   {
     id: 'spinel',

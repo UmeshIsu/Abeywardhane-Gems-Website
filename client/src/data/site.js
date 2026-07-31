@@ -18,13 +18,13 @@ export const SITE_NAME = 'Abeywardhane Gems';
 export const SITE_LEGAL_NAME = 'Abeywardhane Gems (Pvt) Ltd'; // TODO-VERIFY registered legal name
 export const SITE_TAGLINE = 'Natural Ceylon Sapphires & Certified Gemstones';
 
-/* Default meta description — used when a page doesn't supply its own. */
+/* Default meta description, used when a page doesn't supply its own. */
 export const SITE_DESCRIPTION =
-  'Buy natural, certified Ceylon sapphires and gemstones direct from the source in Sri Lanka. Ethically sourced, gemologist-verified blue, yellow, pink & padparadscha sapphires — wholesale and export worldwide.';
+  'Buy natural, certified Ceylon sapphires and gemstones direct from the source in Sri Lanka. Ethically sourced, gemologist-verified blue, yellow, pink & padparadscha sapphires, wholesale and export worldwide.';
 
 /* Absolute social-share image (1200×630). Must be absolute so non-JS crawlers
    (Facebook, LinkedIn, WhatsApp, X) can resolve it. Replace /public/og-default.jpg
-   with a branded 1200×630 card any time — keep the filename or update this line. */
+   with a branded 1200×630 card any time, keep the filename or update this line. */
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-default.jpg`;
 
 /* -----------------------------------------------------------------------------
@@ -40,8 +40,7 @@ export const businessInfo = {
   priceRange: '$$$',
   foundingDate: '', // TODO-VERIFY e.g. '2015'
   address: {
-    // Pelmadulla is a town in Ratnapura District, Sabaragamuwa Province —
-    // reconciles the two conflicting addresses that existed in the codebase.
+    // Pelmadulla is a town in Ratnapura District, Sabaragamuwa Province, // reconciles the two conflicting addresses that existed in the codebase.
     streetAddress: '', // TODO-VERIFY exact street / building, e.g. '142/A, Main Street'
     locality: 'Pelmadulla',
     region: 'Sabaragamuwa Province',
@@ -58,7 +57,7 @@ export const businessInfo = {
   areaServed: ['Worldwide', 'Sri Lanka', 'Europe', 'Middle East', 'Asia Pacific', 'North America'],
 };
 
-/* Social / external profiles — also used as schema `sameAs`. Only links with a
+/* Social / external profiles, also used as schema `sameAs`. Only links with a
    real URL render in the footer; '' entries are skipped (no dead `href="#"`). */
 export const socialLinks = {
   facebook: 'https://web.facebook.com/profile.php?id=61558997588300',

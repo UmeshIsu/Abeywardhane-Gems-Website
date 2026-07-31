@@ -38,7 +38,7 @@ export const services = [
     tag: 'Tourism',
     title: 'Gem Tourism\nin Sri Lanka',
     description:
-      "Curated experiences through mines, cutting workshops and Ceylon's rich gemstone heritage — guided by experts.",
+      "Curated experiences through mines, cutting workshops and Ceylon's rich gemstone heritage, guided by experts.",
     slug: '/services/gem-tourism',
   },
 ];

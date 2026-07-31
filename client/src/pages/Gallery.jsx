@@ -37,8 +37,8 @@ export default function Gallery() {
   return (
     <>
       <SEO
-        title="Ceylon Gemstone Gallery — Blue Sapphire, Ruby & Rare Gems"
-        description="Browse our handpicked natural Ceylon gemstone collection — rare precious and semi-precious stones direct from the source in Sri Lanka, independently certified."
+        title="Ceylon Gemstone Gallery: Blue Sapphire, Ruby & Rare Gems"
+        description="Browse our handpicked natural Ceylon gemstone collection, rare precious and semi-precious stones direct from the source in Sri Lanka, independently certified."
         path="/gallery"
         schema={gallerySchema}
       />

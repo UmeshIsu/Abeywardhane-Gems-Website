@@ -42,7 +42,7 @@ export default function GemStage({ className = '' }) {
   useEffect(() => {
     if (typeof window === 'undefined') return;
     // Verify a WebGL context can actually be created before mounting.
-    // (We render the 3D gem on mobile too — it's a single lightweight mesh.)
+    // (We render the 3D gem on mobile too, it's a single lightweight mesh.)
     let webgl = false;
     try {
       const c = document.createElement('canvas');

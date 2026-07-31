@@ -83,7 +83,7 @@ const uniquePoints = [
   {
     icon: Droplets,
     title: 'Lotus & lily ponds',
-    text: 'Spring-fed ponds dot the property — beautiful to walk past, and a natural way to manage the water table around the dig sites.',
+    text: 'Spring fed ponds dot the property, beautiful to walk past, and a natural way to manage the water table around the dig sites.',
   },
   {
     icon: TreePine,
@@ -101,12 +101,12 @@ const learningPillars = [
   {
     icon: MapPin,
     title: 'Exposure Visits',
-    text: 'Guided tours of working mines, cutting facilities and gemological laboratories — led by industry experts who demonstrate the real processes step by step.',
+    text: 'Guided tours of working mines, cutting facilities and gemological laboratories, led by industry experts who demonstrate the real processes step by step.',
   },
   {
     icon: Microscope,
     title: 'Internship Opportunities',
-    text: 'Real-world internships hosted by leading gemology institutes, jewellery companies and gemstone laboratories. Participants work on grading, design, market analysis and more.',
+    text: 'Real world internships hosted by leading gemology institutes, jewellery companies and gemstone laboratories. Participants work on grading, design, market analysis and more.',
   },
   {
     icon: BookOpen,
@@ -119,7 +119,7 @@ const programSteps = [
   { num: '01', title: 'Program Planning &\nObjective Setting' },
   { num: '02', title: 'Partnerships &\nCollaborations' },
   { num: '03', title: 'Structured Activities:\nVisits & Internships' },
-  { num: '04', title: 'Evaluation &\nPost-Program Support' },
+  { num: '04', title: 'Evaluation &\nPost Program Support' },
 ];
 
 const networkingPoints = [
@@ -131,12 +131,12 @@ const networkingPoints = [
   {
     icon: Network,
     title: 'Networking Opportunities',
-    text: 'Networking events, informal meet-and-greet sessions and collaborative projects. By engaging with professionals from various sectors, participants build relationships that lead to real outcomes.',
+    text: 'Networking events, informal meet and greet sessions and collaborative projects. By engaging with professionals from various sectors, participants build relationships that lead to real outcomes.',
   },
   {
     icon: UsersRound,
     title: 'Alumni Network',
-    text: 'After completing the program, participants join an exclusive alumni network — a platform for continuous learning, sharing insights and staying connected.',
+    text: 'After completing the program, participants join an exclusive alumni network, a platform for continuous learning, sharing insights and staying connected.',
   },
 ];
 
@@ -144,8 +144,8 @@ export default function GemologyProgram() {
   return (
     <>
       <SEO
-        title="Gemology Internship & Expose Program in Sri Lanka"
-        description="Hands-on gemology internships and exposure visits inside Sri Lanka's gem industry — classroom theory, lab work and field trips to working garden mines in Ratnapura."
+        title="Gemology Internship & Field Training Sri Lanka"
+        description="Hands on gemology internships and exposure visits inside Sri Lanka's gem industry, classroom theory, lab work and field trips to working garden mines in Ratnapura."
         path="/services/gemology-program"
         schema={graph(serviceSchema({ name: 'Gemology Expose Visit & Internship Program', description: 'Hands-on gemology education combining theory, lab work and field experience in Sri Lanka.', path: '/services/gemology-program' }))}
       />
@@ -192,10 +192,10 @@ export default function GemologyProgram() {
             <div className="grid lg:grid-cols-[1.3fr_1fr] gap-10 lg:gap-16 items-start">
               <div className="space-y-5 text-ink-soft text-sm leading-[1.85] max-w-2xl">
                 <p>
-                  Most gem mines look like wounds in the earth. Ours look like a place you'd want to spend a Sunday afternoon — flower beds bordering every working pit, lily ponds full of koi and water lilies, planted pathways shaded by mature trees.
+                  Most gem mines look like wounds in the earth. Ours look like a place you'd want to spend a Sunday afternoon, flower beds bordering every working pit, lily ponds full of koi and water lilies, planted pathways shaded by mature trees.
                 </p>
                 <p>
-                  This isn't decoration. It's the heart of our business model. When a buyer flies halfway around the world to source Ceylon gems, they don't just want stones — they want to understand where those stones came from, see them being lifted from the ground, and trust the people doing the lifting.
+                  This isn't decoration. It's the heart of our business model. When a buyer flies halfway around the world to source Ceylon gems, they don't just want stones, they want to understand where those stones came from, see them being lifted from the ground, and trust the people doing the lifting.
                 </p>
                 <p>
                   A garden mine builds that trust faster than any certificate can. <span className="font-semibold text-ink">No one else in Sri Lanka does this.</span> It's why our clients keep coming back, and why the word keeps spreading.
@@ -346,10 +346,10 @@ export default function GemologyProgram() {
                   <span className="text-gold italic">It's experienced.</span>
                 </h2>
                 <p className="text-white/75 text-sm leading-relaxed mb-5">
-                  When a buyer walks through our garden mine, they don't just see gems coming out of the ground — they see how we treat the land, our people, and our visitors. They taste the tea from the canteen. They watch a sapphire emerge from a sieve. They leave with a story that no glossy brochure can tell.
+                  When a buyer walks through our garden mine, they don't just see gems coming out of the ground, they see how we treat the land, our people, and our visitors. They taste the tea from the canteen. They watch a sapphire emerge from a sieve. They leave with a story that no glossy brochure can tell.
                 </p>
                 <p className="text-white/75 text-sm leading-relaxed">
-                  That experience is why visitors become buyers, buyers become partners, and partners send their friends. Our gardens aren't a marketing line — they're our most powerful sales channel.
+                  That experience is why visitors become buyers, buyers become partners, and partners send their friends. Our gardens aren't a marketing line, they're our most powerful sales channel.
                 </p>
               </div>
             </Reveal>
@@ -374,7 +374,7 @@ export default function GemologyProgram() {
               <span className="eyebrow">The Program</span>
               <h2 className="section-title mb-5">Comprehensive <em>Learning</em></h2>
               <p className="text-ink-soft text-sm">
-                Meticulously designed to give participants a well-rounded education in gemology — combining theoretical knowledge with practical, hands-on experience, all anchored at our garden-mine sites.
+                Meticulously designed to give participants a well rounded education in gemology, combining theoretical knowledge with practical, hands on experience, all anchored at our garden mine sites.
               </p>
             </div>
           </Reveal>
@@ -395,7 +395,7 @@ export default function GemologyProgram() {
         </div>
       </section>
 
-      {/* ===================== HOW IT WORKS — 4 STEPS ===================== */}
+      {/* ===================== HOW IT WORKS, 4 STEPS ===================== */}
       <section className="py-14 sm:py-20 lg:py-24 bg-cream">
         <div className="container-x">
           <Reveal>
@@ -423,7 +423,7 @@ export default function GemologyProgram() {
               <span className="eyebrow">Beyond the Classroom</span>
               <h2 className="section-title mb-5">Industry Connections & <em>Networking</em></h2>
               <p className="text-ink-soft text-sm">
-                The program places a strong emphasis on building and expanding participants' professional networks — crucial for long-term success in the gemology industry.
+                The program places a strong emphasis on building and expanding participants' professional networks, crucial for long term success in the gemology industry.
               </p>
             </div>
           </Reveal>
@@ -482,7 +482,7 @@ export default function GemologyProgram() {
                   Visit the mine that <em className="text-gold not-italic" style={{ fontStyle: 'italic' }}>blooms</em>.
                 </h2>
                 <p className="text-white/70 max-w-xl text-sm">
-                  Whether you're a serious buyer, a curious student, or a partner institute — we'd love to host you. Tell us when, and we'll plan the rest.
+                  Whether you're a serious buyer, a curious student, or a partner institute, we'd love to host you. Tell us when, and we'll plan the rest.
                 </p>
               </div>
             </Reveal>

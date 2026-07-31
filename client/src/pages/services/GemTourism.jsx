@@ -105,7 +105,7 @@ export default function GemTourism() {
   return (
     <>
       <SEO
-        title="Sri Lanka Gem Tourism — Guided Ratnapura Mine Tours"
+        title="Sri Lanka Gem Tourism: Guided Ratnapura Mine Tours"
         description="Experience Sri Lanka's gem heritage with Abeywardhane Gems: guided tours of Ratnapura garden mines, cutting workshops and Beruwala gem markets. Airport transport, accommodation and gem certification included."
         path="/services/gem-tourism"
         schema={graph(serviceSchema({ name: 'Gem Tourism in Sri Lanka', description: 'Guided gem-field tourism through Ratnapura mines, cutting workshops and gem markets, with transport, accommodation and certification.', path: '/services/gem-tourism' }))}
@@ -237,7 +237,7 @@ export default function GemTourism() {
                 <TimelineStep num="1" title="Register with us" text="Fill out the contact form or message us on WhatsApp. Tell us when you're arriving and what kind of gems you're interested in." />
                 <TimelineStep num="2" title="Our coordinator contacts you" text="Within 24 hours, our tour guide will reach out to introduce himself, discuss your preferences, and start building your personalised gem tour plan." />
                 <TimelineStep num="3" title="We create a transparent quote" text="You receive a clear itinerary and fair pricing before you book any flights. No surprises." />
-                <TimelineStep num="4" title="Land in Sri Lanka — we're waiting" text="Our driver meets you at the airport. From there, you sit back and let us run the show." />
+                <TimelineStep num="4" title="Land in Sri Lanka: we're waiting" text="Our driver meets you at the airport. From there, you sit back and let us run the show." />
               </div>
             </div></Reveal>
             <Reveal delay={0.1}>

@@ -21,18 +21,18 @@ const audience = [
 
 const offerings = [
   { icon: Gem, title: 'Single certified stones', body: 'Investment-grade and statement gems, individually selected and independently certified.' },
-  { icon: Layers, title: 'Calibrated parcels', body: 'Commercial goods matched for size, colour and clarity — ideal for production and inventory.' },
+  { icon: Layers, title: 'Calibrated parcels', body: 'Commercial goods matched for size, colour and clarity: ideal for production and inventory.' },
   { icon: Crown, title: 'Matched pairs & suites', body: 'Colour-matched pairs and full suites for earrings, bracelets and high-jewellery sets.' },
-  { icon: ShieldCheck, title: 'Bespoke sourcing', body: 'Tell us your brief and we will source to specification — variety, colour, size and budget.' },
+  { icon: ShieldCheck, title: 'Bespoke sourcing', body: 'Tell us your brief and we will source to specification: variety, colour, size and budget.' },
 ];
 
 const faqs = [
-  { q: 'Do you sell wholesale gemstones from Sri Lanka?', a: 'Yes. Abeywardhane Gems is a wholesale supplier of natural Ceylon gemstones — sapphires, rubies and rare stones — sourced directly from Sri Lankan mining areas for jewellers, retailers, manufacturers and traders worldwide.' },
-  { q: 'What is the minimum order quantity?', a: 'We are flexible. We supply both single high-value stones and volume parcels, and tailor each arrangement to your business needs — contact us with your requirements.' },
+  { q: 'Do you sell wholesale gemstones from Sri Lanka?', a: 'Yes. Abeywardhane Gems is a wholesale supplier of natural Ceylon gemstones, sapphires, rubies and rare stones, sourced directly from Sri Lankan mining areas for jewellers, retailers, manufacturers and traders worldwide.' },
+  { q: 'What is the minimum order quantity?', a: 'We are flexible. We supply both single high-value stones and volume parcels, and tailor each arrangement to your business needs, contact us with your requirements.' },
   { q: 'Are wholesale stones certified?', a: 'Yes. Wholesale stones can be supplied with independent gemmological certification, and treatment status is disclosed on every stone.' },
-  { q: 'Why buy wholesale gemstones direct from Sri Lanka?', a: 'Sourcing direct from the source removes layers of middlemen, giving you better stones, honest provenance and stronger margins — together with consistent, repeatable supply.' },
+  { q: 'Why buy wholesale gemstones direct from Sri Lanka?', a: 'Sourcing direct from the source removes layers of middlemen, giving you better stones, honest provenance and stronger margins, together with consistent, repeatable supply.' },
   { q: 'Can you colour-match parcels and suites?', a: 'Yes. We supply calibrated, colour-matched parcels and matched pairs or full suites for production runs and high-jewellery commissions.' },
-  { q: 'Do you supply internationally?', a: 'Yes — we export wholesale gemstones worldwide with secure, insured logistics and full export documentation. See our gem export services for details.' },
+  { q: 'Do you supply internationally?', a: 'Yes, we export wholesale gemstones worldwide with secure, insured logistics and full export documentation. See our gem export services for details.' },
 ];
 
 export default function WholesaleGemstones() {
@@ -48,14 +48,14 @@ export default function WholesaleGemstones() {
   return (
     <>
       <SEO
-        title="Wholesale Gemstones Sri Lanka — Certified Ceylon Gem Supplier"
-        description="Wholesale Ceylon gemstones direct from Sri Lanka. Certified natural sapphires, rubies & rare gems for jewellery brands, retailers, manufacturers and traders — single stones, calibrated parcels and bespoke sourcing, exported worldwide."
+        title="Wholesale Gemstones Sri Lanka: Certified Ceylon Gem Supplier"
+        description="Wholesale Ceylon gemstones direct from Sri Lanka. Certified natural sapphires, rubies & rare gems for jewellery brands, retailers, manufacturers and traders, single stones, calibrated parcels and bespoke sourcing, exported worldwide."
         path="/wholesale-gemstones-sri-lanka"
         schema={schema}
       />
       <PageHeader
         eyebrow="For Trade Buyers"
-        title="Wholesale Gemstones — Sri Lanka"
+        title="Wholesale Gemstones: Sri Lanka"
         breadcrumb={[
           { label: 'Abeywardhane Gems', to: '/' },
           { label: 'Wholesale Gemstones' },
@@ -67,14 +67,14 @@ export default function WholesaleGemstones() {
         <div className="container-x grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center">
           <Reveal>
             <div>
-              <span className="eyebrow">Direct-From-Source Supply</span>
+              <span className="eyebrow">Direct From Source Supply</span>
               <h2 className="section-title mb-5">Your wholesale partner for <em>certified Ceylon gemstones</em>.</h2>
               <div className="space-y-4 text-ink-soft leading-[1.8] text-[0.95rem]">
                 <p>
-                  We supply natural, certified Ceylon gemstones at wholesale to jewellery brands, retailers, manufacturers and traders around the world. Buying directly from Sri Lanka’s gem country means you skip the layers of intermediaries — for finer stones, honest provenance and pricing that protects your margins.
+                  We supply natural, certified Ceylon gemstones at wholesale to jewellery brands, retailers, manufacturers and traders around the world. Buying directly from Sri Lanka’s gem country means you skip the layers of intermediaries, for finer stones, honest provenance and pricing that protects your margins.
                 </p>
                 <p>
-                  Whether you need a single investment-grade sapphire, calibrated commercial parcels, or colour-matched suites for a collection, our gemologists source and certify to your specification — and stand behind every stone with transparent disclosure and dependable, repeatable supply.
+                  Whether you need a single investment grade sapphire, calibrated commercial parcels, or colour matched suites for a collection, our gemologists source and certify to your specification, and stand behind every stone with transparent disclosure and dependable, repeatable supply.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 mt-8">
@@ -99,7 +99,7 @@ export default function WholesaleGemstones() {
                   <li className="flex gap-3"><span className="text-frost font-bold">02</span> Better stones at more competitive prices</li>
                   <li className="flex gap-3"><span className="text-frost font-bold">03</span> Verified Sri Lankan provenance, ethically sourced</li>
                   <li className="flex gap-3"><span className="text-frost font-bold">04</span> Independent certification on request</li>
-                  <li className="flex gap-3"><span className="text-frost font-bold">05</span> Consistent, repeatable long-term supply</li>
+                  <li className="flex gap-3"><span className="text-frost font-bold">05</span> Consistent, repeatable long term supply</li>
                 </ul>
               </div>
             </div>
@@ -171,7 +171,7 @@ export default function WholesaleGemstones() {
       <InquirySection
         subject="Wholesale gemstone supply"
         heading="Request a wholesale quote"
-        blurb="Share your requirements — gemstone types, qualities, quantities and target prices — and our team will prepare a wholesale proposal with certified, source-direct options."
+        blurb="Share your requirements, gemstone types, qualities, quantities and target prices, and our team will prepare a wholesale proposal with certified, source direct options."
         whatsappMessage="Hi! I'd like to discuss wholesale Ceylon gemstone supply."
       />
 

@@ -38,7 +38,7 @@ export default function GemstonePage({ slug }) {
         description={gem.metaDescription}
         path={path}
         image={gem.image}
-        imageAlt={`Natural ${gem.name} from Sri Lanka — Abeywardhane Gems`}
+        imageAlt={`Natural ${gem.name} from Sri Lanka: Abeywardhane Gems`}
         schema={schema}
       />
       <PageHeader
@@ -59,7 +59,7 @@ export default function GemstonePage({ slug }) {
               <div className="absolute -inset-4 rounded-[2rem] bg-sapphire-light/60 blur-2xl -z-10" />
               <Picture
                 src={gem.image}
-                alt={`Natural ${gem.name} — certified Ceylon gemstone from Sri Lanka`}
+                alt={`Natural ${gem.name}, certified Ceylon gemstone from Sri Lanka`}
                 width="800"
                 height="800"
                 className="w-full aspect-square object-cover rounded-3xl shadow-card"
@@ -156,7 +156,7 @@ export default function GemstonePage({ slug }) {
               <span className="eyebrow">How to Buy</span>
               <h2 className="section-title mb-4">Buying guide: choosing a <em>{gem.name}</em></h2>
               <p className="lead">
-                A simple framework for evaluating quality — our gemologists are happy to guide you through real, certified options matched to your needs.
+                A simple framework for evaluating quality, our gemologists are happy to guide you through real, certified options matched to your needs.
               </p>
             </div>
           </Reveal>
@@ -240,7 +240,7 @@ export default function GemstonePage({ slug }) {
       <InquirySection
         subject={gem.name}
         heading={`Enquire about ${gem.name}`}
-        blurb={`Tell us your requirements for ${gem.name.toLowerCase()} — colour, size, treatment and budget — and our gemologists will reply with matched, certified options and transparent pricing.`}
+        blurb={`Tell us your requirements for ${gem.name.toLowerCase()}, colour, size, treatment and budget, and our gemologists will reply with matched, certified options and transparent pricing.`}
         whatsappMessage={`Hi! I'm interested in a ${gem.name}. Could you share certified options?`}
       />
 
@@ -270,7 +270,7 @@ export default function GemstonePage({ slug }) {
                     <div className="aspect-square overflow-hidden">
                       <Picture
                         src={r.image}
-                        alt={`${r.name} — Ceylon gemstone`}
+                        alt={`${r.name}, Ceylon gemstone`}
                         loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />

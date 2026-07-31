@@ -95,7 +95,7 @@ export default function InternationalMarket() {
     <>
       <SEO
         title="International Gem Market Coordination & Wholesale Buyers"
-        description="We connect international wholesale buyers, retailers and collectors with certified Sri Lankan gemstones through global gem exhibitions — JCK Las Vegas, Hong Kong, FACETS Sri Lanka and more."
+        description="We connect international wholesale buyers, retailers and collectors with certified Sri Lankan gemstones through global gem exhibitions, JCK Las Vegas, Hong Kong, FACETS Sri Lanka and more."
         path="/services/international-market"
         schema={graph(serviceSchema({ name: 'Coordinating the International Gem Market', description: 'Connecting global wholesale buyers, retailers and collectors with certified Sri Lankan gemstones.', path: '/services/international-market' }))}
       />
@@ -232,7 +232,7 @@ export default function InternationalMarket() {
               </div>
               <h2 className="section-title mb-5">Awards <em>& Honours</em></h2>
               <p className="text-ink-soft text-sm">
-                Years of dedication to ethical sourcing, quality, and international trade have earned us recognition from leading industry bodies — a reflection of the trust our partners place in us.
+                Years of dedication to ethical sourcing, quality, and international trade have earned us recognition from leading industry bodies, a reflection of the trust our partners place in us.
               </p>
             </div>
           </Reveal>

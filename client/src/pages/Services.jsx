@@ -21,7 +21,7 @@ export default function Services() {
   return (
     <>
       <SEO
-        title="Ceylon Gem Services — Purchasing, Export, Gemology & Tourism"
+        title="Ceylon Gem Services: Purchasing, Export, Gemology & Tourism"
         description="Sri Lanka gem services from Abeywardhane Gems: buying & selling certified Ceylon gemstones, international gem-market coordination, gemology internships and guided gem tourism."
         path="/services"
         schema={servicesSchema}

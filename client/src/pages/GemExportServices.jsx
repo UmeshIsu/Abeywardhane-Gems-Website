@@ -13,11 +13,11 @@ import { gemstoneLinks } from '@/data/gemstones';
 import { graph, serviceSchema, faqSchema } from '@/lib/seo';
 
 const steps = [
-  { icon: BadgeCheck, title: 'Selection & evaluation', body: 'Our gemologists hand-select stones to your specification — variety, colour, clarity, size and budget — and evaluate each one against documented quality standards.' },
-  { icon: FileCheck, title: 'Independent certification', body: 'Stones are submitted to internationally recognised laboratories for grading and, where required, origin and treatment reports — so your buyers receive objective documentation.' },
-  { icon: ScrollText, title: 'Export documentation', body: 'We prepare the paperwork for a smooth, compliant export — invoices, certification and the declarations your customs authority requires.' },
-  { icon: PackageCheck, title: 'Secure, insured packaging', body: 'Every consignment is sealed, insured and tracked, with discreet, tamper-evident packaging built for high-value gemstones.' },
-  { icon: Plane, title: 'Worldwide delivery', body: 'We ship via trusted secure-logistics partners to destinations across four continents, with end-to-end tracking and proof of delivery.' },
+  { icon: BadgeCheck, title: 'Selection & evaluation', body: 'Our gemologists hand select stones to your specification: variety, colour, clarity, size and budget: and evaluate each one against documented quality standards.' },
+  { icon: FileCheck, title: 'Independent certification', body: 'Stones are submitted to internationally recognised laboratories for grading and, where required, origin and treatment reports: so your buyers receive objective documentation.' },
+  { icon: ScrollText, title: 'Export documentation', body: 'We prepare the paperwork for a smooth, compliant export: invoices, certification and the declarations your customs authority requires.' },
+  { icon: PackageCheck, title: 'Secure, insured packaging', body: 'Every consignment is sealed, insured and tracked, with discreet, tamper evident packaging built for high value gemstones.' },
+  { icon: Plane, title: 'Worldwide delivery', body: 'We ship via trusted secure-logistics partners to destinations across four continents, with end to end tracking and proof of delivery.' },
 ];
 
 const capabilities = [
@@ -26,11 +26,11 @@ const capabilities = [
   'Bespoke sourcing to a buyer’s brief',
   'Ceylon sapphires, rubies and rare gems',
   'Treatment & origin disclosure on every stone',
-  'Long-term supply partnerships',
+  'Long term supply partnerships',
 ];
 
 const faqs = [
-  { q: 'Do you export gemstones worldwide?', a: 'Yes. We are a Sri Lanka–based gem export company shipping certified Ceylon gemstones to buyers, jewellers and trade partners across Europe, the Middle East, Asia Pacific and the Americas with secure, insured logistics.' },
+  { q: 'Do you export gemstones worldwide?', a: 'Yes. We are a Sri Lanka, based gem export company shipping certified Ceylon gemstones to buyers, jewellers and trade partners across Europe, the Middle East, Asia Pacific and the Americas with secure, insured logistics.' },
   { q: 'Are your exported gemstones certified?', a: 'Yes. We supply stones with reports from internationally recognised gemmological laboratories confirming species, treatment status and, where relevant, origin indication.' },
   { q: 'Can you handle export documentation and customs?', a: 'We prepare the commercial invoices, certification and declarations needed for a compliant export and work with established secure-logistics partners experienced in high-value shipments.' },
   { q: 'What is the minimum order for export?', a: 'We work with both single high-value stones and volume parcels. Tell us your requirements and we will propose a sourcing and supply plan that fits.' },
@@ -51,8 +51,8 @@ export default function GemExportServices() {
   return (
     <>
       <SEO
-        title="Gem Export Services — Certified Ceylon Gemstone Exporters, Sri Lanka"
-        description="Abeywardhane Gems is a Sri Lanka–based gem export company. Certified Ceylon sapphire, ruby & gemstone sourcing, gemological certification, export documentation and secure worldwide shipping for trade buyers."
+        title="Gem Export Services: Certified Ceylon Gemstone Exporters, Sri Lanka"
+        description="Abeywardhane Gems is a Sri Lanka, based gem export company. Certified Ceylon sapphire, ruby & gemstone sourcing, gemological certification, export documentation and secure worldwide shipping for trade buyers."
         path="/gem-export-services"
         schema={schema}
       />
@@ -74,7 +74,7 @@ export default function GemExportServices() {
               <h2 className="section-title mb-5">A certified Sri Lankan <em>gem export</em> partner.</h2>
               <div className="space-y-4 text-ink-soft leading-[1.8] text-[0.95rem]">
                 <p>
-                  Abeywardhane Gems exports natural, certified Ceylon gemstones from the heart of Sri Lanka’s gem country to buyers, jewellery brands and trade partners around the world. Working directly with verified mining sources, we remove the middlemen between the mine and your business — for better stones, honest provenance and transparent pricing.
+                  Abeywardhane Gems exports natural, certified Ceylon gemstones from the heart of Sri Lanka’s gem country to buyers, jewellery brands and trade partners around the world. Working directly with verified mining sources, we remove the middlemen between the mine and your business, for better stones, honest provenance and transparent pricing.
                 </p>
                 <p>
                   From a single investment-grade sapphire to recurring commercial parcels, every export is handled with gemological rigour, full documentation and secure, insured logistics. The result is a supply partner international buyers can rely on, shipment after shipment.
@@ -167,7 +167,7 @@ export default function GemExportServices() {
       <InquirySection
         subject="Gem export enquiry"
         heading="Start an export enquiry"
-        blurb="Tell us what you need to source and where it’s headed — our team will reply with certified options, documentation guidance and secure shipping details."
+        blurb="Tell us what you need to source and where it’s headed, our team will reply with certified options, documentation guidance and secure shipping details."
         whatsappMessage="Hi! I would like to discuss exporting Ceylon gemstones."
       />
 
@@ -179,7 +179,7 @@ export default function GemExportServices() {
   );
 }
 
-/* Shared FAQ block (native <details> — crawlable, accessible, no JS needed). */
+/* Shared FAQ block (native <details>, crawlable, accessible, no JS needed). */
 export function FaqSection({ title, faqs }) {
   return (
     <section className="py-14 sm:py-20 lg:py-24 bg-cream">

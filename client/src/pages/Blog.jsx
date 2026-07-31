@@ -14,7 +14,7 @@ export default function Blog() {
   const blogSchema = {
     '@context': 'https://schema.org',
     '@type': 'Blog',
-    name: 'Abeywardhane Gems — Gemstone Knowledge Center',
+    name: 'Abeywardhane Gems: Gemstone Knowledge Center',
     url: absoluteUrl('/blog'),
     blogPost: articlesByDate.map((a) => ({
       '@type': 'BlogPosting',
@@ -29,8 +29,8 @@ export default function Blog() {
   return (
     <>
       <SEO
-        title="Gemstone Knowledge Center — Ceylon Sapphire Guides & Articles"
-        description="Expert guides on Ceylon sapphire quality, gemstone authentication, certification, padparadscha, pricing, investment and Sri Lanka’s gem trade — from Abeywardhane Gems."
+        title="Gemstone Knowledge Center: Ceylon Sapphire Guides & Articles"
+        description="Expert guides on Ceylon sapphire quality, gemstone authentication, certification, padparadscha, pricing, investment and Sri Lanka’s gem trade, from Abeywardhane Gems."
         path="/blog"
         schema={blogSchema}
       />

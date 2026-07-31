@@ -65,7 +65,7 @@ export default function GemPurchasing() {
   return (
     <>
       <SEO
-        title="Buy & Sell Ceylon Gemstones — Certified Sapphires & Rubies"
+        title="Buy & Sell Ceylon Gemstones: Certified Sapphires & Rubies"
         description="Buy and sell high-quality natural Ceylon gemstones with Abeywardhane Gems. Gemologist-authenticated sapphires and rubies, transparent valuations and fair market pricing in Sri Lanka."
         path="/services/gem-purchasing"
         schema={graph(serviceSchema({ name: 'Gem Purchasing and Selling', description: 'Buying and selling high-quality, authenticated Ceylon gemstones with transparent valuations.', path: '/services/gem-purchasing' }))}
@@ -208,7 +208,7 @@ export default function GemPurchasing() {
             <div className="grid lg:grid-cols-2 gap-6">
               <SellingPoint
                 title="Honest, expert evaluation"
-                text="Each stone is examined by qualified gemologists using calibrated instruments — never guesswork. You receive a clear, written assessment."
+                text="Each stone is examined by qualified gemologists using calibrated instruments, never guesswork. You receive a clear, written assessment."
               />
               <SellingPoint
                 title="Competitive market pricing"
@@ -238,7 +238,7 @@ export default function GemPurchasing() {
                   Buy with confidence, sell with clarity.
                 </h2>
                 <p className="text-white/70 max-w-xl text-sm">
-                  Talk to one of our gemologists today — it costs nothing to get an expert opinion.
+                  Talk to one of our gemologists today, it costs nothing to get an expert opinion.
                 </p>
               </div>
             </Reveal>

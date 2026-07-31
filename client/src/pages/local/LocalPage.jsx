@@ -92,7 +92,7 @@ export default function LocalPage({ slug }) {
         </div>
       </section>
 
-      <FaqSection title={`${p.name} — FAQs`} faqs={p.faqs} />
+      <FaqSection title={`${p.name}, FAQs`} faqs={p.faqs} />
 
       <CtaBand />
     </>

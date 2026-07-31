@@ -43,7 +43,7 @@ export const routes = [
       // Money / SEO landing pages
       { path: 'gem-export-services', element: <GemExportServices /> },
       { path: 'wholesale-gemstones-sri-lanka', element: <WholesaleGemstones /> },
-      // Per-gemstone money pages (generated from data — one route per slug)
+      // Per-gemstone money pages (generated from data, one route per slug)
       ...gemstones.map((g) => ({
         path: g.slug,
         element: <GemstonePage slug={g.slug} />,

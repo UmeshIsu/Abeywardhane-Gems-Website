@@ -22,7 +22,7 @@ export default function Contact() {
   return (
     <>
       <SEO
-        title="Contact Us — Enquire About Ceylon Sapphires & Gem Export"
+        title="Contact Us: Enquire About Ceylon Sapphires & Gem Export"
         description="Get in touch with Abeywardhane Gems in Sri Lanka. Enquire about natural Ceylon sapphires, certified gemstones, wholesale orders and worldwide gem export. Call, email or WhatsApp us."
         path="/contact"
         schema={contactSchema}
@@ -40,7 +40,7 @@ export default function Contact() {
             <div>
               <h2 className="font-display text-3xl font-semibold text-ink mb-3">Let's connect.</h2>
               <p className="text-ink-soft mb-10">
-                Reach out through any channel below — or scroll down to find us on the map.
+                Reach out through any channel below, or scroll down to find us on the map.
               </p>
 
               <ul className="space-y-6 mb-10">

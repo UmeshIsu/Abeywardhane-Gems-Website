@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Send, CheckCircle2, AlertCircle } from 'lucide-react';
 
 /**
- * Reusable inquiry form (Web3Forms — no backend). Used on the contact page and
+ * Reusable inquiry form (Web3Forms, no backend). Used on the contact page and
  * embedded on money pages, where `subject` pre-tags the lead with its source
  * (e.g. "Ceylon Blue Sapphire") so you know which page generated each enquiry.
  *

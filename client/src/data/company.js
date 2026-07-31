@@ -20,7 +20,7 @@ export const differentiators = [
   {
     icon: ShieldCheck,
     title: 'Verified Authenticity',
-    text: 'Every stone is independently graded and traceable to a verified Sri Lankan source — no guesswork, ever.',
+    text: 'Every stone is independently graded and traceable to a verified Sri Lankan source, no guesswork, ever.',
   },
   {
     icon: Microscope,
@@ -55,7 +55,7 @@ export const trustMarks = [
   'Direct From Mine',
   'Secure Global Logistics',
   'Transparent Pricing',
-  'Conflict-Free Origin',
+  'Conflict Free Origin',
 ];
 
 /* Certification & quality-assurance pillars */
@@ -93,7 +93,7 @@ export const testimonials = [
   },
   {
     quote:
-      'The gem tour was unforgettable — real access to mines and cutting houses, and honest pricing throughout the experience.',
+      'The gem tour was unforgettable, real access to mines and cutting houses, and honest pricing throughout the experience.',
     name: 'Private Collector',
     role: 'Asia Pacific',
   },

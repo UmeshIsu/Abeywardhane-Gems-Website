@@ -25,8 +25,8 @@ export default function About() {
   return (
     <>
       <SEO
-        title="About Us — Ceylon Gemstone Experts & Exporters in Sri Lanka"
-        description="Meet Abeywardhane Gems — a Sri Lanka–based team of gemologists and traders sourcing certified Ceylon sapphires and gemstones direct from the mine. Our story, mine-to-market process, expertise and authenticity guarantee."
+        title="About Us: Ceylon Gemstone Experts & Exporters in Sri Lanka"
+        description="Meet Abeywardhane Gems, a Sri Lanka, based team of gemologists and traders sourcing certified Ceylon sapphires and gemstones direct from the mine. Our story, mine-to-market process, expertise and authenticity guarantee."
         path="/about"
         image="/team.jpg"
         schema={aboutSchema}
@@ -94,7 +94,7 @@ export default function About() {
             <div className="max-w-3xl mb-12">
               <span className="eyebrow">How We Work</span>
               <h2 className="section-title mb-4">The mine-to-market <em>journey</em>.</h2>
-              <p className="lead">Every Abeywardhane gem passes through five deliberate stages — from the gravel of Ratnapura to your hand, anywhere in the world.</p>
+              <p className="lead">Every Abeywardhane gem passes through five deliberate stages, from the gravel of Ratnapura to your hand, anywhere in the world.</p>
             </div>
           </Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
@@ -121,7 +121,7 @@ export default function About() {
             <div className="max-w-3xl mb-12">
               <span className="eyebrow">Our Guarantee</span>
               <h2 className="section-title mb-4">How we guarantee <em>authenticity</em>.</h2>
-              <p className="lead">Confidence shouldn’t rest on a promise — it should rest on evidence. Here is how we verify every stone.</p>
+              <p className="lead">Confidence shouldn’t rest on a promise, it should rest on evidence. Here is how we verify every stone.</p>
             </div>
           </Reveal>
           <div className="grid sm:grid-cols-2 gap-5">

@@ -103,7 +103,7 @@ export function localBusinessSchema() {
   };
 }
 
-/* items: [{ label, to }] — `to` is a site-relative path; the last crumb may omit it. */
+/* items: [{ label, to }], `to` is a site-relative path; the last crumb may omit it. */
 export function breadcrumbSchema(items = []) {
   return {
     '@type': 'BreadcrumbList',
