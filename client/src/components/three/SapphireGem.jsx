@@ -6,7 +6,7 @@ import * as THREE from 'three';
  *  A cluster of faceted, brilliant-cut gemstones rendered with a
  *  lightweight custom fresnel + facet shader. A royal-blue sapphire
  *  spins at the centre, flanked by a pigeon-blood ruby and a golden
- *  yellow sapphire. They turn like 360° turntables — reproducing the
+ *  yellow sapphire. They turn like 360° turntables, reproducing the
  *  look of the old rotating video with none of the per-frame canvas
  *  processing, and no environment maps or post-processing, so it stays
  *  fast on mobile.
@@ -52,10 +52,10 @@ function makeBrilliantGeometry({
     const ni = (i + 1) % sides;
     // Flat table (top), fanned from the centre
     tri(tableCenter, table[ni], table[i]);
-    // Crown band — two facets per segment form the brilliant zig-zag
+    // Crown band, two facets per segment form the brilliant zig-zag
     tri(girdle[i], table[i], girdle[ni]);
     tri(girdle[ni], table[i], table[ni]);
-    // Pavilion — facets converging to the culet point
+    // Pavilion, facets converging to the culet point
     tri(girdle[ni], culet, girdle[i]);
   }
 
@@ -102,7 +102,7 @@ const fragmentShader = /* glsl */ `
     vec3 N = normalize(vNormal);
     N = dot(N, V) < 0.0 ? -N : N;
 
-    // Fresnel rim — bright at grazing angles, like a polished edge
+    // Fresnel rim, bright at grazing angles, like a polished edge
     float fres = pow(1.0 - clamp(dot(N, V), 0.0, 1.0), 2.4);
 
     // Facet shading from two soft key lights
