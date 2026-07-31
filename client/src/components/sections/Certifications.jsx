@@ -13,7 +13,7 @@ export default function Certifications() {
           </Reveal>
           <Reveal delay={0.2}>
             <p className="lead">
-              Trust in fine gemstones is built on proof. Every stone we trade is backed by rigorous, independent assurance — from origin to grading.
+              Trust in fine gemstones is built on proof. Every stone we trade is backed by rigorous, independent assurance, from origin to grading.
             </p>
           </Reveal>
         </div>
